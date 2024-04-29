@@ -1,0 +1,81 @@
+<div class="dashboard">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-lg-12">
+        <div class="card-section">
+          <div class="row">
+            <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+              <div class="box student">
+                <div class="main">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                  <span class="count">{{
+                    adminDashboard.totalStudent | localNumber
+                  }}</span>
+                </div>
+                <p class="title">{{ "Number_of_Student" | translate }}</p>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+              <div class="box teacher">
+                <div class="main">
+                  <i class="fa-solid fa-chalkboard-user"></i>
+                  <span class="count">{{
+                    adminDashboard.totalTeacher | localNumber
+                  }}</span>
+                </div>
+                <p class="title">{{ "Number_of_Teacher" | translate }}</p>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+              <div class="box guardian">
+                <div class="main">
+                  <i class="fa-solid fa-users"></i>
+                  <span class="count">{{
+                    adminDashboard.totalGuardian | localNumber
+                  }}</span>
+                </div>
+                <p class="title">{{ "Number_of_Guardian" | translate }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-12 mt-4">
+        <div class="card-section">
+          <div class="row">
+            <div class="col-12 col-lg-6 mb-3 mb-lg-0">
+              <div class="box total-user">
+                <div class="main">
+                  <i class="fa-solid fa-users"></i>
+                  <span class="count">{{
+                    adminDashboard.totalUser | localNumber
+                  }}</span>
+                </div>
+                <p class="title">{{ "Total_User" | translate }}</p>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6 mb-3 mb-lg-0">
+              <div class="box sms">
+                <div class="main">
+                  <i class="fas fa-envelope"></i>
+                  <span class="count">{{
+                    adminDashboard.totalSms | localNumber
+                  }}</span>
+                </div>
+                <p class="title">{{ "Total_SMS" | translate }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-6">
+        <div id="top-ten-institute-info"></div>
+      </div>
+      <div class="col-6">
+        <div id="less-ten-institute-info"></div>
+      </div>
+    </div>
+  </div>
+</div>

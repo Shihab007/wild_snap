@@ -1,0 +1,477 @@
+<div class="dashboard">
+  <div class="title">
+    <h5>{{ "Sms_Dashboard" | translate }}</h5>
+  </div>
+  <div class="common-container-box mt-3">
+    <!-- <div class="row">
+      <div class="col-lg-6">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <p>{{ "From_Date" | translate }} <span>*</span></p>
+            </div>
+          </div>
+          <input
+            class="form-control"
+            bsDatepicker
+            [bsConfig]="{
+              containerClass: 'theme-blue',
+              dateInputFormat: 'DD-MM-YYYY',
+              isAnimated: true
+            }"
+            style="margin: 10px 0"
+            name="fromDate"
+            #fromDate
+            id="fromDate"
+            autocomplete="off"
+            [maxDate]="maxDate"
+            value="{{ today }}"
+            placeholder="{{ today }}"
+          />
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <p>{{ "To_Date" | translate }} <span>*</span></p>
+            </div>
+          </div>
+          <input
+            class="form-control"
+            bsDatepicker
+            [bsConfig]="{
+              containerClass: 'theme-blue',
+              dateInputFormat: 'DD-MM-YYYY',
+              isAnimated: true
+            }"
+            style="margin: 10px 0"
+            name="expenseDate"
+            #expenseDateId
+            id="expenseDateId"
+            autocomplete="off"
+          />
+        </div>
+      </div>
+    </div> -->
+    <div class="top-section common-section">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card l-bg-cherry">
+            <div class="card-statistic-3 p-4">
+              <div class="card-icon card-icon-large">
+                <i class="far fa-envelope-open"></i>
+              </div>
+              <div class="mb-4">
+                <h5 class="card-title mb-0">{{ "Total_SMS" | translate }}</h5>
+              </div>
+              <div class="row align-items-center mb-2 d-flex">
+                <div class="col-8">
+                  <h2 class="d-flex align-items-center mb-0">
+                    {{ instituteSmsDashboard.totalSmsCount | localNumber }}
+                  </h2>
+                </div>
+                <div class="col-4 text-right">
+                  <!-- <span> <i class="fa fa-arrow-up"></i></span> -->
+                </div>
+              </div>
+              <div class="progress mt-1" data-height="8" style="height: 8px">
+                <div
+                  class="progress-bar l-bg-cyan"
+                  role="progressbar"
+                  data-width="25%"
+                  aria-valuenow="25"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  style="width: 25%"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card l-bg-blue-dark">
+            <div class="card-statistic-3 p-4">
+              <div class="card-icon card-icon-large">
+                <i class="far fa-envelope-open"></i>
+              </div>
+              <div class="mb-4">
+                <h5 class="card-title mb-0">
+                  {{ "Total_Weekly_Sms" | translate }}
+                </h5>
+              </div>
+              <div class="row align-items-center mb-2 d-flex">
+                <div class="col-6">
+                  <h2 class="d-flex align-items-center mb-0">
+                    {{ instituteSmsDashboard.weeklySmsCount | localNumber }}
+                  </h2>
+                </div>
+                <div class="col-5 text-right">
+                  <span
+                    >{{ "Weekly" | translate }} <i class="fa fa-arrow-up"></i
+                  ></span>
+                </div>
+              </div>
+              <div class="progress mt-1" data-height="8" style="height: 8px">
+                <div
+                  class="progress-bar l-bg-green"
+                  role="progressbar"
+                  data-width="25%"
+                  aria-valuenow="25"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  style="width: 25%"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card l-bg-green-dark">
+            <div class="card-statistic-3 p-4">
+              <div class="card-icon card-icon-large">
+                <i class="far fa-envelope-open"></i>
+              </div>
+              <div class="mb-4">
+                <h5 class="card-title mb-0">
+                  {{ "Total_Monthly_Sms" | translate }}
+                </h5>
+              </div>
+              <div class="row align-items-center mb-2 d-flex">
+                <div class="col-6">
+                  <h2 class="d-flex align-items-center mb-0">
+                    {{ instituteSmsDashboard.monthlySmsCount | localNumber }}
+                  </h2>
+                </div>
+                <div class="col-5 text-right">
+                  <span
+                    >{{ "Monthly" | translate }} <i class="fa fa-arrow-up"></i
+                  ></span>
+                </div>
+              </div>
+              <div class="progress mt-1" data-height="8" style="height: 8px">
+                <div
+                  class="progress-bar l-bg-orange"
+                  role="progressbar"
+                  data-width="25%"
+                  aria-valuenow="25"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  style="width: 25%"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-sm-3">
+          <div class="card l-bg-orange-dark">
+            <div class="card-statistic-3 p-4">
+              <div class="card-icon card-icon-large">
+                <i class="far fa-envelope-open"></i>
+              </div>
+              <div class="mb-4">
+                <h5 class="card-title mb-0">
+                  {{ "Total_Yearly_Sms" | translate }}
+                </h5>
+              </div>
+              <div class="row align-items-center mb-2 d-flex">
+                <div class="col-6">
+                  <h2 class="d-flex align-items-center mb-0">
+                    {{ instituteSmsDashboard.yearlySmsCount | localNumber }}
+                  </h2>
+                </div>
+                <div class="col-5 text-right">
+                  <span>
+                    {{ "Yearly" | translate }} <i class="fa fa-arrow-up"></i
+                  ></span>
+                </div>
+              </div>
+              <div class="progress mt-1" data-height="8" style="height: 8px">
+                <div
+                  class="progress-bar l-bg-cyan"
+                  role="progressbar"
+                  data-width="25%"
+                  aria-valuenow="25"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  style="width: 25%"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <!-- <ngx-spinner
+  bdColor="{{ spinnerConfig.bdColor }}"
+  size="large"
+  color="{{ spinnerConfig.color }}"
+  type="ball-clip-rotate-multiple"
+  [fullScreen]="true"
+>
+  <p style="color: white">Loading...</p>
+</ngx-spinner> -->
+
+  <!-- <div class="top-section common-section">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="common-container-box">
+          <p class="common-heading-text">Sms Data</p>
+          <form class="date-block" [form]>
+            <mat-form-field appearance="fill">
+              <mat-label>Month and Year</mat-label>
+              <input
+                matInput
+                [matDatepicker]="feesdp"
+                [formControl]="feesFilter"
+              />
+              <mat-hint></mat-hint>
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="feesdp"
+              ></mat-datepicker-toggle>
+              <mat-datepicker
+                #feesdp
+                startView="multi-year"
+                (monthSelected)="setMonthAndYearForFees($event, feesdp)"
+                panelClass="example-month-picker"
+              >
+              </mat-datepicker>
+            </mat-form-field>
+          </form>
+          <div class="line-chart-container common-inside-container">
+            <canvas id="smsChart" width="400" height="400"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <section>
+    <div class="sms-overview-graph">
+      <div class="col-sm-12 head-title">
+        <p class="common-heading-text">{{ "Sms_Overview" | translate }}</p>
+      </div>
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="sms-summary top-section common-section">
+              <div class="row">
+                <!-- <div class="col-sm-12">
+                  <div class="card l-bg-yellow">
+                    <div class="card-statistic-3 p-4">
+                      <div class="card-icon card-icon-large">
+                        <i class="far fa-envelope-open"></i>
+                      </div>
+                      <div class="mb-4">
+                        <h5 class="card-title mb-0">
+                          {{ "Total_Sms_Sent" | translate }}
+                        </h5>
+                      </div>
+                      <div class="row align-items-center mb-2 d-flex">
+                        <div class="col-8">
+                          <h2 class="d-flex align-items-center mb-0">
+                            {{
+                              instituteSmsDashboard.totalSmsCount | localNumber
+                            }}
+                          </h2>
+                        </div>
+                        <div class="col-4 text-right">
+                        </div>
+                      </div>
+                      <div
+                        class="progress mt-1"
+                        data-height="8"
+                        style="height: 8px"
+                      >
+                        <div
+                          class="progress-bar l-bg-cyan"
+                          role="progressbar"
+                          data-width="25%"
+                          aria-valuenow="25"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                          style="width: 25%"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+
+                <div class="col-sm-12">
+                  <div class="card l-bg-purple">
+                    <div class="card-statistic-3 p-4">
+                      <div class="card-icon card-icon-large">
+                        <i class="far fa-envelope-open"></i>
+                      </div>
+                      <div class="mb-4">
+                        <h5 class="card-title mb-0">
+                          {{ "Success_Sms" | translate }}
+                        </h5>
+                      </div>
+                      <div class="row align-items-center mb-2 d-flex">
+                        <div class="col-6">
+                          <h2 class="d-flex align-items-center mb-0">
+                            {{
+                              instituteSmsDashboard.successfulSmsCount
+                                | localNumber
+                            }}
+                          </h2>
+                        </div>
+                        <div class="col-5 text-right">
+                          <span
+                            >{{ "Success" | translate }}
+                            <i class="fa fa-arrow-up"></i
+                          ></span>
+                        </div>
+                      </div>
+                      <div
+                        class="progress mt-1"
+                        data-height="8"
+                        style="height: 8px"
+                      >
+                        <div
+                          class="progress-bar l-bg-green"
+                          role="progressbar"
+                          data-width="25%"
+                          aria-valuenow="25"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                          style="width: 25%"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-12">
+                  <div class="card l-bg-y">
+                    <div class="card-statistic-3 p-4">
+                      <div class="card-icon card-icon-large">
+                        <i class="far fa-envelope-open"></i>
+                      </div>
+                      <div class="mb-4">
+                        <h5 class="card-title mb-0">
+                          {{ "Failed_Sms" | translate }}
+                        </h5>
+                      </div>
+                      <div class="row align-items-center mb-2 d-flex">
+                        <div class="col-6">
+                          <h2 class="d-flex align-items-center mb-0">
+                            {{
+                              instituteSmsDashboard.failedSmsCount | localNumber
+                            }}
+                          </h2>
+                        </div>
+                        <div class="col-5 text-right">
+                          <span
+                            >{{ "Failed" | translate }}
+                            <i class="fa fa-arrow-up"></i
+                          ></span>
+                        </div>
+                      </div>
+                      <div
+                        class="progress mt-1"
+                        data-height="8"
+                        style="height: 8px"
+                      >
+                        <div
+                          class="progress-bar l-bg-orange"
+                          role="progressbar"
+                          data-width="25%"
+                          aria-valuenow="25"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                          style="width: 25%"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="card l-bg-x">
+                    <div class="card-statistic-3 p-4">
+                      <div class="card-icon card-icon-large">
+                        <i class="far fa-envelope-open"></i>
+                      </div>
+                      <div class="mb-4">
+                        <h5 class="card-title mb-0">
+                          {{ "Pending_Sms" | translate }}
+                        </h5>
+                      </div>
+                      <div class="row align-items-center mb-2 d-flex">
+                        <div class="col-6">
+                          <h2 class="d-flex align-items-center mb-0">
+                            {{
+                              instituteSmsDashboard.pendingSmsCount
+                                | localNumber
+                            }}
+                          </h2>
+                        </div>
+                        <div class="col-5 text-right">
+                          <span>
+                            {{ "Pending" | translate }}
+                            <i class="fa fa-arrow-up"></i
+                          ></span>
+                        </div>
+                      </div>
+                      <div
+                        class="progress mt-1"
+                        data-height="8"
+                        style="height: 8px"
+                      >
+                        <div
+                          class="progress-bar l-bg-cyan"
+                          role="progressbar"
+                          data-width="25%"
+                          aria-valuenow="25"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                          style="width: 25%"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-8">
+            <div class="common-container-box">
+              <div class="line-chart-container common-inside-container">
+                <canvas
+                  id="attendanceOverviewChart"
+                  width="400"
+                  height="290"
+                ></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section>
+    <div class="servicewise-sms-overview">
+      <div class="col-sm-12 head-title">
+        <p class="common-heading-text">Service Wise SMS Overview</p>
+      </div>
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-9">
+            <div class="common-container-box">
+              <div class="line-chart-container common-inside-container">
+                <canvas id="resultChart" width="400" height="150"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-2"></div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+</div>

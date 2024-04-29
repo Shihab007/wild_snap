@@ -1,0 +1,95 @@
+<section id="login" class="get_in_touch" *ngIf="isShowLogin">
+  <div class="navbar-logo">
+    <img src="../../../../assets/img/homepage/wild-snap.png" alt="logo" />
+    <div class="logo-text">
+      <span class="doer">Wild</span>
+      <span class="school">Snap</span>
+    </div>
+  </div>
+  <div class="container">
+    <!-- Notification Message -->
+    <div
+      [ngClass]="{
+        'notification-message': true,
+        'custom-notification-default': notificationType == 'default',
+        'custom-notification-warning': notificationType == 'warning',
+        'custom-notification-success': notificationType == 'success',
+        'custom-notification-danger': notificationType == 'danger',
+        'custom-notification-info': notificationType == 'info'
+      }"
+      *ngIf="isShowNotificationMessage"
+    >
+      <div class="notification-text-wrapper">
+        <p class="notification-text">notificationMessage</p>
+        <span class="bold1"></span>
+        <span class="bold2"></span>
+        <span class="bold3"></span>
+        <span class="bold4"></span>
+      </div>
+    </div>
+    <!-- Notification Message -->
+    <form #userForm="ngForm" autocomplete="off" (ngSubmit)="Submit()">
+      <div class="contact-form row pt-4">
+        <div class="input-group">
+          <input
+            #loginId
+            class="form-control"
+            type="text"
+            id="loginId"
+            [(ngModel)]="loginRequestBody.loginId"
+            name="loginId"
+            placeholder="Login Id"
+            for="name"
+            #name="ngModel"
+            [class.is.invalid]="name.invalid && name.touched"
+            required
+          />
+          <label for="name" class="label"
+            ><i class="far fa-address-card"></i> Login ID</label
+          >
+        </div>
+
+        <div class="input-group">
+          <input
+            #loginPassword
+            class="form-control"
+            type="password"
+            id="password"
+            [(ngModel)]="loginRequestBody.password"
+            name="password"
+            for="name"
+            placeholder="Password"
+            #password="ngModel"
+            [class.is.invalid]="password.invalid && password.touched"
+            minlength="5"
+            required
+          />
+          <label for="name" class="label"
+            ><i class="fas fa-key"></i> Password</label
+          >
+        </div>
+
+        <div class="col-lg-7">
+          <div class="row">
+            <div class="btn-container login-btn-container">
+              <button
+                (click)="Submit()"
+                type="button"
+                class="btn btn-outline-primary common-btn"
+              >
+                Login
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12 go-to-link">
+          <div class="link-inner-container">
+            <!-- <a href="javascript:void(0)" (click)="goToForgotPassword()"> -->
+            <p><b>Forgot Password?</b></p>
+            <!-- </a> -->
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

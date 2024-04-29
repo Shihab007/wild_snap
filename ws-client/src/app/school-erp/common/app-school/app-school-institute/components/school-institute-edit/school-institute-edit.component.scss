@@ -1,0 +1,108 @@
+@import "../../../../shared/styles/all-common.scss";
+
+#appViewPage {
+    @include cmn-bg;
+
+    #create-main {
+        padding: 15px 0px 25px;
+
+        /* common for this component */
+        .input-group {
+
+            .input-group-prepend {
+                .input-group-text {
+                    border-radius: 0px;
+                }
+            }
+        }
+
+        .form-control {
+            border-radius: 0px;
+        }
+
+        /* common for this component */
+
+        .create-header {
+            text-align: center;
+
+            h4 {
+                font-weight: 700;
+                font-size: 26px;
+            }
+        }
+
+        .create-details {
+
+            .create-details-headline {
+                padding: 15px 0px 15px 0px;
+
+                h5 {
+                    font-weight: 500;
+                    font-size: 20px;
+                }
+            }
+
+            .create-sub-headline {
+                padding: 0px 0px 20px 0px;
+
+                h5 {
+                    font-weight: 500;
+                    font-size: 16px;
+                }
+            }
+
+            .check-edutype {
+                justify-content: flex-start;
+
+                .check-group {
+                    row-gap: 10px;
+
+                    .form-check {
+                        padding: 10px 10px;
+
+                        &:nth-of-type(odd) {
+                            background: rgba(255, 255, 255, 1);
+                            background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
+                        }
+
+                        &:hover {
+                            background: rgba(255, 255, 255, 1);
+                            background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(220, 220, 220, 1) 100%);
+                        }
+
+                        .form-check-label {
+
+                            p {
+                                display: inline-block;
+                                vertical-align: middle;
+                                min-width: 330px;
+                            }
+
+                            span {
+                                font-weight: 700;
+                                padding: 0px 15px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .detail-list {
+                list-style-type: decimal;
+                margin: 0px 0px 0px 16px;
+                font-weight: 700;
+
+                li {
+                    margin-bottom: 11px;
+                }
+            }
+
+        }
+
+        .create-details-table {
+            overflow: auto;
+        }
+    }
+
+
+}

@@ -1,0 +1,201 @@
+<section *ngIf="show" id="appViewPage">
+  <form action="">
+    <section id="view-main">
+      <div class="container-fluid">
+        <!-- Logo Heading Part Start-->
+        <section id="">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="preview-head">
+                  <div class="school-info-with-details row mb-0">
+                    <div class="col-lg-3 m-auto text-center">
+                      <div class="address-logo-section">
+                        <img
+                          *ngIf="institute.logoUrl != null"
+                          src="{{ institute.logoUrl }}"
+                          class="info-logo img-fluid"
+                        />
+                        <img
+                          *ngIf="institute.logoUrl == null"
+                          src="../../../../assets/img/myacademy.png"
+                          class="info-logo img-fluid"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-9">
+                      <div class="address-info-section">
+                        <p class="title-text">
+                          {{
+                            locale == "en" ? institute.nameEn : institute.nameBn
+                          }}
+                        </p>
+                        <div class="row row-container">
+                          <div class="col-lg-5 col-container">
+                            <div class="infoPart">
+                              <div class="detail">
+                                <p class="detail-element">
+                                  {{
+                                    locale == "en"
+                                      ? institute.addressEn.roadNo
+                                      : institute.addressBn.roadNo
+                                  }},
+                                  {{
+                                    locale == "en"
+                                      ? institute.addressEn.villageOrWord
+                                      : institute.addressBn.villageOrWord
+                                  }},
+                                  {{
+                                    locale == "en"
+                                      ? institute.addressEn.thana
+                                      : institute.addressBn.thana
+                                  }},
+                                </p>
+                                <p class="detail-element">
+                                  {{
+                                    locale == "en"
+                                      ? institute.addressEn.district
+                                      : institute.addressBn.district
+                                  }}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4 col-container">
+                            <div class="infoPart">
+                              <div class="detail">
+                                <p class="detail-element">
+                                  <span class="label"
+                                    ><i class="fa-solid fa-phone"></i>
+                                  </span>
+                                  <span
+                                    >{{
+                                      institute.contact | localNumber
+                                    }},</span
+                                  >
+                                </p>
+                                <p class="detail-element">
+                                  <span class="label"
+                                    ><i class="fa-solid fa-envelope"></i>
+                                  </span>
+                                  <span>{{ institute.email }},</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Logo Heading Part End-->
+        <div class="row mt-4">
+          <div class="col-md-12">
+            <div class="view-header">
+              <h4 class="just-grd">
+                {{ "SMS_Service_Request" | translate }}
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="viewtab-details">
+              <div class="viewtab-details-headline">
+                <h5>Institute SMS Service List</h5>
+              </div>
+            </div>
+            <div class="viewtab-details-table">
+              <table class="table table-hover text-center">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>{{ "SMS_Service_Name" | translate }}</th>
+                    <th>{{ "SMS_Language" | translate }}</th>
+                    <th>{{ "Aplicable_For" | translate }}</th>
+                    <th>{{ "Status" | translate }}</th>
+                    <th>
+                      <div class="form-check t-check">
+                        <input
+                          id="allSubject"
+                          (click)="onSelectAllforSubject()"
+                          [(ngModel)]="AllCheckedSubject"
+                          class="form-check-input"
+                          type="checkbox"
+                          name="allSubject"
+                          [value]="All"
+                        />
+                        <label class="form-check-label" for="allSubject"
+                          >All</label
+                        >
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let service of smsFeatureList; let i = index">
+                    <td>{{ i + 1 | localNumber }}</td>
+                    <td style="text-align: left">
+                      {{ locale === "en" ? service.nameEn : service.nameBn }}
+                    </td>
+                    <td style="text-align: left">
+                      {{ service.smsLanguage | translate }}
+                    </td>
+                    <td>{{ service.applicableFor | translate }}</td>
+                    <td>{{ service.status | translate }}</td>
+                    <td>
+                      <div class="form-check t-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          #check
+                          [disabled]="service.checked"
+                          [checked]="service.checked"
+                          [value]="service.checked"
+                          [(ngModel)]="service.checked"
+                          name="service_{{ i }}"
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab Btn Info Part Start -->
+    <section id="btn-section">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="all-btn-box">
+              <button
+                type="button"
+                class="btn btn-outline-info"
+                (click)="goBack()"
+              >
+                <i class="fas fa-arrow-left"></i>&nbsp;&nbsp;
+                {{ "Go Back" | translate }}
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-success"
+                (click)="saveSmsService()"
+              >
+                <i class="fas fa-save"></i>&nbsp;&nbsp;
+                {{ "Save" | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </form>
+</section>

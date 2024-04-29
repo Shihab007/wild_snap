@@ -1,0 +1,482 @@
+<section id="appViewPage">
+  <!-- Create Part Start -->
+  <section id="create-main">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="create-header">
+            <h4 class="just-grd">
+              {{ "Add Exam Result" | translate }}
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-lg-6">
+          <div class="create-details">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <p>{{ "Exam" | translate }} <span>*</span></p>
+                </div>
+              </div>
+              <select
+                #examName
+                id="examName"
+                name="examName"
+                [(ngModel)]="entity.examOid"
+                class="form-control select-arrow"
+                placeholder="Select Exam"
+                (change)="getExamByOid(entity.examOid)"
+                required
+              >
+                <option value="null" selected disabled>
+                  {{ "Select_Exam" | translate }}
+                </option>
+                <option *ngFor="let exam of examList" value="{{ exam.oid }}">
+                  {{ locale === "en" ? exam.nameEn : exam.nameBn }}
+                </option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <p>{{ "Class Name" | translate }} <span>*</span></p>
+                </div>
+              </div>
+              <select
+                #className
+                id="className"
+                name="className"
+                [(ngModel)]="entity.classOid"
+                class="form-control select-arrow"
+                placeholder="Select Class"
+                (change)="getClassSubjectList()"
+                required
+              >
+                <option value="null" selected disabled>
+                  {{ "Select_Class" | translate }}
+                </option>
+                <option
+                  *ngFor="let examClass of exam.examClassList; let i = index"
+                  value="{{ examClass.instituteClassOid }}"
+                >
+                  {{ locale === "en" ? examClass.nameEn : examClass.nameBn }}
+                </option>
+              </select>
+            </div>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <p>{{ "Version" | translate }} <span>*</span></p>
+                </div>
+              </div>
+              <select
+                #versionName
+                id="versionName"
+                name="versionName"
+                [(ngModel)]="entity.versionOid"
+                class="form-control select-arrow"
+                placeholder="Select Version"
+                (change)="getClassTextBookList()"
+                required
+              >
+                <option value="null" selected disabled>
+                  {{ "Select_Version" | translate }}
+                </option>
+                <option
+                  *ngFor="let version of instituteVersionList; let i = index"
+                  value="{{ version.oid }}"
+                  [selected]="version.oid == entity.versionOid"
+                >
+                  {{ locale === "en" ? version.nameEn : version.nameBn }}
+                </option>
+              </select>
+            </div>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <p>{{ "Subject" | translate }} <span>*</span></p>
+                </div>
+              </div>
+              <select
+                #examSubject
+                id="examSubject"
+                name="examSubject"
+                [(ngModel)]="entity.educationSubjectOid"
+                class="form-control select-arrow"
+                placeholder="Select Subject"
+                (change)="getTotalMarksWithStudent(entity.educationSubjectOid)"
+                required
+              >
+                <option value="null" selected disabled>
+                  {{ "Select_Subject" | translate }}
+                </option>
+                <option
+                  *ngFor="let examSubject of examSubjectList; let i = index"
+                  value="{{ examSubject.educationSubjectOid }}"
+                  [selected]="
+                    examSubject.educationSubjectOid ==
+                    entity.educationSubjectOid
+                  "
+                >
+                  {{
+                    locale === "en" ? examSubject.nameEn : examSubject.nameBn
+                  }}
+                </option>
+              </select>
+            </div>
+            <div class="input-group" *ngIf="isShowShift">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <p>{{ "Shift" | translate }} <span>*</span></p>
+                </div>
+              </div>
+              <select
+                #shiftName
+                id="shiftName"
+                name="shiftName"
+                [(ngModel)]="entity.shiftOid"
+                class="form-control select-arrow"
+                placeholder="Select Shift"
+                (change)="filterSectionList()"
+                required
+              >
+                <option value="null" selected disabled>
+                  -- {{ "Select Shift" | translate }} --
+                </option>
+                <option
+                  *ngFor="let shiftList of instituteShiftList; let i = index"
+                  value="{{ shiftList.oid }}"
+                  [selected]="shiftList.oid == entity.shiftOid"
+                >
+                  {{ locale === "en" ? shiftList.nameEn : shiftList.nameBn }}
+                </option>
+              </select>
+            </div>
+            <div class="input-group" *ngIf="isShowSection">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <p>{{ "Section" | translate }} <span>*</span></p>
+                </div>
+              </div>
+              <select
+                #sectionName
+                id="sectionName"
+                name="sectionName"
+                [(ngModel)]="entity.sectionOid"
+                class="form-control select-arrow"
+                placeholder="Select Section"
+                (change)="filterStudentListBySection()"
+                required
+              >
+                <option value="null" selected>
+                  -- {{ "Select Section" | translate }} --
+                </option>
+                <option
+                  *ngFor="
+                    let sectionList of selectedClassSectionList;
+                    let i = index
+                  "
+                  value="{{ sectionList.oid }}"
+                  [selected]="sectionList.oid == entity.sectionOid"
+                >
+                  {{
+                    locale === "en" ? sectionList.nameEn : sectionList.nameBn
+                  }}
+                </option>
+              </select>
+            </div>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <p>{{ "Term" | translate }} <span>*</span></p>
+                </div>
+              </div>
+              <select
+                #selectTerm
+                id="term"
+                name="termName"
+                [(ngModel)]="entity.termOid"
+                class="form-control select-arrow"
+                placeholder="Select Term"
+                required
+              >
+                <option value="null" selected>
+                  {{ "Select Term" | translate }}
+                </option>
+                <option
+                  *ngFor="let term of classTermList; let i = index"
+                  value="{{ term.oid }}"
+                  [selected]="entity.termOid == term.oid"
+                >
+                  {{ locale === "en" ? term.nameEn : term.nameBn }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="create-details">
+            <div class="field-wrapper">
+              <div class="field-label">
+                <p>{{ "Start Date" | translate }}</p>
+              </div>
+              <div class="field-divider">
+                <p>:</p>
+              </div>
+              <div class="field-value">
+                <p>{{ exam.startDate }}</p>
+              </div>
+            </div>
+            <div class="field-wrapper">
+              <div class="field-label">
+                <p>{{ "End Date" | translate }}</p>
+              </div>
+              <div class="field-divider">
+                <p>:</p>
+              </div>
+              <div class="field-value">
+                <p>{{ exam.endDate }}</p>
+              </div>
+            </div>
+            <div class="field-wrapper">
+              <div class="field-label">
+                <p>{{ "Session" | translate }}</p>
+              </div>
+              <div class="field-divider">
+                <p>:</p>
+              </div>
+              <div class="field-value">
+                <p>{{ exam.sessionEn }}</p>
+              </div>
+            </div>
+            <div class="field-wrapper" *ngIf="isTotalMarks">
+              <div class="field-label">
+                <p>{{ "Exam_Type" | translate }}</p>
+              </div>
+              <div class="field-divider">
+                <p>:</p>
+              </div>
+              <div class="field-value">
+                <p>{{ exam.examType | translate }}</p>
+              </div>
+            </div>
+            <div class="field-wrapper">
+              <div class="field-label">
+                <p>{{ "Exam_Type" | translate }}</p>
+              </div>
+              <div class="field-divider">
+                <p>:</p>
+              </div>
+              <div class="field-value">
+                <p>{{ exam.examType | translate }}</p>
+              </div>
+            </div>
+            <div class="field-wrapper" *ngIf="isTotalMarks">
+              <div class="field-label">
+                <p>{{ "Total_Marks" | translate }}</p>
+              </div>
+              <div class="field-divider">
+                <p>:</p>
+              </div>
+              <div class="field-value">
+                <p>{{ entity.totalMarks }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="create-details-table mt-2">
+            <table class="table table-hover text-center exam-time-table">
+              <thead>
+                <th>#</th>
+                <th>{{ "Exam Start Time" | translate }}</th>
+                <th>{{ "Exam_End_Time" | translate }}</th>
+                <th>{{ "Duration" | translate }}</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let examTime of exam.examTimeList; let i = index">
+                  <td>{{ i + 1 }}.</td>
+                  <td>{{ examTime.startTime | localNumber }}</td>
+                  <td>{{ examTime.endTime | localNumber }}</td>
+                  <td>{{ examTime.duration | localNumber }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="create-details">
+            <div class="create-details-headline text-center">
+              <h5>{{ "Student List" | translate }}</h5>
+            </div>
+          </div>
+          <div class="create-details-table">
+            <table class="table table-hover text-center">
+              <thead>
+                <th>#</th>
+                <th>{{ "Student Name" | translate }}</th>
+                <th>{{ "Roll" | translate }}</th>
+                <th>{{ "Version" | translate }}</th>
+                <th>{{ "Class Name" | translate }}</th>
+                <th>{{ "Shift" | translate }}</th>
+                <th>{{ "Section_Name" | translate }}</th>
+                <th>{{ "Status" | translate }}</th>
+                <th style="width: 120px">
+                  {{ "Viva" | translate }}({{
+                    subjectMarkDistributions.vivaMarks | localNumber
+                  }})
+                </th>
+                <th style="width: 120px">
+                  {{ "Lab" | translate }}({{
+                    subjectMarkDistributions.practicalMarks | localNumber
+                  }})
+                </th>
+                <th style="width: 120px">
+                  {{ "MCQ" | translate }}({{
+                    subjectMarkDistributions.mcqMarks | localNumber
+                  }})
+                </th>
+                <th style="width: 120px">
+                  {{ "Written" | translate }}({{
+                    subjectMarkDistributions.writtenMarks | localNumber
+                  }})
+                </th>
+              </thead>
+              <tbody>
+                <tr
+                  *ngFor="let studentList of selectedStudentList; let i = index"
+                >
+                  <td>{{ i + 1 | localNumber }}.</td>
+                  <td>
+                    {{
+                      locale === "en" ? studentList.nameEn : studentList.nameBn
+                    }}
+                  </td>
+                  <td>{{ studentList.rollNumber | localNumber }}</td>
+                  <td>
+                    {{
+                      locale === "en"
+                        ? studentList.versionNameEn
+                        : studentList.versionNameBn
+                    }}
+                  </td>
+                  <td>
+                    {{
+                      locale === "en"
+                        ? studentList.classNameEn
+                        : studentList.classNameBn
+                    }}
+                  </td>
+                  <td>
+                    {{
+                      locale === "en"
+                        ? studentList.shiftNameEn
+                        : studentList.shiftNameBn
+                    }}
+                  </td>
+                  <td>
+                    {{
+                      locale === "en"
+                        ? studentList.sectionNameEn
+                        : studentList.sectionNameBn
+                    }}
+                  </td>
+                  <td>
+                    <select
+                      name="Status1"
+                      id="Status1"
+                      [(ngModel)]="studentList.status"
+                      class="form-control select-arrow"
+                    >
+                      <option value="null" selected disabled>
+                        -- {{ "Select_Status" | translate }} --
+                      </option>
+                      <option value="Present">
+                        {{ "Present" | translate }}
+                      </option>
+                      <option value="Absent">{{ "Absent" | translate }}</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      [(ngModel)]="studentList.vivaMarks"
+                      value="studentList.vivaMarks"
+                      max="100"
+                      min="0"
+                      onkeyup="if(value<0) value=0;"
+                      (blur)="vivaMarkLimitCheck(studentList)"
+                      class="form-control"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      [(ngModel)]="studentList.labMarks"
+                      value="studentList.labMarks"
+                      max="100"
+                      min="0"
+                      onkeyup="if(value<0 ) value=0;"
+                      (blur)="labMarkLimitCheck(studentList)"
+                      class="form-control"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      [(ngModel)]="studentList.mcqMarks"
+                      value="studentList.mcqMarks"
+                      max="100"
+                      min="0"
+                      onkeyup="if(value<0) value=0;"
+                      (blur)="mcqMarkLimitCheck(studentList)"
+                      class="form-control"
+                    />
+                  </td>
+                  <td style="width: 120px">
+                    <input
+                      type="number"
+                      [(ngModel)]="studentList.writtenMarks"
+                      value="studentList.writtenMarks"
+                      max="100"
+                      min="0"
+                      onkeyup="if(value<0) value=0"
+                      (blur)="writtenMarkLimitCheck(studentList)"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Create Part End -->
+
+  <!-- Tab Btn Info Part Start -->
+  <section id="btn-section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="all-btn-box">
+            <button
+              type="button"
+              id="automation-347"
+              class="btn btn-outline-success"
+              (click)="saveData()"
+            >
+              <i class="fas fa-save"></i>&nbsp;&nbsp;
+              {{ "Save" | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Tab Btn Info Part End -->
+</section>

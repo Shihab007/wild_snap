@@ -1,0 +1,22 @@
+@import "../../../school-erp/common/shared/styles/all-common.scss";
+
+#All-form-page {
+  margin-top: 120px;
+  margin-bottom: 20px;
+}
+
+.preview-head {
+  box-shadow: none;
+  padding: 0 0 12px;
+  margin: 0 0 10px;
+}
+
+.error-message {
+  div {
+    color: #f25f3d;
+    text-align: right;
+    margin-top: -10px;
+    margin-bottom: 12px;
+    font-size: 12px;
+  }
+}

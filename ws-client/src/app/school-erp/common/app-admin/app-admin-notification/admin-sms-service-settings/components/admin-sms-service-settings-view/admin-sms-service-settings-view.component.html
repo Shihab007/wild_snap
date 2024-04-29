@@ -1,0 +1,380 @@
+<section id="appViewPage">
+    <form action="">
+        <section id="view-main">
+            <div class="container-fluid">
+                <!-- Logo Heading Part Start-->
+                <section id="">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="preview-head">
+                                    <div class="school-info-with-details row mb-0">
+                                        <div class="col-lg-3 m-auto text-center">
+                                            <div class="address-logo-section">
+                                                <img *ngIf="entity.requestedByphotoUrl != null"
+                                                    src='{{entity.requestedByphotoUrl}}' class="info-logo img-fluid" />
+                                                <img *ngIf="entity.requestedByphotoUrl == null"
+                                                    src='../../../../assets/img/myacademy.png'
+                                                    class="info-logo img-fluid" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <div class="address-info-section">
+                                                <p class="title-text">
+                                                    {{ local == 'en' ? entity.instituteNameEn : entity.instituteNameBn }}
+                                                </p>
+                                                <div class="row row-container">
+                                                    <div class="col-lg-5 col-container">
+                                                        <!-- <p class="title">Address : </p> -->
+                                                        <div class="infoPart">
+                                                            <div class="detail">
+                                                                <p class="detail-element">
+                                                                    {{ local == 'en' ? entity.addressEn.roadNo: entity.addressBn.roadNo}},
+                                                                    {{local == 'en' ? entity.addressEn.villageOrWord : entity.addressBn.villageOrWord}},
+                                                                    {{local == 'en' ? entity.addressEn.thana : entity.addressBn.thana}},
+                                                                </p>
+                                                                <p class="detail-element">
+                                                                    {{ local == 'en' ? entity.addressEn.district : entity.addressBn.district }}
+                                                                </p>
+                                                                <!-- {{ local == 'en' ? entity.addressEn.district : entity.addressBn.district}} -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-container">
+                                                        <!-- <p class="title">Contact : </p> -->
+                                                        <div class="infoPart">
+                                                            <div class="detail">
+                                                                <p class="detail-element">
+                                                                    <span class="label"><i
+                                                                            class="fa-solid fa-phone"></i>
+                                                                    </span>
+                                                                    <span>{{ entity.requestedBymobileNo | localNumber}},</span>
+                                                                </p>
+                                                                <p class="detail-element">
+                                                                    <span class="label"><i
+                                                                            class="fa-solid fa-envelope"></i>
+                                                                    </span>
+                                                                    <span>{{ entity.requestedByemail }},</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Logo Heading Part End-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="view-header">
+                            <h4 class="just-grd">
+                                {{ 'SMS_Service_Request' | translate }}
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="viewtab-details">
+                            <div class="viewtab-details-headline">
+                                <h5>{{'SMS_Service_Information' | translate}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="viewtab-details">
+                            <div class="field-wrapper">
+                                <div class="field-label">
+                                    <p>{{ 'Service_Name_English' | translate }}</p>
+                                </div>
+                                <div class="field-divider">
+                                    <p>:</p>
+                                </div>
+                                <div class="field-value">
+                                    <p>{{ entity.smsServiceNameEn | translate}}</p>
+                                </div>
+                            </div>
+                            <div class="field-wrapper">
+                                <div class="field-label">
+                                    <p>{{ 'Service_Name_Bangla' | translate }}</p>
+                                </div>
+                                <div class="field-divider">
+                                    <p>:</p>
+                                </div>
+                                <div class="field-value">
+                                    <p>{{ entity.smsServiceNameBn | translate}}</p>
+                                </div>
+                            </div>
+
+                            <div class="field-wrapper" style="padding: 0 20px;">
+                                <div class="field-label">
+                                    <p>{{ 'Current_Sms_Service' | translate }}</p>
+                                </div>
+                                <div class="field-divider">
+                                    <p>:</p>
+                                </div>
+                                <div class="field-value">
+                                    <div class="switch-container">
+                                        <ng-container>
+                                            <app-switch size="medium" name="buttonStatePresentService"
+                                                [(ngModel)]="buttonStatePresentService" disabled>
+                                            </app-switch>
+                                        </ng-container>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="field-wrapper" style="padding: 0 20px;">
+                                <div class="field-label">
+                                    <p>{{ 'Requested_Sms_Service' | translate }}</p>
+                                </div>
+                                <div class="field-divider">
+                                    <p>:</p>
+                                </div>
+                                <div class="field-value">
+                                    <div class="switch-container">
+                                        <ng-container>
+                                            <app-switch size="medium" name="buttonStateRequesService"
+                                                [(ngModel)]="buttonStateRequesService" disabled>
+                                            </app-switch>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="isSmsServiceApproved" class="field-wrapper">
+                                <div class="field-label">
+                                    <p>{{ 'Approved_On' | translate }}</p>
+                                </div>
+                                <div class="field-divider">
+                                    <p>:</p>
+                                </div>
+                                <div class="field-value">
+                                    <p>{{ entity.approvedOn}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="viewtab-details">
+                            <div class="field-wrapper">
+                                <div class="field-label">
+                                    <p>{{ 'Status' | translate }}</p>
+                                </div>
+                                <div class="field-divider">
+                                    <p>:</p>
+                                </div>
+                                <div class="field-value">
+                                    <p>{{ entity.status | translate }}</p>
+                                </div>
+                            </div>
+                            <div class="field-wrapper">
+                                <div class="field-label">
+                                    <p>{{ 'SMS_Language' | translate }}</p>
+                                </div>
+                                <div class="field-divider">
+                                    <p>:</p>
+                                </div>
+                                <div class="field-value">
+                                    <p>{{ entity.smsLanguage | translate}}</p>
+                                </div>
+                            </div>
+                            <div class="field-wrapper">
+                                <div class="field-label">
+                                    <p>{{ 'Requested_On' | translate }}</p>
+                                </div>
+                                <div class="field-divider">
+                                    <p>:</p>
+                                </div>
+                                <div class="field-value">
+                                    <p>{{ entity.requestedOn}}</p>
+                                </div>
+                            </div>
+                            <!-- <div class="field-wrapper">
+                                <div class="field-label">
+                                    <p>{{ 'Remarks' | translate }}</p>
+                                </div>
+                                <div class="field-divider">
+                                    <p>:</p>
+                                </div>
+                                <div class="field-value">
+                                    <p>{{ entity.remarks}}</p>
+                                </div>
+                            </div> -->
+                            <div *ngIf="isSmsServiceApproved" class="field-wrapper">
+                                <div class="field-label">
+                                    <p>{{ 'Approved_By' | translate }}</p>
+                                </div>
+                                <div class="field-divider">
+                                    <p>:</p>
+                                </div>
+                                <div class="field-value">
+                                    <p>{{ entity.approvedBy}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <div class="view-header">
+                            <h4 class="just-grd">
+                                {{'Requested_By_Information' | translate}}
+                            </h4>
+                            <div class="viewuser-image">
+                                <img *ngIf="entity.url == null" src="assets/img/default_avater.jpg" alt="pic"
+                                    class="img-fluid" />
+                                <img *ngIf="entity.url != null" src="{{ entity.requestedByphotoUrl }}" alt="pic"
+                                    class="img-fluid" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="viewtab-details">
+                            <div class="viewtab-details-headline">
+                                <h5>{{'Basic_Information' | translate}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="viewtab-details">
+                            <div class="field-wrapper">
+                                <div class="field-label">
+                                    <p>{{ 'Full_Name_In_English' | translate }}</p>
+                                </div>
+                                <div class="field-divider">
+                                    <p>:</p>
+                                </div>
+                                <div class="field-value">
+                                    <p>{{ entity.requestedBynameEn }}</p>
+                                </div>
+                            </div>
+                            <div class="field-wrapper">
+                                <div class="field-label">
+                                    <p>{{ 'Full_Name_In_Bangla' | translate }}</p>
+                                </div>
+                                <div class="field-divider">
+                                    <p>:</p>
+                                </div>
+                                <div class="field-value">
+                                    <p>{{ entity.requestedBynameEn }}</p>
+                                </div>
+                            </div>
+                            <div class="field-wrapper">
+                                <div class="field-label">
+                                    <p>{{ 'Mobile No.' | translate }}</p>
+                                </div>
+                                <div class="field-divider">
+                                    <p>:</p>
+                                </div>
+                                <div class="field-value">
+                                    <p>{{ entity.requestedBymobileNo}}</p>
+                                </div>
+                            </div>
+                            <div class="field-wrapper">
+                                <div class="field-label">
+                                    <p>{{ 'User_Id' | translate }}</p>
+                                </div>
+                                <div class="field-divider">
+                                    <p>:</p>
+                                </div>
+                                <div class="field-value">
+                                    <p>{{ entity.requestedBy | translate}}</p>
+                                </div>
+                            </div>
+                            <div class="field-wrapper">
+                                <div class="field-label">
+                                    <p>{{ 'Email' | translate }}</p>
+                                </div>
+                                <div class="field-divider">
+                                    <p>:</p>
+                                </div>
+                                <div class="field-value">
+                                    <p>{{ entity.requestedByemail}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <div class="col-lg-6">
+                        <div class="viewtab-details">
+                            <div class="field-wrapper">
+                                <div class="field-label">
+                                    <p>{{ 'Mobile No.' | translate }}</p>
+                                </div>
+                                <div class="field-divider">
+                                    <p>:</p>
+                                </div>
+                                <div class="field-value">
+                                    <p>{{ entity.requestedBymobileNo}}</p>
+                                </div>
+                            </div>
+                            <div class="field-wrapper">
+                                <div class="field-label">
+                                    <p>{{ 'User_Id' | translate }}</p>
+                                </div>
+                                <div class="field-divider">
+                                    <p>:</p>
+                                </div>
+                                <div class="field-value">
+                                    <p>{{ entity.requestedBy | translate}}</p>
+                                </div>
+                            </div>
+                            <div class="field-wrapper">
+                                <div class="field-label">
+                                    <p>{{ 'Email' | translate }}</p>
+                                </div>
+                                <div class="field-divider">
+                                    <p>:</p>
+                                </div>
+                                <div class="field-value">
+                                    <p>{{ entity.requestedByemail}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+        <section id="btn-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="all-btn-box">
+                            <span>
+                                <button type="button" class="btn btn-outline-info" (click)="goBack()">
+                                    <i class="fas fa-arrow-left"></i>&nbsp;&nbsp;
+                                    {{ 'Go Back' | translate }}
+                                </button>
+                            </span>
+                            <span *ngIf="entity.status == 'Pending'">
+                                <button type="button" class="btn btn-outline-success" (click)="approveSmsService()">
+                                    <i class="fas fa-save"></i>&nbsp;&nbsp;
+                                    {{ 'Approve' | translate }}
+                                </button>
+                            </span>
+                            <span *ngIf="entity.status == 'Pending'">
+                                <button type="button" class="btn btn-outline-danger" (click)="rejectSmsService()">
+                                    <i class="fas fa-save"></i>&nbsp;&nbsp;
+                                    {{ 'Reject' | translate }}
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
+</section>

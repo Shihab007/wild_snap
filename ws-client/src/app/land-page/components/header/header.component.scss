@@ -1,0 +1,172 @@
+//NEW HEADER STARTS
+
+@import "../../../../theme/theme-variables.scss";
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+.social-media-links {
+  position: fixed;
+  width: 100%;
+  background: white;
+  padding: 20px 0px;
+  z-index: 999;
+  text-align: right;
+
+  svg {
+    height: 20px;
+    margin: 0 15px;
+    cursor: pointer;
+  }
+
+  svg:last-child {
+    margin: 0 33px 0 15px;
+  }
+
+  .item {
+    margin: 0 20px;
+  }
+}
+
+.my-navbar {
+  border-bottom: 2px solid $primaryLight;
+  position: fixed;
+  background: $white;
+  width: 100%;
+  padding: 12px 0;
+  z-index: 999;
+  transition: all linear 0.3s;
+}
+
+.navbar-brand {
+  position: relative;
+
+  img {
+    width: 180px;
+    transition: all linear 0.3s;
+  }
+}
+
+.navbar-nav {
+  .nav-item {
+    padding: 0px 15px;
+
+    .nav-link {
+      font-size: 16px;
+      color: #555555;
+      padding: 0px;
+      position: relative;
+
+      &:hover {
+        color: black;
+      }
+    }
+  }
+}
+
+.nav-blur {
+  background: linear-gradient(90.25deg,
+      hsla(0, 0%, 98.8%, 0.35) 5.68%,
+      hsla(0, 0%, 98.8%, 0.3) 143.91%);
+  backdrop-filter: blur(30px);
+  padding: 5px 0px;
+  border-bottom: 1px solid $primaryLight;
+  transition: all linear 0.3s;
+
+  &:hover {
+    background: $white;
+  }
+
+  .navbar-brand {
+    img {
+      // width: 170px;
+      width: 45px;
+    }
+  }
+
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        color: #333333;
+      }
+    }
+  }
+}
+
+//MEDIA QUERY STARTS
+
+@media (max-width: 1600px) {}
+
+@media (max-width: 1440px) {}
+
+@media (max-width: 1400px) {}
+
+@media (max-width: 1280px) {}
+
+@media (min-width: 992px) and (max-width: 1199px) {}
+
+@media (min-width: 768px) and (max-width: 991px) {}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .navbar-brand {
+    left: 20px;
+  }
+}
+
+@media (max-width: 575px) {
+  .navbar-brand {
+    left: 20px;
+    width: 103px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 414px) {}
+
+@media (max-width: 395px) {}
+
+@media (max-width: 375px) {}
+
+@media (max-width: 360px) {}
+
+@media (max-width: 320px) {}
+
+//MEDIA QUERY ENDS
+
+//NEW HEADER ENDS
+
+
+.navbar-logo {
+  display: flex;
+  flex-direction: row;
+
+  img {
+    width: 45px;
+    height: 60px;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+
+    .doer {
+      margin-left: 7px;
+      margin-top: 7px;
+      color: #155886;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .school {
+      margin-left: 7px;
+      margin-top: 1px;
+      color: #155886;
+      font-weight: bold;
+    }
+  }
+}

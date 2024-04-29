@@ -1,0 +1,228 @@
+<section id="appViewPage">
+  <form>
+    <!-- Create Part Start -->
+    <section id="create-main">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="create-header main-title">
+              <h4 class="just-grd">
+                {{ "Education_System_Update" | translate }}
+              </h4>
+            </div>
+          </div>
+        </div>
+        <form #eduSystemEditForm="ngForm" novalidate autocomplete="off">
+          <div class="row mt-3">
+            <div class="col-6">
+              <div class="create-details">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text break-word">
+                      <p>
+                        {{ "Education Medium" | translate }} : <span>*</span>
+                      </p>
+                    </div>
+                  </div>
+                  <ng-select
+                    name="educationMedium"
+                    [(ngModel)]="educationMediumOid"
+                    (change)="getEducationCurriculumList($event)"
+                    placeholder="{{ 'Select Education Medium' | translate }}"
+                  >
+                    <ng-option
+                      *ngFor="let medium of educationMedium"
+                      value="{{ medium.oid }}"
+                    >
+                      {{
+                        local === "en" ? medium.nameEnglish : medium.nameBangla
+                      }}
+                    </ng-option>
+                  </ng-select>
+                </div>
+              </div>
+
+              <div class="create-details">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <p>{{ "Name_En" | translate }}<span>*</span></p>
+                    </div>
+                  </div>
+                  <input
+                    #nameEn="ngModel"
+                    [pattern]="nameEnPattern"
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="systemBody.nameEn"
+                    name="nameEn"
+                    id="nameEn"
+                    placeholder="{{ 'Name_En' | translate }}"
+                    required
+                  />
+                </div>
+                <div
+                  [hidden]="nameEn.valid || nameEn.pristine"
+                  class="error-box"
+                >
+                  <div class="error-message">
+                    <div [hidden]="!nameEn.hasError('pattern')">
+                      Please Input English character and dont use 0-9, !, @, $,
+                      %, ^ ,* etc
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="create-details">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <p>{{ "Name_Bn" | translate }}<span>*</span></p>
+                    </div>
+                  </div>
+                  <input
+                    #nameBn="ngModel"
+                    pattern="[ঀ-৿\s:]*"
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="systemBody.nameBn"
+                    name="nameBn"
+                    id="nameBn"
+                    placeholder="{{ 'Name_Bn' | translate }}"
+                    required
+                  />
+                </div>
+                <div
+                  [hidden]="nameBn.valid || nameBn.pristine"
+                  class="error-box"
+                >
+                  <div class="error-message">
+                    <div [hidden]="!nameBn.hasError('pattern')">
+                      Please write bangla and dont use 0-9, a-z !, @, $, %, ^ ,*
+                      etc
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="create-details">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text break-word">
+                      <p>
+                        {{ "Education_Curriculum" | translate }} :
+                        <span>*</span>
+                      </p>
+                    </div>
+                  </div>
+                  <ng-select
+                    name="educationCurriculum"
+                    [(ngModel)]="systemBody.curriculumOid"
+                    placeholder="{{
+                      'Select_Education_Curriculum' | translate
+                    }}"
+                  >
+                    <ng-option
+                      *ngFor="let curriculum of educationCurriculumList"
+                      value="{{ curriculum.oid }}"
+                    >
+                      {{
+                        local === "en" ? curriculum.nameEn : curriculum.nameBn
+                      }}
+                    </ng-option>
+                  </ng-select>
+                </div>
+              </div>
+              <div class="create-details">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <p>{{ "short_name" | translate }}<span>*</span></p>
+                    </div>
+                  </div>
+                  <input
+                    #shortName="ngModel"
+                    [pattern]="nameEnPattern"
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="systemBody.shortName"
+                    name="shortName"
+                    id="shortName"
+                    placeholder="{{ 'short_name' | translate }}"
+                    required
+                  />
+                </div>
+                <div
+                  [hidden]="shortName.valid || shortName.pristine"
+                  class="error-box"
+                >
+                  <div class="error-message">
+                    <div [hidden]="!shortName.hasError('pattern')">
+                      Please input minimum 3 character and dont use 0-9, !, @,
+                      $, %, ^ ,* etc
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="create-details">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text break-word">
+                      <p>{{ "Status" | translate }} : <span>*</span></p>
+                    </div>
+                  </div>
+                  <ng-select
+                    name="status"
+                    [(ngModel)]="systemBody.status"
+                    placeholder="{{ 'Select_Status' | translate }}"
+                  >
+                    <ng-option value="Active">{{
+                      "Active" | translate
+                    }}</ng-option>
+                    <ng-option value="Inactive">{{
+                      "Inactive" | translate
+                    }}</ng-option>
+                  </ng-select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- Create Part End -->
+
+    <!-- Tab Btn Info Part Start -->
+
+    <section id="btn-section">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="all-btn-box">
+              <button
+                type="button"
+                (click)="goBack()"
+                class="btn btn-outline-info"
+              >
+                <i class="fas fa-arrow-left"></i>&nbsp;&nbsp;
+                {{ "Back" | translate }}
+              </button>
+              <button
+                type="button"
+                (click)="updateEducationSystem()"
+                [disabled]="eduSystemEditForm.invalid"
+                class="btn btn-outline-success"
+              >
+                <i class="fas fa-save"></i>&nbsp;&nbsp;
+                {{ "Update" | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Tab Btn Info Part End -->
+  </form>
+</section>

@@ -1,0 +1,188 @@
+<section id="appViewPage">
+  <form>
+    <!-- Create Part Start -->
+    <section id="create-main">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="create-header main-title">
+              <h4 class="just-grd">
+                {{ "Session" | translate }}
+              </h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Institute Type and Details -->
+
+        <div class="row">
+          <div class="col-lg-7 m-auto">
+            <div class="create-details">
+              <div class="create-details-headline text-center">
+                <h5>{{ "Session_Information" | translate }}</h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="create-details">
+              <div class="viewtab-details">
+                <div class="field-wrapper">
+                  <div class="field-label">
+                    <p>{{ "Education Curriculum" | translate }}</p>
+                  </div>
+                  <div class="field-divider">
+                    <p>:</p>
+                  </div>
+                  <div class="field-value">
+                    <p>
+                      {{
+                        local == "en"
+                          ? entity.educationSession.educationCurriculumNameEn
+                          : entity.educationSession.educationCurriculumNameBn
+                      }}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="field-wrapper">
+                  <div class="field-label">
+                    <p>{{ "Education System" | translate }}</p>
+                  </div>
+                  <div class="field-divider">
+                    <p>:</p>
+                  </div>
+                  <div class="field-value">
+                    <p>
+                      {{
+                        local == "en"
+                          ? entity.educationSession.educationSystemNameEn
+                          : entity.educationSession.educationSystemNameBn
+                      }}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="field-wrapper">
+                  <div class="field-label">
+                    <p>{{ "Status" | translate }}</p>
+                  </div>
+                  <div class="field-divider">
+                    <p>:</p>
+                  </div>
+                  <div class="field-value">
+                    <p>{{ entity.educationSession.status | translate }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="create-details">
+              <div class="viewtab-details">
+                <div class="field-wrapper">
+                  <div class="field-label">
+                    <p>{{ "Session_Name_En" | translate }}</p>
+                  </div>
+                  <div class="field-divider">
+                    <p>:</p>
+                  </div>
+                  <div class="field-value">
+                    <p>{{ entity.educationSession.nameEn }}</p>
+                  </div>
+                </div>
+
+                <div class="field-wrapper">
+                  <div class="field-label">
+                    <p>{{ "Session_Name_Bn" | translate }}</p>
+                  </div>
+                  <div class="field-divider">
+                    <p>:</p>
+                  </div>
+                  <div class="field-value">
+                    <p>{{ entity.educationSession.nameBn }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" *ngIf="educationTypeList.length > 0">
+          <div class="col-lg-7 m-auto">
+            <div class="create-details">
+              <div
+                class="create-details-headline"
+                style="text-align: center; margin-top: 20px"
+              >
+                <h5>{{ "Institute_Education_Type" | translate }}</h5>
+              </div>
+              <div class="input-group check-edutype">
+                <div class="check-group g-list">
+                  <div
+                    *ngFor="let eduType of educationTypeList; let i = index"
+                    class="form-check"
+                  >
+                    <input
+                      id="educationType_{{ i }}"
+                      class="form-check-input"
+                      type="checkbox"
+                      name="educationType_{{ i }}"
+                      [(ngModel)]="eduType.check"
+                      disabled
+                      value="eduType.oid"
+                    />
+                    <label class="form-check-label" for="educationType_{{ i }}">
+                      <p>
+                        {{ local === "en" ? eduType.nameEn : eduType.nameBn }}
+                      </p>
+                      <span>:</span>
+                      <p>
+                        {{
+                          local === "en"
+                            ? eduType.educationClassLevelNameEn
+                            : eduType.educationClassLevelNameBn
+                        }}
+                      </p>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Create Part End -->
+
+    <!-- Tab Btn Info Part Start -->
+    <br /><br />
+    <section id="btn-section">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="all-btn-box">
+              <button
+                type="button"
+                (click)="goBack()"
+                class="btn btn-outline-info"
+              >
+                <i class="fas fa-arrow-left"></i>&nbsp;&nbsp;
+                {{ "Back" | translate }}
+              </button>
+              <button
+                type="button"
+                (click)="editEducationSession()"
+                class="btn btn-outline-success"
+              >
+                <i class="fas fa-save"></i>&nbsp;&nbsp;
+                {{ "Update" | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Tab Btn Info Part End -->
+  </form>
+</section>

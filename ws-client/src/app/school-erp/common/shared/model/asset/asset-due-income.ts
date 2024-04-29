@@ -1,0 +1,30 @@
+export class AssetDueIncome {
+  oid: string;
+  assetIncomeId: string;
+  titleEn: string;
+  titleBn: string;
+  issueDate: string;
+  dueDate: string;
+  rentAmount: number;
+  paidAmount: number;
+  dueAmount: number;
+  status: string;
+  remarks: string;
+  assetHolderOid: string;
+  assetDetailsOid: string;
+  assetOid: string;
+  isAdvanceAdjustable: string;
+  instituteOid: string;
+  createdBy: string;
+  assetHolderNameEn: string;
+  assetHolderNameBn: string;
+  assetDetailsNameEn: string;
+  assetDetailsNameBn: string;
+  advanceAmount: number;
+  currentAdvanceAmount: number;
+  adjustmentAdvanceWithRent: number;
+  constAdjustmentAdvanceWithRent: number;
+  totalAdjustmentAdvanceWithRent: number;
+  paymentAmount: number;
+  totalPaymentAmount: number;
+}

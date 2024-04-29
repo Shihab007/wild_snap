@@ -1,0 +1,264 @@
+@import "../../../../../../theme/theme-variables.scss";
+
+.dashboard {
+  padding: 15px;
+
+  h5 {
+    font-weight: 500;
+    line-height: unset;
+  }
+
+  .title {
+    font-size: 30px;
+    padding: 17px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 500;
+    margin: 10px 0 20px 0;
+    background: linear-gradient(270deg, #2886c9 -35%, #ffffff1f 234.23%);
+    box-shadow: 0 0 6px 4px $transparentPrimary;
+
+    h5 {
+      margin-bottom: 0;
+      text-align: center;
+      font-size: 25px;
+    }
+  }
+
+
+  .preview-body {
+    background: $white;
+    padding: 20px 0;
+    border-radius: 10px;
+    margin: 20px 0px 0px 0px;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 0 6px 4px #88c8f521;
+
+    .info-container {
+      padding: 0 25px;
+      text-align: center;
+
+      .info-msg {
+        font-size: 22px;
+        font-weight: 500;
+        margin: 5px 0 20px;
+        text-align: center;
+      }
+
+      .succes-icon-container {
+        margin: 30px;
+
+        i {
+          font-size: 185px;
+          color: #28a745;
+        }
+      }
+
+      .header-msg {
+        font-size: 60px;
+        margin: 40px;
+      }
+
+      .details-msg {
+        font-size: 21px;
+        margin: 25px 0;
+      }
+
+      .admission-id {
+        font-size: 20px;
+        margin: 12px;
+
+        span {
+          font-weight: 500;
+        }
+      }
+
+      .home-page-link {
+        font-size: 20px;
+        padding: 20px 0 5px;
+
+        a {
+          font-weight: 500;
+          color: #005c9e;
+          cursor: pointer;
+        }
+      }
+
+      .viewtab-details {
+        margin: auto;
+
+        .input-group {
+          width: 25%;
+        }
+      }
+    }
+  }
+
+
+  .common-section {
+    margin: 10px 0;
+    padding: 10px 0;
+
+    .common-heading-text {
+      font-size: 18px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .date-block {
+      ::ng-deep {
+        .mat-form-field {
+          width: 100%;
+        }
+      }
+    }
+
+    .common-container-box {
+      box-shadow: 0 0 6px 4px #c2c2c23d;
+      border-radius: 7px;
+      padding: 16px;
+      width: 100%;
+
+      .common-inside-container {
+        border: 1px solid #80808021;
+        padding: 10px;
+        border-radius: 7px;
+        background: white;
+        box-shadow: #c2c2c23d 0px 1px 15px 0px;
+
+        .details-box {
+          text-align: justify;
+        }
+      }
+
+      .chart-container {
+        border: 1px solid #80808021;
+        padding: 10px;
+        border-radius: 7px;
+        text-align: center;
+        background: white;
+        box-shadow: #c2c2c23d 0px 1px 15px 0px;
+      }
+
+      ::ng-deep {
+        .mat-form-field-flex {
+          background: #bad9e847;
+        }
+      }
+    }
+
+    .common-inside-container-top {
+      border: 1px solid #80808021;
+      border-radius: 7px;
+      background: white;
+      box-shadow: 0 0 6px 4px #c2c2c23d;
+
+      .heading-box {}
+
+      .details-box {
+        text-align: justify;
+      }
+    }
+
+    .notice-container {
+      font-size: 15px;
+      // padding: 15px 0;
+      margin-bottom: 13px;
+      // height: 239px;
+      // overflow-y: scroll;
+
+      .notice-item {
+        // margin: 10px;
+        // border: 1px solid $secondary;
+        // font-weight: 500;
+        border-radius: 11px;
+        padding: 10px;
+        border: 1px solid #e2e2e2;
+        box-shadow: 0 0 7px 1px #e6e6e673;
+
+        .d-flex {
+          background: #bad9e847;
+          border-radius: 15px;
+          padding: 4px 5px 5px 11px;
+          margin-bottom: 10px;
+          // margin: 10px;
+
+          .heading {
+            flex-grow: 1;
+            margin: auto;
+          }
+        }
+
+        p,
+        button {
+          margin-left: 5px;
+          margin-bottom: 7px;
+        }
+
+        .btn {
+          border-radius: 10px;
+          font-size: 13px;
+          margin: 0;
+          padding: 4px 12px;
+        }
+
+
+        .details {
+          display: flex;
+          text-align: justify;
+        }
+      }
+    }
+  }
+
+  .top-section {
+    .fees-info {
+      cursor: pointer;
+      transition: transform .3s;
+
+      &:hover {
+        transform: scale(1.03);
+      }
+    }
+
+    .item-top-section {
+      min-height: 166px;
+      background: #2886c9;
+      padding: 17px;
+      margin: 10px auto;
+      border-radius: 10px;
+      color: white;
+      max-height: 166px;
+      overflow-y: auto;
+      font-size: 15px;
+
+      .item-title {
+        padding: 8px;
+        margin-bottom: 12px;
+        border-radius: 10px;
+        font-weight: 500;
+        background: linear-gradient(270deg, #00000014 -15%, #000000 211.23%);
+      }
+
+      .text {
+        margin-left: 7px;
+        margin-bottom: 12px;
+
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+        font-weight: 600;
+      }
+    }
+  }
+
+
+}
+
+@media (max-width: 768px) {
+  .dashboard .preview-body .info-container .viewtab-details .input-group {
+    width: 100%;
+  }
+}

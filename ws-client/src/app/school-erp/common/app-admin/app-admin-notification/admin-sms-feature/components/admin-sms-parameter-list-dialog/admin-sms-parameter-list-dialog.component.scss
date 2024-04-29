@@ -1,0 +1,42 @@
+@import "../../../../../../../school-erp/common/shared/styles/list-css/all-list.scss";
+@import "../../../../../shared/styles/all-common.scss";
+
+.table-responsive {
+    min-height: 50%;
+    // overflow: scroll;
+}
+
+.dialog-btn-group {
+    text-align: center;
+}
+
+::ng-deep .mat-dialog-container {
+    padding: 0;
+}
+
+::ng-deep .mat-elevation-z8 {
+    height: 95%;
+
+}
+
+::ng-deep .mat-dialog-container {
+    background: transparent;
+    box-shadow: none;
+}
+
+
+.all-btn-box {
+    width: 200px;
+    margin-top: 18px;
+}
+
+.mat-elevation-z8 table {
+    max-height: 310px;
+    overflow: scroll;
+    width: 101%;
+}
+
+.mat-elevation-z8 table::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}

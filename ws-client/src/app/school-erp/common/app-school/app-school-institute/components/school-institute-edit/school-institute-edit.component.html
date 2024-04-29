@@ -1,0 +1,185 @@
+<section id="appViewPage">
+    <form>
+        <!-- Create Part Start -->
+        <section id="create-main">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="create-header main-title">
+                            <h4 class="just-grd">
+                                {{ "Update_Institute" | translate }}
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- Institute basic -->
+                <div class="row mt-4">
+                    <!-- <div class="col-lg-12">
+                        <div class="create-details">
+                            <div class="create-details-headline">
+                                <h5>{{ "Institute Basic Information" | translate }}</h5>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="col-lg-6">
+                        <div class="create-details">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <p>{{ "Institute Name (English)" | translate }} <span>*</span></p>
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" [(ngModel)]="entity.nameEn"
+                                    name="instituteNameEn" id="instituteNameEn"
+                                    placeholder="{{'Institute Name English'| translate }}" required />
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <p>{{ 'Institute Name (Bangla)' | translate }} <span>*</span></p>
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" [(ngModel)]="entity.nameBn"
+                                    name="instituteNameBn" id="instituteNameBn"
+                                    placeholder="{{'Institute Name Bangla'| translate}}" required />
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <p>{{ 'Institute Email' | translate }} <span>*</span></p>
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" [(ngModel)]="entity.instituteEmail"
+                                    name="instituteEmail" id="instituteEmail"
+                                    placeholder="{{'Institute Email' | translate}}" required />
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <p>{{ 'Address_In_English' | translate }} <span>*</span></p>
+                                    </div>
+                                </div>
+                                <textarea type="text" class="form-control" [(ngModel)]="entity.instituteAddress"
+                                    name="instituteAddress" id="instituteAddress"
+                                    placeholder="{{'Address_In_English' | translate }}"></textarea>
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <p>{{ 'Address_In_Bangla' | translate }} <span>*</span></p>
+                                    </div>
+                                </div>
+                                <textarea type="text" class="form-control" [(ngModel)]="entity.instituteAddressBn"
+                                    name="instituteAddressBn" id="instituteAddressBn"
+                                    placeholder="{{'Address_In_Bangla' | translate }}"></textarea>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <p>{{ 'Contact (Phone)' | translate }} <span>*</span></p>
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" [(ngModel)]="entity.instituteContactNumber"
+                                    name="instituteContact" id="instituteContact"
+                                    placeholder="{{'Contact (Phone)' | translate}}" required />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6 right-section">
+                        <div class="row flex-column-reverse flex-lg-row">
+
+                            <div class="col-lg-12">
+
+                                <!--MESSEAGE-->
+                                <div class="mb-3" [ngClass]="{
+                                                'notification-message': true,
+                                                'custom-notification-default': notificationType == 'default',
+                                                'custom-notification-warning': notificationType == 'warning',
+                                                'custom-notification-success': notificationType == 'success',
+                                                'custom-notification-danger': notificationType == 'danger',
+                                                'custom-notification-info': notificationType == 'info'
+                                               }" *ngIf="isShowNotificationMessage">
+                                    <div class="notification-text-wrapper">
+                                        <p class="notification-text">
+                                            {{ notificationMessage | localNumber }}
+                                            <a *ngIf="isShowPhotoResizeLink" href="https://www.resizepixel.com/"
+                                                target="_blank" class="resizePhotoLink">resizepixel.com</a>
+                                        </p>
+                                        <span class="bold1"></span>
+                                        <span class="bold2"></span>
+                                        <span class="bold3"></span>
+                                        <span class="bold4"></span>
+                                    </div>
+                                </div>
+                                <!--MESSEAGE-->
+
+                                <div for="file" class="input-box" style="width: 100%;">
+                                    <label for="file" *ngIf="url == null">
+                                        <i class="fa-solid fa-user"></i>
+                                        <i class="fa fa-upload" aria-hidden="true"></i>
+                                        <p class="photo-upload-text">{{'Upload_Photo'|translate}}</p>
+                                        <p class="mt-2">{{'300'|localNumber}} x {{'300'|localNumber}}({{'50kb
+                                            max'|translate}})</p>
+                                    </label>
+                                    <label for="file" *ngIf="url != null"><img class="selected-image" id="file-image"
+                                            [src]="url" height="200">
+                                        <i class="fa-solid fa-rotate-left"></i>
+                                        <p *ngIf="url != null" class="photo-upload-text">
+                                            {{'Change_Photo'|translate}}
+                                        </p>
+                                    </label>
+                                    <input #uploadImage type="file" [(ngModel)]="entity.logoUrl" value='url' multiple
+                                        id="file" (change)="onSelect($event)" class="form-control d-none"
+                                        name="imageName">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <p>{{'Status' | translate}} <span>*</span></p>
+                                        </div>
+                                    </div>
+                                    <ng-select disabled #status id="status" name="status" [(ngModel)]="entity.status"
+                                        placeholder="{{'Select_Status' |translate}}">
+                                        <ng-option *ngFor="let obj of activeStatusList" [value]="obj.value">
+                                            {{locale==='en'? obj.nameEn : obj.nameBn}}
+                                        </ng-option>
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Institute basic -->
+            </div>
+        </section>
+        <!-- Create Part End -->
+
+        <!-- Tab Btn Info Part Start -->
+        <section id="btn-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="all-btn-box">
+                            <button type="button" (click)="goBack()" class="btn btn-outline-info">
+                                <i class="fas fa-arrow-left"></i>&nbsp;&nbsp;
+                                {{ 'Go Back' | translate }}
+                            </button>
+                            <button type="button" class="btn btn-outline-warning" (click)="editInstitution()">
+                                <i class="fas fa-save"></i>&nbsp;&nbsp;
+                                {{ 'Button_Update' | translate }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Tab Btn Info Part End -->
+    </form>
+</section>

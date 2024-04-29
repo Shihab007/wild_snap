@@ -1,0 +1,985 @@
+//NEW HOMEPAGE CODE STARTS
+@import "../../../../theme/theme-variables.scss";
+
+.homepage {
+  // margin: 145px auto 0px;
+
+  p {
+    font-size: 16px;
+    font-weight: 100;
+    line-height: 25px;
+  }
+
+  h3,
+  h5 {
+    color: $textColorPrimary;
+  }
+
+  .hero-section {
+    padding: 35px 0;
+    height: 100vh;
+    background-image: url("../../../../assets/img/homepage/herobg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+
+    &:before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      backdrop-filter: blur(4px);
+    }
+
+    .intro {
+      margin-top: 30px;
+      opacity: 0;
+      animation: fadeIn 0.8s ease-in both;
+      animation-delay: 0s;
+
+      .title {
+        font-size: 35px;
+        color: $textColorPrimary;
+        line-height: 47px;
+        margin-bottom: 15px;
+      }
+
+      .details {
+        // line-height: 25px;
+      }
+
+      .login-btn-container {
+        margin: 20px 0 0px;
+      }
+    }
+
+    .intro-img {
+      position: relative;
+
+      img {
+        position: absolute;
+        opacity: 0;
+        // animation: fadeIn 1s ease-in both;
+        // animation-delay: 0.1s;
+      }
+
+      .happy-school {
+        width: 450px;
+        top: -22px;
+        right: 85px;
+        animation: fadeIn 0.8s ease-in both;
+        animation-delay: 0s;
+        z-index: 2;
+      }
+
+      .sun-smile {
+        height: 190px;
+        right: -7px;
+        top: -58px;
+        animation: fadeInDownToUp 1.5s ease-in both;
+        animation-delay: 1s;
+        z-index: 1;
+      }
+
+      .bubbles {
+        height: 190px;
+        right: 510px;
+        top: 89px;
+        animation: fadeIn 1.5s ease-in both;
+        animation-delay: 0s;
+        z-index: -1;
+      }
+    }
+  }
+
+  .display-table {
+    display: table;
+    width: 100%;
+    height: 100%;
+
+    .display-content {
+      vertical-align: middle;
+      display: table-cell;
+    }
+  }
+
+  .item-container {
+    color: #686868;
+    text-align: center;
+
+    .title {
+      font-size: 35px;
+      margin-bottom: 15px;
+      color: inherit;
+    }
+
+    p {
+      // font-weight: 500;
+    }
+  }
+
+  .why-chose-us-section {
+    background: url("../../../../assets/img/homepage/why-choose-us.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 100px 0px;
+    position: relative;
+
+    &:before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+    }
+
+    .background-color-wrapper {
+      p {
+        color: #000;
+      }
+    }
+  }
+
+  .features-section {
+    padding: 60px 0;
+
+    .item-container {
+      margin-bottom: 30px;
+    }
+
+    .item-wrapper {
+      background: white;
+      padding: 20px 15px;
+      min-height: 400px;
+      border-radius: 7px;
+      box-shadow: 0 0 15px 0px rgba(0, 124, 245, 0.25);
+      transition: all linear 0.3s;
+
+      &:hover {
+        box-shadow: 0 0 5px 0px rgba(0, 124, 245, 0.2);
+      }
+
+      .img-container {
+        text-align: center;
+
+        img {
+          height: 105px;
+        }
+      }
+
+      .title {
+        color: $textColorPrimary;
+        text-align: center;
+        margin: 25px 0;
+        font-size: 23px;
+      }
+
+      p {
+        text-align: justify;
+      }
+    }
+  }
+
+  .view-web-portal-section {
+    background-color: #e7e7e770;
+
+    .view-p-0 {
+      padding: 0px;
+    }
+
+    .item-container {
+      padding: 30px 50px;
+      margin: auto;
+    }
+
+    .web-portal-btn-container {
+      background: url("../../../../assets/img/homepage/pencils.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+      padding: 100px 0px;
+      position: relative;
+
+      &:before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(5px);
+      }
+    }
+  }
+
+  .sponsors-section {
+    // background-color: #f9f8f8;
+    padding: 30px 0;
+
+    h3 {
+      font-weight: 500;
+      font-size: 25px;
+      margin-bottom: 25px;
+    }
+
+    .grid-wrapper {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto;
+      row-gap: 18px;
+      column-gap: 18px;
+
+      @media screen and (max-width: 992px) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+
+      @media screen and (max-width: 575px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+
+      .item {
+        display: flex;
+        padding: 10px;
+        width: 100%;
+        max-width: 330px;
+        height: auto;
+        margin: 0 auto;
+        // background-color: white;
+        border-radius: 3px;
+        box-shadow: 0 0 3px 0px #979797;
+
+        img {
+          width: 75px;
+          margin: auto;
+        }
+      }
+    }
+
+    @media (max-width: 575px) {
+      .sponsors-section {
+        h3 {
+          font-size: 23px;
+        }
+
+        .grid-wrapper {
+          .item {
+            //width: 80%;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 414px) {
+      .sponsors-section {
+        h3 {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  .payment-options-section {
+    padding: 35px 0;
+
+    h3 {
+      font-size: 25px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    h5 {
+      font-size: 18px;
+      font-weight: 500;
+      padding: 20px 0;
+    }
+
+    .platforms {
+      margin-bottom: 20px;
+
+      .wrapper-1 {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 25px;
+        column-gap: 25px;
+
+        .item {
+          background-color: white;
+          width: 100%;
+          max-width: 90px;
+          height: 50px;
+          padding: 3px;
+          border-radius: 3px;
+          box-shadow: 0 0 3px 0px #979797;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+
+          .flat-img {
+            height: 39px !important;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 575) {
+      .payment-options {
+        h3 {
+          font-size: 23px;
+        }
+
+        h5 {
+          font-size: 18px;
+        }
+      }
+    }
+
+    @media (max-width: 414px) {
+      .payment-options {
+        h3 {
+          font-size: 20px;
+        }
+
+        h5 {
+          font-size: 16px;
+        }
+      }
+    }
+
+    @media (min-width: 322px) and (max-width: 360px) {
+      .wrapper-1 {
+        .item {
+          width: 27%;
+        }
+      }
+    }
+  }
+
+  .mobile-app-section {
+    background: url("../../../../assets/img/homepage/pencils.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 100px 0px;
+    position: relative;
+    transition: all linear 0.3s;
+
+    &:before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    &:hover {
+      .main {
+        .app-part {
+          .small-schoolerp {
+            box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.3);
+          }
+        }
+      }
+    }
+
+    .main {
+      transition: all linear 0.3s;
+
+      .overflow-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        .overflow-item {
+          box-shadow: 0 0 15px 0px rgba(0, 124, 245, 0.25);
+          width: 90%;
+          height: 132%;
+          position: absolute;
+          top: -44px;
+          left: 15px;
+          padding: 25px 50px;
+          border-radius: 24px;
+          background-color: white;
+          transition: all linear 0.3s;
+
+          &:hover {
+            box-shadow: 0 0 5px 0px rgba(0, 124, 245, 0.25);
+          }
+
+          i {
+            font-size: 40px;
+            margin: 25px 0;
+          }
+
+          h5 {
+            color: #000;
+            font-weight: 700;
+            font-size: 20px;
+          }
+
+          .phone {
+            margin: 10px 0;
+          }
+        }
+      }
+
+      .app-part {
+        padding: 20px 0;
+
+        transition: all linear 0.3s;
+
+        .small-schoolerp {
+          box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.3);
+          padding: 15px;
+          border-radius: 10px;
+          width: 130px;
+          transition: all linear 0.3s;
+
+          img {
+            display: block;
+            width: -webkit-fill-available;
+          }
+
+          p {
+            text-align: center;
+            font-weight: 500;
+          }
+        }
+
+        .logo-resize {
+          p {
+            margin: 10px 0;
+          }
+
+          .app-logo-container {
+            display: flex;
+
+            .download-app-logo {
+              width: 130px;
+              height: 34px;
+              margin-right: 5px;
+            }
+          }
+
+          #app-barcode-img {
+            width: 105px;
+            border: 2px solid #00000096;
+            //box-shadow: 0 0 7px 1px rgb(0 0 0 / 20%);
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: 992px) {
+      .mobile-app-section {
+        padding: 50px 0;
+      }
+
+      .overflow-container {
+        position: static;
+      }
+
+      .overflow-item {
+        position: static;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+
+        .details {
+          padding: 10px 0;
+        }
+
+        .contacts {
+          margin: 31px 0;
+
+          .call-us {
+            margin: 10px 0 3px 0;
+          }
+        }
+      }
+
+      .app-part {
+        margin-top: 10px;
+        // box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+        border-radius: 24px;
+        padding: 50px;
+
+        .app-logo-container {
+          justify-content: left;
+        }
+      }
+    }
+
+    @media (max-width: 767px) {
+      .overflow-item {
+        padding: 8px 15px;
+
+        .details {
+          padding: 10px 0 0 0;
+        }
+
+        i {
+          font-size: 30px;
+        }
+
+        .contacts {
+          margin: 10px 0;
+        }
+
+        .phone {
+          font-size: 16px;
+        }
+      }
+
+      .app-logo-container {
+        margin-bottom: 10px;
+      }
+
+      .app-part {
+        text-align: center;
+        padding: 20px;
+
+        .app-logo-container {
+          justify-content: center;
+        }
+
+        #app-barcode-img {
+          width: 82px;
+        }
+      }
+    }
+
+    @media (max-width: 575px) {
+      .overflow-item {
+        padding: 8px 15px;
+
+        .details {
+          padding: 10px 0 0 0;
+        }
+
+        i {
+          font-size: 30px;
+        }
+
+        .contacts {
+          margin: 10px 0;
+        }
+
+        .phone {
+          font-size: 16px;
+        }
+      }
+
+      .app-part {
+        padding: 20px;
+
+        .small-schoolerp {
+          width: 80px;
+        }
+
+        h4 {
+          font-size: 20px;
+        }
+
+        #app-barcode-img {
+          width: 65px;
+        }
+      }
+    }
+
+    @media (max-width: 480px) {
+    }
+  }
+
+  .contact-section {
+    padding: 35px 0;
+    background-image: url("../../../../assets/img/homepage/calculator-background.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .contact {
+      .title {
+      }
+
+      .details {
+        .email {
+          span {
+            font-weight: 400;
+          }
+        }
+
+        .phone {
+          span {
+            font-weight: 400;
+          }
+        }
+      }
+    }
+
+    .address {
+      margin-top: 50px;
+
+      .title {
+      }
+
+      .details {
+      }
+    }
+
+    .request-form {
+      .title {
+      }
+
+      .form {
+        padding: 25px 0;
+
+        .request-form-submit-btn {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .common-title {
+    color: $textColorPrimary;
+    font-size: 23px;
+  }
+
+  .btn-container {
+    .common-btn {
+      background: white;
+      color: $buttonColorLight;
+      border-color: $buttonColorLight;
+
+      &:hover {
+        background: $buttonColorLight;
+        color: white;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -20%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInDownToUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@import "../../../../app/school-erp/common/shared/styles/all-common.scss";
+
+.input-group {
+  input {
+    border: 1px solid $buttonColorLight;
+  }
+}
+
+@media (max-width: 1600px) {
+}
+
+@media (max-width: 1440px) {
+}
+
+@media (max-width: 1400px) {
+}
+
+@media (max-width: 1280px) {
+  .homepage .features-section .item-container {
+    padding: 0px;
+    margin-bottom: 20px;
+  }
+  .homepage .why-chose-us-section {
+    padding: 70px 0px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .homepage .hero-section {
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  .homepage .hero-section .col-9 {
+    z-index: 999;
+  }
+
+  .homepage .hero-section .intro {
+    width: 70%;
+  }
+
+  .homepage .hero-section .intro .title {
+    font-size: 28px;
+  }
+
+  .homepage .hero-section .intro-img {
+    top: 35px;
+  }
+
+  .homepage .hero-section .intro-img .happy-school {
+    width: 300px;
+    top: -12px;
+    right: 40px;
+  }
+
+  .homepage .hero-section .intro-img .sun-smile {
+    height: 160px;
+    right: -20px;
+    top: -61px;
+  }
+
+  .homepage .mobile-app-section .main {
+    border-radius: 30px;
+  }
+
+  .homepage .mobile-app-section .main .overflow-container .overflow-item {
+    width: 100%;
+    position: unset;
+    height: unset;
+    margin: 20px auto;
+
+    p,
+    h5 {
+      text-align: center;
+    }
+  }
+
+  .homepage .features-section .item-wrapper:last-child {
+    margin-top: 25px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .homepage .hero-section {
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  .homepage .hero-section .col-9 {
+    z-index: 10;
+  }
+
+  .homepage .hero-section .intro {
+    width: 138%;
+    // background: #00a1ff14;
+    padding: 22px;
+    border-radius: 10px;
+  }
+
+  .homepage .hero-section .intro .title {
+    font-size: 28px;
+  }
+
+  .homepage .hero-section .intro-img {
+    top: 35px;
+    opacity: 0.3;
+  }
+
+  .homepage .hero-section .intro-img .happy-school {
+    width: 300px;
+    top: -12px;
+    right: 40px;
+  }
+
+  .homepage .hero-section .intro-img .sun-smile {
+    height: 160px;
+    right: -20px;
+    top: -61px;
+  }
+
+  .homepage .mobile-app-section .main {
+    border-radius: 30px;
+  }
+
+  .homepage .mobile-app-section .main .overflow-container .overflow-item {
+    width: 100%;
+    position: unset;
+    height: unset;
+    margin: 20px auto;
+
+    p,
+    h5 {
+      text-align: center;
+    }
+  }
+
+  .homepage .mobile-app-section .main .app-part .small-schoolerp {
+    margin: auto;
+  }
+
+  .homepage .mobile-app-section .main .app-part .logo-resize p {
+    text-align: center;
+  }
+
+  .homepage .features-section .item-wrapper {
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 575px) {
+  .homepage p {
+    font-size: 15px;
+  }
+
+  .homepage .hero-section {
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  .homepage .hero-section .col-9 {
+    z-index: 10;
+  }
+
+  .homepage .hero-section .intro {
+    width: 138%;
+    // background: #00a1ff14;
+    padding: 22px;
+    border-radius: 10px;
+  }
+
+  .homepage .hero-section .intro .title {
+    font-size: 25px;
+  }
+
+  .homepage .hero-section .intro-img {
+    top: 35px;
+    opacity: 0.5;
+  }
+
+  .homepage .hero-section .intro-img .happy-school {
+    width: 163px;
+    top: -12px;
+    right: 40px;
+  }
+
+  .homepage .hero-section .intro-img .sun-smile {
+    height: 97px;
+    right: -20px;
+    top: -61px;
+  }
+
+  .homepage .features-section .item-container .img-container img {
+    width: 106px;
+  }
+
+  .homepage .view-web-portal-section {
+    margin: 0;
+    padding: 15px;
+  }
+
+  .homepage .item-container .title {
+    font-size: 25px;
+  }
+
+  .homepage .mobile-app-section {
+    padding: 50px 0;
+  }
+
+  .homepage .view-web-portal-section {
+    background-size: 200px;
+  }
+
+  .homepage .mobile-app-section .main {
+    border-radius: 30px;
+  }
+
+  .homepage .mobile-app-section .main .overflow-container .overflow-item {
+    width: 100%;
+    position: unset;
+    height: unset;
+    margin: 20px auto;
+    padding: 20px;
+
+    p,
+    h5 {
+      text-align: center;
+    }
+  }
+
+  .homepage .mobile-app-section .main .app-part .small-schoolerp {
+    margin: auto;
+  }
+
+  .homepage .mobile-app-section .main .app-part .logo-resize p {
+    text-align: center;
+  }
+
+  .homepage .features-section .item-wrapper {
+    margin-top: 14px;
+  }
+  .homepage .features-section .item-container {
+    margin-bottom: 10px;
+  }
+  .homepage .mobile-app-section {
+    margin: 30px 0px 20px;
+  }
+
+  .homepage .why-chose-us-section {
+    padding: 50px 0px;
+  }
+}
+
+@media (max-width: 480px) {
+}
+
+@media (max-width: 414px) {
+}
+
+@media (max-width: 395px) {
+}
+
+@media (max-width: 375px) {
+}
+
+@media (max-width: 360px) {
+  .homepage .hero-section {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 320px) {
+}
+
+//NEW HOMEPAGE CODE ENDS

@@ -1,0 +1,210 @@
+/* You can add global styles to this file, and also import other style files */
+
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+@import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+@import "~bootstrap/scss/bootstrap";
+@import "~ngx-bootstrap/datepicker/bs-datepicker";
+@import url('https://fonts.maateen.me/solaiman-lipi/font.css');
+
+// @font-face {
+//   font-family: 'Font Awesome 6 Free';
+//   src: url('../node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2') format('woff2');
+//   /* Add other font properties as needed */
+// }
+
+.cdk-overlay-pane {
+  margin-left: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 100px !important;
+}
+
+
+.page-wrapper.toggled .sidebar {
+  left: -300px;
+}
+
+// angular perfect scrollbar style
+.sidebar .ps.ps--scrolling-y>.ps__rail-y,
+.sidebar>.ps.ps--scrolling-x>.ps__rail-x,
+.ps .ps__rail-x:hover,
+.ps .ps__rail-y:hover,
+.ps .ps__rail-x:focus,
+.ps .ps__rail-y:focus,
+.ps .ps__rail-x.ps--clicking,
+.ps .ps__rail-y.ps--clicking {
+  background-color: transparent !important;
+}
+
+.sidebar .ps.ps--active-y>.ps__rail-y:hover,
+.sidebar>.ps.ps--active-y>.ps__rail-y.ps--clicking {
+  width: 10px !important;
+}
+
+.ps__thumb-y {
+  background-color: #fff !important;
+  width: 6px !important;
+  border-radius: 0px !important;
+  opacity: .5;
+
+}
+
+.form-control,
+.input-group-text {
+  border: 1px solid #0080ff;
+}
+
+// table.table-hover tbody tr:hover{
+//   cursor: pointer;
+//   }
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-size: .9rem;
+  font-family: 'SolaimanLipi', Arial, sans-serif !important;
+}
+
+.mat-table {
+  font-family: 'SolaimanLipi', Arial, sans-serif !important;
+}
+
+
+.cdk-overlay-pane {
+  // margin-left: 260px !important;
+  margin-top: 50px !important;
+
+}
+
+
+.mat-elevation-z8 {
+  min-height: calc(100vh - 80px) !important;
+}
+
+.error-message div {
+  color: #f25f3d;
+  text-align: right;
+  margin-top: -10px;
+  margin-bottom: 12px;
+  font-size: 10px;
+}
+
+.error-message {
+  color: #f25f3d;
+  text-align: right;
+  margin-bottom: 12px;
+  font-size: 10px;
+}
+
+.input-error-msg {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  color: #f25f3d;
+}
+
+
+.calender {
+
+  .mat-calendar-body {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .mat-calendar-body-label,
+  .mat-calendar-period-button {
+    font-size: 14px;
+    font-weight: bold;
+    color: #acacac;
+  }
+
+  .mat-calendar-table-header th {
+    font-size: 14px;
+    font-weight: bold;
+    color: #acacac;
+  }
+
+  .mat-calendar-body-cell-content,
+  .mat-date-range-input-separator {
+    color: #acacac;
+    border-color: transparent;
+  }
+
+  .mat-button,
+  .mat-icon-button,
+  .mat-stroked-button {
+    color: #acacac;
+  }
+
+  .mat-calendar-body-today:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+    border-color: #3fdbff;
+    background: #62a9f4;
+    color: #fff;
+    font-weight: bold;
+  }
+
+  // .mat-calendar-body-cell {
+  //   border: 1px solid #ddd;
+  // }
+  .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical),
+  .cdk-keyboard-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical),
+  .cdk-program-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+    background-color: #3fdbff;
+  }
+
+
+}
+
+.mat-fab .mat-button-wrapper {
+  line-height: 10px !important;
+}
+
+#excel-sheet {
+  .mat-sort-header-container {
+    min-width: 180px !important;
+  }
+}
+
+@media(max-width:1200px) {
+  .calender .mat-calendar-table-header th {
+    font-size: 14px;
+  }
+
+  .calender .mat-calendar-body {
+    font-size: 14px;
+  }
+}
+
+@media(max-width:1100px) {
+  .calender .mat-calendar-table-header th {
+    font-size: 13px;
+  }
+
+  .calender .mat-calendar-body {
+    font-size: 13px;
+  }
+}
+
+@media(max-width:992px) {
+  .calender .mat-calendar-table-header th {
+    font-size: 12px;
+  }
+
+  .calender .mat-calendar-body {
+    font-size: 12px;
+  }
+}
+
+#appViewPage {
+  .mat-elevation-z8 {
+    min-height: unset !important;
+    margin-bottom: 50px;
+  }
+}

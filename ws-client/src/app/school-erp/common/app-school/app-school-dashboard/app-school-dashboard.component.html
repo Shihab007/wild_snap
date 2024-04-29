@@ -1,0 +1,411 @@
+<div class="dashboard">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-lg-9">
+        <div class="card-section">
+          <div class="row">
+            <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+              <div class="box student">
+                <div class="main">
+                  <i class="fa-solid fa-paw"></i>
+                  <span class="count">{{
+                    numberCount.studentCount | localNumber
+                  }}</span>
+                </div>
+                <p class="title">{{ "Number of Animals" | translate }}</p>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+              <div class="box teacher">
+                <div class="main">
+                  <i class="fa-solid fa-chalkboard-user"></i>
+                  <span class="count">{{
+                    numberCount.teacherCount | localNumber
+                  }}</span>
+                </div>
+                <p class="title">{{ "Datasets" | translate }}</p>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+              <div class="box guardian">
+                <div class="main">
+                  <i class="fa-solid fa-chalkboard-user"></i>
+                  <span class="count">{{
+                    numberCount.guardianCount | localNumber
+                  }}</span>
+                </div>
+                <p class="title">{{ "Accuracy" | translate }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="chart-section mt-4">
+          <div class="row">
+            <div class="col-12 mb-3 mb-lg-0 col-lg-6 col-xl-4">
+              <div id="chart-pie"></div>
+            </div>
+            <div class="col-12 mb-3 mb-lg-0 col-lg-6 col-xl-4">
+              <div id="expence-revinew"></div>
+            </div>
+            <div class="col-12 mt-3 mt-xl-0 col-xl-4">
+              <div class="history-box">
+                <div class="top-box">
+                  <div class="box-style">
+                    <div class="mat-progress-spinner-container">
+                      <mat-progress-spinner
+                        color="primary"
+                        value="{{ dashboardFeesInfo.totalAdmissionCount }}"
+                        mode="determinate"
+                        [diameter]="120"
+                      ></mat-progress-spinner>
+                      <button
+                        mat-fab
+                        color="primary"
+                        style="
+                          font-size: 20px;
+                          font-weight: bold;
+                          line-height: 10px;
+                        "
+                      >
+                        <p class="common-heading-text mb-3">
+                          {{ "" | translate }}
+                        </p>
+                        <span class="common-number">
+                          {{
+                            dashboardFeesInfo.totalAdmissionCount | localNumber
+                          }}
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="box-style">
+                    <div class="mat-progress-spinner-container">
+                      <mat-progress-spinner
+                        color="accent"
+                        value="{{ dashboardFeesInfo.totalAdmissionFeesCount }}"
+                        mode="determinate"
+                        [diameter]="spinnerDiameter"
+                      ></mat-progress-spinner>
+                      <button
+                        mat-fab
+                        color="accent"
+                        style="
+                          font-size: 20px;
+                          font-weight: bold;
+                          line-height: 10px;
+                        "
+                      >
+                        <p class="common-heading-text mb-3">
+                          {{ "" | translate }}
+                        </p>
+                        <span class="common-number"
+                          >{{
+                            dashboardFeesInfo.totalAdmissionFeesCount
+                              | localNumber
+                          }}
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="middle-box my-3">
+                  <div class="box-style">
+                    <div class="mat-progress-spinner-container">
+                      <mat-progress-spinner
+                        color="warn"
+                        value="{{ dashboardFeesInfo.totalFeesCollectionCount }}"
+                        mode="determinate"
+                        [diameter]="spinnerDiameter"
+                      ></mat-progress-spinner>
+                      <button
+                        mat-fab
+                        color="warn"
+                        style="
+                          font-size: 20px;
+                          font-weight: bold;
+                          line-height: 10px;
+                        "
+                      >
+                        <p class="common-heading-text mb-3">
+                          {{ "" | translate }}
+                        </p>
+                        <span class="common-number"
+                          >{{
+                            dashboardFeesInfo.totalFeesCollectionCount
+                              | localNumber
+                          }}
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="bottom-box">
+                  <div class="box-style">
+                    <div class="mat-progress-spinner-container">
+                      <mat-progress-spinner
+                        color="accent"
+                        value="{{ dashboardFeesInfo.totalTuitionFeesCount }}"
+                        mode="determinate"
+                        [diameter]="spinnerDiameter"
+                      ></mat-progress-spinner>
+                      <button
+                        mat-fab
+                        color="accent"
+                        style="
+                          font-size: 20px;
+                          font-weight: bold;
+                          line-height: 10px;
+                        "
+                      >
+                        <p class="common-heading-text mb-3">
+                          {{ "" | translate }}
+                        </p>
+                        <span class="common-number"
+                          >{{
+                            dashboardFeesInfo.totalTuitionFeesCount
+                              | localNumber
+                          }}
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="box-style">
+                    <div class="mat-progress-spinner-container">
+                      <mat-progress-spinner
+                        color="primary"
+                        value="{{ dashboardFeesInfo.totalDueFeesCount }}"
+                        mode="determinate"
+                        [diameter]="spinnerDiameter"
+                      ></mat-progress-spinner>
+                      <button
+                        mat-fab
+                        color="primary"
+                        style="
+                          font-size: 20px;
+                          font-weight: bold;
+                          line-height: 10px;
+                        "
+                      >
+                        <p class="common-heading-text mb-3">
+                          {{ "" | translate }}
+                        </p>
+                        <span class="common-number"
+                          >{{
+                            dashboardFeesInfo.totalDueFeesCount | localNumber
+                          }}
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="chart-section-two mt-4">
+          <div class="row">
+            <div class="col-12 col-lg-6 mb-3 mb-lg-0">
+              <div id="daily-student-attendance"></div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div id="daily-teacher-attendance"></div>
+            </div>
+          </div>
+        </div>
+        <div class="birthday-result mt-4">
+          <div class="row">
+            <div class="col-12 col-lg-6 mb-3 mb-lg-0">
+              <!-- <div class="birthday-container">
+                <h5 class="birthday-tittle">
+                  {{ "Happy_Birthday" | translate
+                  }}<i class="fas fa-birthday-cake"></i>
+                </h5>
+
+                <div class="row birthday">
+                  <div
+                    *ngFor="let studentBirhtday of studentBirthday"
+                    class="col-12 col-md-4 col-lg-6"
+                  >
+                    <div class="persion">
+                      <div class="profile-img">
+                        <img
+                          class="img-fluid"
+                          src="../../../../../assets/img/default_avater.jpg"
+                          alt="avatar"
+                        />
+                        <div class="persion-info">
+                          <span class="role">{{
+                            studentBirhtday.type | translate
+                          }}</span>
+                          <span class="name">{{
+                            locale === "en"
+                              ? studentBirhtday.nameEn
+                              : studentBirhtday.nameBn
+                          }}</span>
+                          <span class="age"
+                            >{{ "Age" | translate
+                            }}{{ studentBirhtday.age | localNumber }}</span
+                          >
+                        </div>
+                      </div>
+                      <div class="class-info">
+                        <span class="class">{{
+                          locale === "en"
+                            ? studentBirhtday.classNameEn
+                            : studentBirhtday.classNameBn
+                        }}</span>
+                        <span class="roll"
+                          >{{ "Roll" | translate }}:{{
+                            studentBirhtday.roll | translate
+                          }}</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row birthday">
+                  <div
+                    *ngFor="let teacherBirhtday of teacherBirthday"
+                    class="col-12 col-md-4 col-lg-6"
+                  >
+                    <div class="persion">
+                      <div class="profile-img">
+                        <img
+                          class="img-fluid"
+                          src="../../../../../assets/img/default_avater.jpg"
+                          alt="avatar"
+                        />
+                        <div class="persion-info">
+                          <span class="role">{{
+                            teacherBirhtday.type | translate
+                          }}</span>
+                          <span class="name">{{
+                            locale === "en"
+                              ? teacherBirhtday.nameEn
+                              : teacherBirhtday.nameBn
+                          }}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+            <!-- <div class="col-12 mb-3 mb-lg-0 col-lg-6">
+              <div class="result-container">
+                <h5 class="result-tittle">
+                  {{ "Exam Result" | translate
+                  }}<i class="fa-solid fa-graduation-cap"></i>
+                </h5>
+                <div class="row class-list">
+                  <div *ngFor="let result of examResult" class="col-4">
+                    <div class="class">
+                      <h3 class="class-name">
+                        {{ "Class" | translate }}:
+                        {{
+                          locale === "en"
+                            ? result.classNameEn
+                            : result.classNameBn
+                        }}
+                      </h3>
+                      <h5 class="count">
+                        {{ "Exam" | translate }}:
+                        {{
+                          locale === "en"
+                            ? result.examNameEn
+                            : result.examNameEn
+                        }}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-3">
+        <div class="calender">
+          <mat-calendar></mat-calendar>
+        </div>
+        <!-- <div class="notice-board mt-4">
+          <h3 class="notice-tittle">
+            {{ "Notice_Board" | translate }}<i class="fa-solid fa-bell"></i>
+          </h3>
+          <div class="row notice-board-body">
+            <div *ngFor="let notice of dashboardNotice" class="col-12 notice">
+              <span class="date-time">{{ notice.publishedDate }}</span>
+              <h4 class="tittle">
+                {{ locale === "en" ? notice.nameEn : notice.nameBn }}
+              </h4>
+              <p class="desc">
+                {{
+                  locale === "en" ? notice.descriptionEn : notice.descriptionBn
+                }}
+              </p>
+              <span
+                *ngIf="notice.showFullDescription"
+                (click)="toggleDescription(notice)"
+                >...</span
+              >
+            </div>
+          </div>
+        </div> -->
+        <div class="link-section mt-4">
+          <h3 class="link-tittle">
+            {{ "Important_Link" | translate }}<i class="fa-solid fa-tag"></i>
+          </h3>
+          <div class="link-section-body">
+            <ul>
+              <li>
+                <a
+                  target="_blank"
+                  href="https://bangladesh.gov.bd/"
+                  class="link"
+                  >Animals Dataset</a
+                >
+              </li>
+              <li>
+                <a target="_blank" href="https://moedu.gov.bd/" class="link"
+                  >Animals Catagories</a
+                >
+              </li>
+              <li>
+                <a target="_blank" href="https://ictd.gov.bd/" class="link"
+                  >Model Classifications Details</a
+                >
+              </li>
+
+              <li>
+                <a
+                  target="_blank"
+                  href="https://bangabhaban.gov.bd/"
+                  class="link"
+                  >CNN Details</a
+                >
+              </li>
+              <li>
+                <a target="_blank" href="https://cabinet.gov.bd/" class="link"
+                  >Description On Various Animals</a
+                >
+              </li>
+
+              <li>
+                <a
+                  target="_blank"
+                  href="https://citizen.cptu.gov.bd/"
+                  class="link"
+                  >Citizen Protal</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <h1>Wild Snap</h1> -->

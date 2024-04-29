@@ -1,0 +1,698 @@
+<section id="appViewPage">
+  <!-- View Tab Info Part Start -->
+  <section id="view-main-tab">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="view-tab-list">
+            <ul class="nav nav-pills" id="pills-tab" role="tablist">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  id="pills-basic-tab"
+                  data-toggle="pill"
+                  href="#pills-basic"
+                  (click)="getActiveTabName('pills-basic')"
+                  role="tab"
+                  aria-controls="pills-basic-tab"
+                  aria-selected="true"
+                >
+                  {{ "Basic_Information_Tab_Head" | translate }}
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="pills-class-list-tab"
+                  data-toggle="pill"
+                  (click)="getActiveTabName('pills-class-list')"
+                  href="#pills-class-list"
+                  role="tab"
+                  aria-controls="pills-class-list-tab"
+                  aria-selected="false"
+                >
+                  {{ "Class" | translate }}
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="pills-class-group-list-tab"
+                  data-toggle="pill"
+                  (click)="getActiveTabName('pills-class-group-list')"
+                  href="#pills-class-group-list"
+                  role="tab"
+                  aria-controls="pills-class-group-list-tab"
+                  aria-selected="false"
+                >
+                  {{ "Group" | translate }}
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="pills-class-level-list-tab"
+                  data-toggle="pill"
+                  (click)="getActiveTabName('pills-class-level-list')"
+                  href="#pills-class-level-list"
+                  role="tab"
+                  aria-controls="pills-class-level-list-tab"
+                  aria-selected="false"
+                >
+                  {{ "Level" | translate }}
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="pills-grading-system-detail-list-tab"
+                  data-toggle="pill"
+                  (click)="getActiveTabName('pills-grading-system-detail-list')"
+                  href="#pills-grading-system-detail-list"
+                  role="tab"
+                  aria-controls="pills-grading-system-detail-list-tab"
+                  aria-selected="false"
+                >
+                  {{ "Grading System Details" | translate }}
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="pills-class-textbook-list-tab"
+                  data-toggle="pill"
+                  (click)="getActiveTabName('pills-class-textbook-list')"
+                  href="#pills-class-textbook-list"
+                  role="tab"
+                  aria-controls="pills-class-textbook-list-tab"
+                  aria-selected="false"
+                >
+                  {{ "Textbook" | translate }}
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="tab-content" id="pills-tabContent">
+            <div
+              class="tab-pane fade show active"
+              id="pills-basic"
+              role="tabpanel"
+              aria-labelledby="pills-basic-tab"
+            >
+              <!-- Basic Info -->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="view-header">
+                    <h4 class="just-grd">
+                      {{ "Institute Information" | translate }}
+                    </h4>
+                    <div class="viewuser-image">
+                      <img
+                        *ngIf="institute.url == null"
+                        src="assets/img/default_avater.jpg"
+                        alt="pic"
+                        class="img-fluid"
+                      />
+                      <img
+                        *ngIf="institute.url != null"
+                        src="{{ institute.url }}"
+                        alt="pic"
+                        class="img-fluid"
+                      />
+                      <!-- <img class="image-holder" [src]=getSantizeUrl(institute.url) /> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="viewtab-details">
+                    <div class="viewtab-details-headline">
+                      <h5>{{ "Basic_Information" | translate }}</h5>
+                    </div>
+                  </div>
+                  <div class="viewtab-details">
+                    <div class="field-wrapper">
+                      <div class="field-label">
+                        <p>{{ "Institute Name English" | translate }}</p>
+                      </div>
+                      <div class="field-divider">
+                        <p>:</p>
+                      </div>
+                      <div class="field-value">
+                        <p>{{ institute.nameEn }}</p>
+                      </div>
+                    </div>
+                    <div class="field-wrapper">
+                      <div class="field-label">
+                        <p>{{ "Institute Name Bangla" | translate }}</p>
+                      </div>
+                      <div class="field-divider">
+                        <p>:</p>
+                      </div>
+                      <div class="field-value">
+                        <p>{{ institute.nameBn }}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="viewtab-details">
+                    <div class="field-wrapper">
+                      <div class="field-label">
+                        <p>{{ "District" | translate }}</p>
+                      </div>
+                      <div class="field-divider">
+                        <p>:</p>
+                      </div>
+                      <div class="field-value">
+                        <p>
+                          {{
+                            local === "en"
+                              ? institute.districtNameEn
+                              : institute.districtNameBn
+                          }}
+                        </p>
+                      </div>
+                    </div>
+                    <div class="field-wrapper">
+                      <div class="field-label">
+                        <p>{{ "Email" | translate }}</p>
+                      </div>
+                      <div class="field-divider">
+                        <p>:</p>
+                      </div>
+                      <div class="field-value">
+                        <p>{{ institute.instituteEmail | translate }}</p>
+                      </div>
+                    </div>
+                    <div class="field-wrapper">
+                      <div class="field-label">
+                        <p>{{ "Contact Number" | translate }}</p>
+                      </div>
+                      <div class="field-divider">
+                        <p>:</p>
+                      </div>
+                      <div class="field-value">
+                        <p>{{ institute.instituteContactNumber }}</p>
+                      </div>
+                    </div>
+
+                    <div class="field-wrapper">
+                      <div class="field-label">
+                        <p>{{ "Address" | translate }}</p>
+                      </div>
+                      <div class="field-divider">
+                        <p>:</p>
+                      </div>
+                      <div class="field-value">
+                        <p>{{ institute.instituteAddress }}</p>
+                      </div>
+                    </div>
+
+                    <!-- <div class="field-wrapper">
+                                            <div class="field-label">
+                                                <p>{{'Institute Type' | translate}}</p>
+                                            </div>
+                                            <div class="field-divider">
+                                                <p>:</p>
+                                            </div>
+                                            <div class="field-value">
+                                                <p>{{ institute.type }}</p>
+                                            </div>
+                                        </div> -->
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="viewtab-details">
+                    <div class="field-wrapper">
+                      <div class="field-label">
+                        <p>{{ "Name of Board" | translate }}</p>
+                      </div>
+                      <div class="field-divider">
+                        <p>:</p>
+                      </div>
+                      <div class="field-value">
+                        <p>
+                          {{
+                            local === "en"
+                              ? institute.boardNameEn
+                              : institute.boardNameBn
+                          }}
+                        </p>
+                      </div>
+                    </div>
+                    <div class="field-wrapper">
+                      <div class="field-label">
+                        <p>{{ "Education System" | translate }}</p>
+                      </div>
+                      <div class="field-divider">
+                        <p>:</p>
+                      </div>
+                      <div class="field-value">
+                        <p>
+                          {{
+                            local === "en"
+                              ? institute.systemNameEn
+                              : institute.systemNameBn
+                          }}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="field-wrapper">
+                      <div class="field-label">
+                        <p>{{ "Curriculum" | translate }}</p>
+                      </div>
+                      <div class="field-divider">
+                        <p>:</p>
+                      </div>
+                      <div class="field-value">
+                        <p>
+                          {{
+                            local === "en"
+                              ? institute.curriculumNameEn
+                              : institute.curriculumNameBn
+                          }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Basic Info -->
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="viewtab-details">
+                    <div class="viewtab-details-headline">
+                      <h5>{{ "Institute Type" | translate }}</h5>
+                    </div>
+                  </div>
+                  <div class="viewtab-details">
+                    <div
+                      class="field-wrapper"
+                      *ngFor="
+                        let instituteType of instituteTypeList;
+                        let i = index
+                      "
+                    >
+                      <div class="field-label">
+                        <!-- <p>{{'Institute Type Name' | translate}}</p> -->
+                        {{ i + 1 }}
+                      </div>
+                      <div class="field-divider">
+                        <p>:</p>
+                      </div>
+                      <div class="field-value">
+                        <p>
+                          {{
+                            local === "en"
+                              ? instituteType.nameEn
+                              : instituteType.nameBn
+                          }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="viewtab-details">
+                    <div class="viewtab-details-headline">
+                      <h5>{{ "Institute Shift" | translate }}</h5>
+                    </div>
+                  </div>
+                  <div class="viewtab-details">
+                    <div
+                      class="field-wrapper"
+                      *ngFor="
+                        let instituteShift of instituteShiftList;
+                        let i = index
+                      "
+                    >
+                      <div class="field-label">
+                        <!-- <p>{{'Shift Name' | translate}}</p> -->
+                        {{ i + 1 }}
+                      </div>
+                      <div class="field-divider">
+                        <p>:</p>
+                      </div>
+                      <div class="field-value">
+                        <p>
+                          {{
+                            local === "en"
+                              ? instituteShift.nameEn
+                              : instituteShift.nameBn
+                          }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="viewtab-details">
+                    <div class="viewtab-details-headline">
+                      <h5>{{ "Institute Version" | translate }}</h5>
+                    </div>
+                  </div>
+                  <div class="viewtab-details">
+                    <div
+                      class="field-wrapper"
+                      *ngFor="
+                        let instituteVersion of instituteVersionList;
+                        let i = index
+                      "
+                    >
+                      <div class="field-label">
+                        <!-- <p>{{'Institute Version Name' | translate}}</p> -->
+                        <p>{{ i + 1 }}</p>
+                      </div>
+                      <div class="field-divider">
+                        <p>:</p>
+                      </div>
+                      <div class="field-value">
+                        <p>
+                          {{
+                            local === "en"
+                              ? instituteVersion.nameEn
+                              : instituteVersion.nameBn
+                          }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="viewtab-details">
+                    <div class="viewtab-details-headline">
+                      <h5>{{ "Institute Grading System" | translate }}</h5>
+                    </div>
+                  </div>
+                  <div class="viewtab-details">
+                    <div
+                      class="field-wrapper"
+                      *ngFor="
+                        let instituteGrading of instituteGradingSystemList;
+                        let i = index
+                      "
+                    >
+                      <div class="field-label">
+                        <!-- <p>{{'Grading System Name' | translate}}</p> -->
+                        {{ i + 1 }}
+                      </div>
+                      <div class="field-divider">
+                        <p>:</p>
+                      </div>
+                      <div class="field-value">
+                        <p>
+                          {{
+                            local === "en"
+                              ? instituteGrading.nameEn
+                              : instituteGrading.nameBn
+                          }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="tab-pane fade"
+              id="pills-class-list"
+              role="tabpanel"
+              aria-labelledby="pills-class-list-tab"
+            >
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="view-header">
+                    <h4 class="just-grd">
+                      {{ "Class" | translate }}
+                    </h4>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="institute-class-table">
+                    <table class="table table-hover text-left">
+                      <thead>
+                        <th>#</th>
+                        <th>{{ "Class" | translate }}</th>
+                      </thead>
+                      <tbody>
+                        <tr
+                          *ngFor="
+                            let classList of instituteClassList;
+                            let i = index
+                          "
+                        >
+                          <td>{{ i + 1 }}</td>
+                          <td>
+                            {{
+                              local === "en"
+                                ? classList.nameEn
+                                : classList.nameBn
+                            }}
+                          </td>
+                          <!-- <td>{{ textBook.subjectCode }}</td> -->
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="tab-pane fade"
+              id="pills-class-group-list"
+              role="tabpanel"
+              aria-labelledby="pills-class-group-list-tab"
+            >
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="view-header">
+                    <h4 class="just-grd">
+                      {{ "Group" | translate }}
+                    </h4>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="institute-class-table">
+                    <table class="table table-hover text-left">
+                      <thead>
+                        <th>#</th>
+                        <th>{{ "Group" | translate }}</th>
+                      </thead>
+                      <tbody>
+                        <tr
+                          *ngFor="
+                            let groupList of instituteClassGroupList;
+                            let i = index
+                          "
+                        >
+                          <td>{{ i + 1 }}</td>
+                          <td>
+                            {{
+                              local === "en"
+                                ? groupList.nameEn
+                                : groupList.nameBn
+                            }}
+                          </td>
+                          <!-- <td>{{ textBook.subjectCode }}</td> -->
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="tab-pane fade"
+              id="pills-class-level-list"
+              role="tabpanel"
+              aria-labelledby="pills-class-level-list-tab"
+            >
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="view-header">
+                    <h4 class="just-grd">
+                      {{ "Level" | translate }}
+                    </h4>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="institute-class-table">
+                    <table class="table table-hover text-left">
+                      <thead>
+                        <th>#</th>
+                        <th>{{ "Level" | translate }}</th>
+                      </thead>
+                      <tbody>
+                        <tr
+                          *ngFor="
+                            let levelList of instituteClassLevelList;
+                            let i = index
+                          "
+                        >
+                          <td>{{ i + 1 }}</td>
+                          <td>
+                            {{
+                              local === "en"
+                                ? levelList.nameEn
+                                : levelList.nameBn
+                            }}
+                          </td>
+                          <!-- <td>{{ textBook.subjectCode }}</td> -->
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="tab-pane fade"
+              id="pills-grading-system-detail-list"
+              role="tabpanel"
+              aria-labelledby="pills-grading-system-detail-list-tab"
+            >
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="view-header">
+                    <h4 class="just-grd">
+                      {{ "Grading System Details" | translate }}
+                    </h4>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="institute-class-table">
+                    <table class="table table-hover text-left">
+                      <thead>
+                        <th>#</th>
+                        <th>Start Marks</th>
+                        <th>End Marks</th>
+                        <th>Letter Grade</th>
+                        <th>Grade Point</th>
+                        <th>Assessment</th>
+                      </thead>
+                      <tbody>
+                        <tr
+                          *ngFor="
+                            let gradingSystemList of gradingSystemDetailsList;
+                            let i = index
+                          "
+                        >
+                          <td>{{ i + 1 }}</td>
+                          <td>{{ gradingSystemList.startMarks }}</td>
+                          <td>{{ gradingSystemList.endMarks }}</td>
+                          <td>{{ gradingSystemList.letterGrade }}</td>
+                          <td>{{ gradingSystemList.gradePoint }}</td>
+                          <td>{{ gradingSystemList.assessment }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="tab-pane fade"
+              id="pills-class-textbook-list"
+              role="tabpanel"
+              aria-labelledby="pills-class-textbook-list-tab"
+            >
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="view-header">
+                    <h4 class="just-grd">
+                      {{ "Textbook" | translate }}
+                    </h4>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="institute-class-table">
+                    <table class="table table-hover text-left">
+                      <thead>
+                        <th>#</th>
+                        <th>{{ "Textbook" | translate }}</th>
+                      </thead>
+                      <tbody>
+                        <tr
+                          *ngFor="
+                            let textbookList of instituteTextbookList;
+                            let i = index
+                          "
+                        >
+                          <td>{{ i + 1 }}</td>
+                          <td>
+                            {{
+                              local === "en"
+                                ? textbookList.nameEn
+                                : textbookList.nameBn
+                            }}
+                          </td>
+                          <!-- <td>{{ textBook.subjectCode }}</td> -->
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Tab Btn Info Part Start -->
+  <section id="btn-section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="all-btn-box">
+            <button
+              type="button"
+              class="btn btn-outline-info"
+              (click)="goBack()"
+            >
+              <i class="fas fa-arrow-left"></i>&nbsp;&nbsp;
+              {{ "Go Back" | translate }}
+            </button>
+            <button
+              type="button"
+              (click)="editInstituteInfo()"
+              class="btn btn-outline-warning"
+            >
+              <i class="fa fa-edit"></i>&nbsp;&nbsp;
+              {{ "Update" | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Tab Btn Info Part End -->
+</section>

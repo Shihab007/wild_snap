@@ -1,0 +1,50 @@
+@import "../../../../shared/styles/all-common.scss";
+
+#dialog-component {
+  padding: 15px;
+
+  .school-info-with-details {
+    .address-logo-section {
+      .info-logo {
+        width: 70px;
+      }
+    }
+
+    .address-info-section {
+      .title-text-header {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .submit-container {
+    margin-top: 20px;
+    border: 1px solid #e2e2e2;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 7px 1px #e6e6e673;
+
+    .submit-container-inner {
+      padding: 5px;
+      border-radius: 5px;
+      background: #f7f7f7;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+
+
+      .item {
+        margin: 0 10px;
+      }
+
+      .switch-item {
+        position: relative;
+        top: -3px;
+      }
+    }
+  }
+}

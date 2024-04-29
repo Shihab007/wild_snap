@@ -1,0 +1,82 @@
+<header>
+  <nav class="navbar my-navbar navbar-expand-lg" id="sticky-menu">
+    <div class="container">
+      <a
+        class="navbar-brand navbar-logo"
+        href="javascript:void(0)"
+        routerLink="/"
+      >
+        <img src="../../../../assets/img/homepage/doer-logo.png" alt="logo" />
+        <div class="logo-text">
+          <span class="doer">Doer</span>
+          <span class="school">School</span>
+        </div>
+      </a>
+      <button
+        class="navbar-toggler border-0"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span
+          class="iconify bar-icon"
+          data-icon="fa-solid:bars"
+          data-inline="false"
+        ></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item nav-active pl-0">
+            <a
+              class="nav-link"
+              href="javascript:void(0)"
+              routerLink="/landingpage"
+              routerLinkActive="active"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item" *ngIf="showLoggedInMenu">
+            <a
+              class="nav-link"
+              href="javascript:void(0)"
+              routerLink="/login"
+              routerLinkActive="active"
+              >Portal Login</a
+            >
+          </li>
+          <li class="nav-item" *ngIf="showMyAccountMenu">
+            <a
+              class="nav-link"
+              href="javascript:void(0)"
+              routerLink="{{ dashboardPath }}"
+              routerLinkActive="active"
+            >
+              Portal Dashboard</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="javascript:void(0)"
+              routerLink="/landingpage/admission-form"
+              routerLinkActive="active"
+              >Admission</a
+            >
+          </li>
+          <li class="nav-item pr-0">
+            <a
+              class="nav-link"
+              href="javascript:void(0)"
+              routerLink="/landingpage/about"
+              routerLinkActive="active"
+              >About</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

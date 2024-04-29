@@ -1,0 +1,215 @@
+<section id="appViewPage">
+    <!-- Create Part Start -->
+    <section id="create-main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="header-title">
+                        <h5>{{ 'Education_Textbook_Information' | translate}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="create-details">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text break-word">
+                                    <p>{{'Education Medium' | translate}} <span>*</span></p>
+                                </div>
+                            </div>
+                            <ng-select #educationMedium id="educationMedium" name="educationMedium"
+                                placeholder="{{ 'Select Education Medium' | translate }}"
+                                [(ngModel)]="selectedEducationMediumOid" (change)="changeMedium($event)">
+                                <ng-option *ngFor="let medium of educationMediumList" [value]="medium.oid">
+                                    {{local === 'en' ? medium.nameEn : medium.nameBn }}
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text break-word">
+                                    <p>{{ 'Education Curriculum' | translate }}<span>*</span></p>
+                                </div>
+                            </div>
+                            <ng-select #educationCurriculum id="educationCurriculum" name="educationCurriculum"
+                                [(ngModel)]="entity.educationCurriculumOid"
+                                placeholder="{{'Select Education Curriculum' |translate}}"
+                                [(ngModel)]="selectedEducationCurriculumOid" (change)="changeCurriculum($event)">
+                                <ng-option *ngFor="let curriculum of educationCurriculumList" [value]="curriculum.oid">
+                                    {{local === 'en' ? curriculum.nameEn : curriculum.nameBn }}
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text break-word">
+                                    <p>{{ 'Select Education System' | translate }}<span>*</span></p>
+                                </div>
+                            </div>
+                            <ng-select #educationSystem id="educationSystem" name="educationSystem"
+                                placeholder="{{'Select Education System' |translate}}"
+                                [(ngModel)]="selectedEducationSystemOid" (change)="getEducationSessionList()">
+                                <ng-option *ngFor="let eduSystem of educationSystemList" [value]="eduSystem.oid">
+                                    {{local === 'en' ? eduSystem.nameEn : eduSystem.nameBn }}
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="create-details">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <p>{{ 'Select_Session' | translate }} <span>*</span></p>
+                                </div>
+                            </div>
+                            <ng-select #educationSession id="educationSession" name="educationSession"
+                                [(ngModel)]="selectedEducationSessionOid" placeholder="{{'Select_Session' |translate}}"
+                                (change)="getEducationClassListBySession()">
+                                <ng-option *ngFor="let educationSession of educationSessionList"
+                                    [value]="educationSession.oid">
+                                    {{local==='en'? educationSession.nameEn : educationSession.nameBn}}
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <p>{{ 'Select_Class' | translate }} <span>*</span></p>
+                                </div>
+                            </div>
+                            <ng-select #educationSession id="educationSession" name="educationSession"
+                                [(ngModel)]="selectedEducationClassOid" placeholder="{{'Select_Class' |translate}}"
+                                (change)="getEducationSubjectList()">
+                                <ng-option *ngFor="let educationClass of educationClassList"
+                                    [value]="educationClass.oid">
+                                    {{local==='en'? educationClass.nameEn : educationClass.nameBn}}
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngFor="let educationTextbookVersion of educationTextbookVersionList; let i = index">
+                <!-- table section -->
+                <div class="row mt-4">
+                    <div class="col-lg-12">
+
+                        <div class="create-details">
+                            <div class="create-details-headline" style="display: flex;justify-content: space-between;">
+                                <h5>{{ locale =='en' ? educationTextbookVersion.nameEn : educationTextbookVersion.nameBn }}
+                                </h5>
+                                <button (click)="addByRows(i)" class="btn btn-success mr-3 button"><i
+                                        class="fa fa-add"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="create-details-table">
+                            <table class="table table-hover text-center">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>{{'Name_English'|translate}}</th>
+                                        <th>{{'Name_Bangla'|translate}}</th>
+                                        <th>{{'Subject'|translate}}</th>
+                                        <th *ngIf="ishShowGroup">{{'Group'|translate}}</th>
+                                        <th>{{'E_Book_Link'|translate}}</th>
+                                        <th>{{'Mnemonic'|translate}}</th>
+                                        <th>{{'Actions'|translate}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr
+                                        *ngFor="let educationTextbook of educationTextbookVersion.educationTextbookList; let j = index;">
+                                        <td>{{j+1 | localNumber}}</td>
+                                        <td>
+                                            <input id="{{ 'nameEn' + j }}" type="text" class="form-control"
+                                                name="{{ 'nameEn' + j }}" [(ngModel)]="educationTextbook.nameEn"
+                                                placeholder="{{'Name_English'|translate}}" />
+                                        </td>
+
+                                        <td>
+                                            <input id="{{ 'nameBn' + j }}" type="text" class="form-control"
+                                                name="{{ 'nameBn' + j }}" [(ngModel)]="educationTextbook.nameBn"
+                                                placeholder="{{'Name_Bangla'|translate}}" />
+                                        </td>
+                                        <td>
+                                            <div class="ng-select-container">
+                                                <ng-select class="form-control-ng-select"
+                                                    id="{{ 'educationSubject' + j }}"
+                                                    name="{{ 'educationSubject' + j }}"
+                                                    [(ngModel)]="educationTextbook.educationSubjectOid"
+                                                    placeholder="{{'Select_Subject' |translate}}"
+                                                    (change)="onSelectSubject(educationTextbook,i, j)">
+                                                    <ng-option *ngFor="let educationSubject of educationSubjectList"
+                                                        [value]="educationSubject.oid">
+                                                        {{local==='en'? educationSubject.nameEn : educationSubject.nameBn}}
+                                                    </ng-option>
+                                                </ng-select>
+                                            </div>
+                                        </td>
+                                        <td *ngIf="ishShowGroup">
+                                            <div class="ng-select-container">
+                                                <ng-select id="{{ 'educationGroup' + j }}"
+                                                    name="{{ 'educationGroup' + j }}"
+                                                    [(ngModel)]="educationTextbook.educationGroupOid"
+                                                    placeholder="{{'Select_Group' |translate}}">
+                                                    <ng-option *ngFor="let educationGroup of educationGroupList"
+                                                        [value]="educationGroup.educationGroupOid">
+                                                        {{local==='en'? educationGroup.nameEn : educationGroup.nameBn}}
+                                                    </ng-option>
+                                                </ng-select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <input id="{{ 'ebook' + j }}" type="text" class="form-control"
+                                                name="{{ 'ebook' + j }}" [(ngModel)]="educationTextbook.eBookLink"
+                                                placeholder="{{'E_Book_Link'|translate}}" />
+                                        </td>
+                                        <td>
+                                            <input id="{{ 'mnemonic' + j }}" type="text" class="form-control"
+                                                name="{{ 'mnemonic' + j }}" [(ngModel)]="educationTextbook.mnemonic"
+                                                placeholder="{{'Mnemonic'|translate}}" />
+                                        </td>
+                                        <td style="float: right; margin-right: 5px;"><button
+                                                (click)="checkExistingEducationTextbook(educationTextbook,i,j)"
+                                                class="btn btn-outline-danger"><i class="fa fa-close"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- table section -->
+            </div>
+        </div>
+    </section>
+    <!-- Create Part End -->
+    <!-- Tab Btn Info Part Start -->
+    <section id="btn-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="all-btn-box">
+                        <button type="button" (click)="goBack()" class="btn btn-outline-info">
+                            <i class="fas fa-arrow-left"></i>&nbsp;&nbsp;
+                            {{ 'Go Back' | translate }}
+                        </button>
+                        <button type="button" class="btn btn-outline-success" (click)="saveEducationTextbook()">
+                            <i class="fas fa-save"></i>&nbsp;&nbsp;
+                            {{ 'Save' | translate }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Tab Btn Info Part End -->
+</section>
+<ngx-spinner bdColor="{{spinnerConfig.bdColor}}" size="large" color="{{spinnerConfig.color}}"
+    type="ball-clip-rotate-multiple" [fullScreen]="true">
+    <p style="color: white"> Loading... </p>
+</ngx-spinner>

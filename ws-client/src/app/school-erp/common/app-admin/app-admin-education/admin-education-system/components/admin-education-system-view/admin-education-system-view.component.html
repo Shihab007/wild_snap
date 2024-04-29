@@ -1,0 +1,125 @@
+<section id="appViewPage">
+  <form>
+    <!-- Create Part Start -->
+    <section id="create-main">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="create-header main-title">
+              <h4 class="just-grd">
+                {{ "Education_System" | translate }}
+              </h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Institute Type and Details -->
+
+        <div class="row mt-3">
+          <div class="col-lg-6">
+            <div class="create-details">
+              <div class="viewtab-details">
+                <div class="field-wrapper">
+                  <div class="field-label">
+                    <p>{{ "Education_System_Name" | translate }}</p>
+                  </div>
+                  <div class="field-divider">
+                    <p>:</p>
+                  </div>
+                  <div class="field-value">
+                    <p>
+                      {{
+                        local == "en"
+                          ? responseBody.nameEn
+                          : responseBody.nameBn
+                      }}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="field-wrapper">
+                  <div class="field-label">
+                    <p>{{ "short_name" | translate }}</p>
+                  </div>
+                  <div class="field-divider">
+                    <p>:</p>
+                  </div>
+                  <div class="field-value">
+                    <p>{{ responseBody.shortName | translate }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="create-details">
+              <div class="viewtab-details">
+                <div class="field-wrapper">
+                  <div class="field-label">
+                    <p>{{ "Curriculum_Name" | translate }}</p>
+                  </div>
+                  <div class="field-divider">
+                    <p>:</p>
+                  </div>
+                  <div class="field-value">
+                    <p>
+                      {{
+                        local == "en"
+                          ? responseBody.curriculumNameEn
+                          : responseBody.curriculumNameBn
+                      }}
+                    </p>
+                  </div>
+                </div>
+                <div class="field-wrapper">
+                  <div class="field-label">
+                    <p>{{ "Status" | translate }}</p>
+                  </div>
+                  <div class="field-divider">
+                    <p>:</p>
+                  </div>
+                  <div class="field-value">
+                    <p>{{ responseBody.status | translate }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Create Part End -->
+
+    <!-- Tab Btn Info Part Start -->
+    <br /><br />
+    <section id="btn-section">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="all-btn-box">
+              <button
+                type="button"
+                (click)="goBack()"
+                class="btn btn-outline-info"
+              >
+                <i class="fas fa-arrow-left"></i>&nbsp;&nbsp;
+                {{ "Back" | translate }}
+              </button>
+              <button
+                type="button"
+                (click)="goToEditEducationSystem()"
+                class="btn btn-outline-success"
+              >
+                <i class="fas fa-save"></i>&nbsp;&nbsp;
+                {{ "Update" | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Tab Btn Info Part End -->
+  </form>
+</section>

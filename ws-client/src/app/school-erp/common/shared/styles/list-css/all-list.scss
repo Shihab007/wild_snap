@@ -1,0 +1,311 @@
+@import "../../../../../../theme/theme-variables.scss";
+
+.mat-elevation-z8 {
+  background-color: $white;
+  width: 100%;
+  padding: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 1px 2px $allCommonListBoxShadow;
+
+  .list-title-section {
+    text-align: center;
+    background: $transparentPrimary;
+    padding: 16px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+
+    p {
+      font-size: 25px;
+      font-weight: 600;
+      margin-bottom: 0px;
+    }
+  }
+
+  form {
+    padding: 15px 0;
+    background: $transparentPrimary;
+    border: 1px solid $secondary;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+    .list-header-container {
+      flex-wrap: wrap;
+      display: flex;
+
+      .item {
+        margin: auto 10px;
+        min-width: 140px;
+        padding: 5px 0;
+        .ng-select-container {
+          min-width: 145px;
+          max-width: 200px;
+        }
+        .mat-search-container {
+          display: flex;
+
+          .btn {
+            width: 65px;
+            margin-left: 15px;
+          }
+        }
+      }
+
+      .add-button-item {
+        min-width: 37px;
+
+        .btn {
+          height: 45px;
+          width: 45px;
+        }
+      }
+
+      .button-item {
+        .btn {
+          height: 45px;
+          min-width: 48px;
+
+          .fa-file-pdf {
+            font-size: 25px;
+          }
+        }
+      }
+
+      .pdf-button-item {
+        min-width: auto;
+      }
+
+      .item:nth-last-child(2) {
+        flex-grow: 1;
+      }
+    }
+
+    .combobox-container {
+      display: flex;
+
+      .add-button {
+        font-size: 15px;
+        margin-top: 16px;
+        margin: auto 0;
+        min-width: 41px;
+        height: 41px;
+        padding: 0px 10px;
+
+        @media (max-width: 575px) {
+          .add-button {
+            margin-left: 21px;
+          }
+        }
+      }
+
+      .search-button {
+        font-size: 15px;
+        margin-top: 16px;
+        margin-bottom: auto;
+        margin-left: 8px;
+        min-width: 41px;
+        height: 41px;
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    min-width: 700px;
+
+    .action-buttons {
+      text-align: right;
+
+      button {
+        margin: 0 2px;
+        padding: 5px 10px;
+      }
+    }
+
+    .user-photo {
+      border-radius: 50%;
+      height: 44px;
+      width: 45px;
+      border: solid 3px $userPhotoBorder;
+    }
+  }
+}
+
+.common-list {
+  ::ng-deep {
+    .mat-form-field {
+      width: 100%;
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-wrapper {
+      margin: 0;
+      padding: 0;
+    }
+
+    .mat-row {
+      &:hover {
+        background: $transparentPrimary;
+      }
+    }
+
+    .mat-cell {
+      border-bottom: 1px solid !important;
+      border-bottom-color: $secondary !important;
+    }
+
+    .mat-sort-header {
+      font-size: 14px;
+      font-weight: 600;
+      color: $black;
+      border-bottom: 2px solid !important;
+      border-bottom-color: $secondary !important;
+    }
+
+    .mat-sort-header-content {
+      text-align: left;
+    }
+
+    .mat-header-cell {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: $black;
+      border-bottom: 2px solid !important;
+      border-bottom-color: $secondary !important;
+    }
+
+    .mat-paginator {
+      border-bottom-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-bottom: 1px solid;
+      border-right: 1px solid;
+      border-left: 1px solid;
+      border-color: $secondary !important;
+      background: $transparentPrimary;
+    }
+
+    .mat-sort-header:first-child {
+      border-left: 1px solid $secondary;
+    }
+
+    .mat-header-cell:last-child {
+      min-width: 120px;
+      border-right: 1px solid $secondary;
+      padding-right: 30px !important;
+      text-align: right;
+    }
+
+    .mat-cell:first-child {
+      border-left: 1px solid $secondary;
+    }
+
+    .mat-cell:last-child {
+      border-right: 1px solid $secondary;
+      text-align: right !important;
+    }
+
+    .mat-form-field-outline {
+      background: $white;
+    }
+
+    .mat-form-field-appearance-outline {
+      .mat-form-field-outline {
+        color: $secondary;
+      }
+
+      .mat-form-field-outline-thick {
+        color: $secondary;
+      }
+
+      &.mat-focused {
+        .mat-form-field-outline-thick {
+          color: $primary;
+        }
+      }
+
+      .mat-form-field-label {
+        overflow: visible;
+      }
+    }
+
+    .mat-paginator-page-size-label {
+      white-space: nowrap;
+    }
+
+    .mat-form-field-label-wrapper {
+      overflow: visible;
+    }
+
+    .mat-select-arrow-wrapper {
+      vertical-align: baseline;
+    }
+  }
+}
+
+.input-group::ng-deep {
+  .ng-select {
+    width: calc(100% - 214px);
+    margin-left: 5px;
+  }
+
+  .ng-select .ng-select-container {
+    min-height: 46px;
+
+    &:focus {
+      border: 1px solid $inputOnFocusBorder;
+      box-shadow: 0 0 0 0.2rem $inputOnFocusBoxShadow;
+    }
+  }
+
+  .ng-select .ng-select-container .ng-value-container .ng-input > input {
+    position: relative;
+    top: 5px;
+  }
+}
+
+.ng-select-container::ng-deep {
+  .ng-select {
+    width: 100%;
+    margin-left: 5px;
+  }
+
+  .ng-select .ng-select-container {
+    min-height: 46px;
+
+    &:focus {
+      border: 1px solid $inputOnFocusBorder;
+      box-shadow: 0 0 0 0.2rem $inputOnFocusBoxShadow;
+    }
+  }
+
+  .ng-select .ng-select-container .ng-value-container .ng-input > input {
+    position: relative;
+    top: 5px;
+  }
+}
+
+@media (max-width: 575px) {
+  ::ng-deep .mat-paginator-container {
+    justify-content: center !important;
+    padding: 0 !important;
+  }
+
+  .mat-elevation-z8 form .list-header-container {
+    .item {
+      width: 100%;
+      margin: auto;
+      padding: 5px;
+    }
+
+    .add-button-item .btn {
+      width: 100%;
+    }
+
+    .button-item .btn {
+      width: 100%;
+    }
+  }
+
+  .ng-select-container .ng-select {
+    margin-left: 0;
+  }
+}

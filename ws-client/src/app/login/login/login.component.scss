@@ -1,0 +1,256 @@
+@import "../../school-erp/common/shared/styles/custom-notification-msg.scss";
+@import "../../../theme/theme-variables.scss";
+
+.img-responsive {
+  text-align: center;
+  padding-bottom: 20px;
+  position: relative;
+
+  img {
+    box-shadow: 0px 1px 7px #dddddd;
+    border-radius: 7px;
+    position: absolute;
+    bottom: 2px;
+    right: 188px;
+    width: 114px;
+    cursor: pointer;
+  }
+}
+
+
+a {
+  color: $black;
+  transition: all 0.2s ease-out;
+
+  &:hover {
+    color: $buttonColor;
+    text-decoration: underline;
+
+  }
+}
+
+.get_in_touch {
+  max-width: 550px;
+  margin: 50px auto;
+  position: relative;
+  box-shadow: 0px 1px 7px #dddddd;
+  padding: 30px;
+  margin-top: 150px;
+  border-radius: 8px;
+
+}
+
+.get_in_touch .title {
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-size: 3em;
+  line-height: 48px;
+  padding-bottom: 20px;
+  color: #5543ca;
+  background: linear-gradient(to right, #f4524d 0%, #5543ca 100%);
+  /* -webkit-background-clip: text;  */
+  -webkit-text-fill-color: transparent;
+}
+
+.login-failed {
+  text-align: center;
+  margin: auto;
+  margin-top: 10px;
+  border: 1px solid whitesmoke;
+  width: 100%;
+  background-color: #f8bbd0;
+}
+
+.login-failed-text {
+  text-align: center;
+  margin-top: 5px;
+  font-weight: 400;
+  color: #b71c1c;
+}
+
+.contact-form .form-field {
+  position: relative;
+  margin: 32px 0;
+
+  input {
+    background: #0089ff17;
+  }
+}
+
+.contact-form .input-text {
+  display: block;
+  width: 100%;
+  height: 40px;
+  border-width: 0 0 2px 0;
+  border-color: #5543ca;
+  font-size: 14px;
+  border-radius: 7px;
+  padding: 10px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+.contact-form .input-text:focus+.label,
+.contact-form .input-text.not-empty+.label {
+  transform: translateY(-2px);
+}
+
+.contact-form .input-text:focus {
+  outline: none;
+}
+
+.contact-form .label {
+  position: absolute;
+  left: 10px;
+  bottom: 43px;
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: 400;
+  // color: $buttonColorLight;
+  color: $inputLabelColor;
+  cursor: text;
+  text-transform: capitalize;
+  transition: transform 0.2s ease-in-out;
+
+  i {
+    color: $inputLabelIconColor;
+  }
+}
+
+
+.delete {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+::placeholder {
+  font-size: 12px;
+  font-weight: 500;
+  color: #515a5a;
+  letter-spacing: 1.3px;
+}
+
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.custom {
+  border-radius: 25px;
+  min-width: 150px;
+}
+
+.go-to-link {
+  margin: 37px 0 0 0;
+  text-align: center;
+
+  .link-inner-container {
+    display: flex;
+    justify-content: center;
+
+    a {
+      font-weight: 600;
+      margin-left: 4px;
+    }
+  }
+}
+
+.title-section {
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 30px;
+
+  p {
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 0px;
+  }
+}
+
+.inform {
+  font-size: 18px;
+  margin-bottom: 22px;
+}
+
+.btn-container {
+  .common-btn {
+    background: white;
+    color: $buttonColorLight;
+    border-color: $buttonColorLight;
+
+    &:hover {
+      background: $buttonColorLight;
+      color: white;
+    }
+  }
+}
+
+.reset-btn-container {
+  margin-top: 20px;
+}
+
+.send-otp-btn-container {
+  margin-top: 10px;
+}
+
+@import "../../school-erp/common/shared/styles/all-common.scss";
+
+.input-group {
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 25px;
+}
+
+
+
+@media (max-width: 480px) {
+  .img-responsive img {
+    right: 127px;
+  }
+}
+
+@media (max-width: 414px) {
+  .img-responsive img {
+    right: 92px;
+  }
+}
+
+.navbar-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  top: -25px;
+  position: absolute;
+  margin-left: 215px;
+
+  img {
+    width: 45px;
+    height: 60px;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+
+    .doer {
+      margin-left: 7px;
+      margin-top: 7px;
+      color: #155886;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .school {
+      margin-left: 7px;
+      margin-top: 1px;
+      color: #155886;
+      font-weight: bold;
+    }
+  }
+}

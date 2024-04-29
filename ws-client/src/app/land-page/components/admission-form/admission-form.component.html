@@ -1,0 +1,1191 @@
+<section id="All-form-page" class="container">
+  <div *ngIf="isShowForm" class="preview-head">
+    <div class="school-info" *ngIf="instituteInfo.nameEn">
+      <img
+        *ngIf="instituteInfo.logoUrl == null"
+        src="../../../../../../../assets/img/myacademy.png"
+        class="info-logo"
+      />
+      <img
+        *ngIf="instituteInfo.logoUrl != null"
+        src="{{ instituteInfo.logoUrl }}"
+        class="info-logo"
+      />
+      <p class="info-text">
+        {{ locale === "en" ? instituteInfo.nameEn : instituteInfo.nameBn }}
+      </p>
+    </div>
+    <div class="create-header">
+      <h4>Admission Application</h4>
+    </div>
+  </div>
+  <div *ngIf="isShowForm" class="preview-body">
+    <form #admissionFrom="ngForm" novalidate autocomplete="off">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="preview-details-box">
+            <div class="detail-form-field pt-2">
+              <div class="row">
+                <div class="col-lg-6 left-section">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text break-word">
+                        <p>School : <span>*</span></p>
+                      </div>
+                    </div>
+                    <ng-select
+                      #selectSchool
+                      id="selectSchool"
+                      name="selectSchool"
+                      [(ngModel)]="entity.instituteOid"
+                      placeholder="{{ 'Select School' | translate }}"
+                      (change)="getInstituteInformation(entity.instituteOid)"
+                    >
+                      <ng-option
+                        *ngFor="let obj of instituteList"
+                        [value]="obj.oid"
+                        [selected]="obj.oid == entity.instituteOid"
+                      >
+                        <!-- {{locale==='en'? obj.nameEn : obj.nameBn}} -->
+                        {{ obj.nameEn }}
+                      </ng-option>
+                    </ng-select>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>{{ "Session" | translate }} : <span>*</span></p>
+                      </div>
+                    </div>
+                    <ng-select
+                      #session
+                      id="session"
+                      name="session"
+                      [(ngModel)]="entity.instituteSessionOid"
+                      placeholder="{{ 'Select Session' | translate }}"
+                      (change)="loadClassBySession(entity.instituteSessionOid)"
+                    >
+                      <ng-option
+                        *ngFor="let session of sessionList"
+                        [value]="session.oid"
+                        [selected]="session.oid == entity.instituteSessionOid"
+                      >
+                        {{ session.nameEn }}
+                      </ng-option>
+                    </ng-select>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text break-word">
+                        <p>Class :</p>
+                        <span>*</span>
+                      </div>
+                    </div>
+                    <ng-select
+                      #selectClass
+                      id="selectClass"
+                      name="selectClass"
+                      [(ngModel)]="classLevelOid"
+                      placeholder="{{ 'Select Class' | translate }}"
+                      (change)="loadClassGroup(entity)"
+                    >
+                      <ng-option
+                        *ngFor="let classLevel of classLevelList"
+                        [value]="classLevel.oid"
+                        [selected]="classLevel.oid == classLevelOid"
+                      >
+                        {{ classLevel.nameEn }}
+                      </ng-option>
+                    </ng-select>
+                  </div>
+                </div>
+                <div class="col-lg-6 right-section">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text break-word">
+                        <p>Version :</p>
+                        <span>*</span>
+                      </div>
+                    </div>
+                    <ng-select
+                      #selectVersion
+                      id="selectVersion"
+                      name="selectVersion"
+                      [(ngModel)]="entity.instituteVersionOid"
+                      placeholder="{{ 'Select Version' | translate }}"
+                    >
+                      <ng-option
+                        *ngFor="let version of versionList"
+                        [value]="version.oid"
+                        [selected]="version.oid == entity.instituteVersionOid"
+                      >
+                        {{ version.nameEn }}
+                      </ng-option>
+                    </ng-select>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text break-word">
+                        <p>Shift :</p>
+                        <span>*</span>
+                      </div>
+                    </div>
+                    <ng-select
+                      #selectShift
+                      id="selectShift"
+                      name="selectShift"
+                      [(ngModel)]="entity.instituteShiftOid"
+                      placeholder="{{ 'Select Shift' | translate }}"
+                    >
+                      <ng-option
+                        *ngFor="let shift of shiftList"
+                        [value]="shift.oid"
+                        [selected]="shift.oid == entity.instituteShiftOid"
+                      >
+                        {{ shift.nameEn }}
+                      </ng-option>
+                    </ng-select>
+                  </div>
+                  <div *ngIf="isShowClassGroup" class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text break-word">
+                        <p>Class Group :</p>
+                        <span>*</span>
+                      </div>
+                    </div>
+                    <ng-select
+                      #selectClassGroup
+                      id="selectClassGroup"
+                      name="selectClassGroup"
+                      [(ngModel)]="entity.instituteClassGroupOid"
+                      placeholder="{{ 'Select Group' | translate }}"
+                    >
+                      <ng-option
+                        *ngFor="let classGroup of classGroupList"
+                        [value]="classGroup.instituteClassGroupOid"
+                        [selected]="
+                          classGroup.instituteClassGroupOid ==
+                          entity.instituteClassGroupOid
+                        "
+                      >
+                        {{ classGroup.groupNameEn }}
+                      </ng-option>
+                    </ng-select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div class="detail-form-field" style="border-bottom: unset">
+              <p class="sub-create-header">Student Information</p>
+              <div class="row">
+                <div class="col-lg-6 left-section">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>
+                          Name in English :
+                          <span>*</span>
+                        </p>
+                      </div>
+                    </div>
+                    <input
+                      #applicantNameEn
+                      #nameEn="ngModel"
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="entity.applicantNameEn"
+                      pattern="^[A-Za-z .]{3,30}$"
+                      name="applicantNameEn"
+                      id="applicantNameEn"
+                      placeholder="Name in English "
+                      upperCase
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div
+                    [hidden]="nameEn.valid || nameEn.pristine"
+                    class="error-box"
+                  >
+                    <div class="error-message">
+                      <div [hidden]="!nameEn.hasError('pattern')">
+                        Please input minimum 3 character and dont use 0-9, !, @,
+                        $, %, ^ ,* etc
+                      </div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>Name in Bangla: <span>*</span></p>
+                      </div>
+                    </div>
+                    <input
+                      #applicantNameBn
+                      #nameBn="ngModel"
+                      type="text"
+                      pattern="[ঀ-৿\s:]*"
+                      class="form-control"
+                      [(ngModel)]="entity.applicantNameBn"
+                      name="applicantNameBn"
+                      id="applicantNameBn"
+                      placeholder="Name in Bangla"
+                      required
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div
+                    [hidden]="nameBn.valid || nameBn.pristine"
+                    class="error-box"
+                  >
+                    <div class="error-message">
+                      <div [hidden]="!nameBn.hasError('pattern')">
+                        Please write bangla and dont use 0-9, a-z !, @, $, %, ^
+                        ,* etc
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>
+                          Date Of Birth :
+                          <span>*</span>
+                        </p>
+                      </div>
+                    </div>
+                    <input
+                      type="text"
+                      placeholder="Date of Birth"
+                      class="form-control"
+                      bsDatepicker
+                      [bsConfig]="{
+                        containerClass: 'theme-blue',
+                        dateInputFormat: 'DD-MM-YYYY',
+                        isAnimated: true
+                      }"
+                      name="dateofbirth"
+                      required
+                      id="dateOfBirth"
+                      [(ngModel)]="entity.dateOfBirth"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>Gender : <span>*</span></p>
+                      </div>
+                    </div>
+                    <div class="check-group">
+                      <div class="form-check">
+                        <input
+                          id="genderM"
+                          #gender
+                          class="form-check-input"
+                          [(ngModel)]="entity.gender"
+                          type="radio"
+                          name="gender"
+                          value="Male"
+                        />
+                        <label class="form-check-label" for="genderM"
+                          >Male</label
+                        >
+                      </div>
+                      <div class="form-check">
+                        <input
+                          id="genderF"
+                          #gender
+                          class="form-check-input"
+                          [(ngModel)]="entity.gender"
+                          type="radio"
+                          name="gender"
+                          value="Female"
+                        />
+                        <label class="form-check-label" for="genderF"
+                          >Female</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>Religion :</p>
+                      </div>
+                    </div>
+                    <ng-select
+                      #religion
+                      name="religion"
+                      id="religion"
+                      [(ngModel)]="entity.religion"
+                      placeholder="{{ 'Select Religion' | translate }}"
+                    >
+                      <ng-option
+                        *ngFor="let obj of religionList"
+                        [value]="obj.value"
+                      >
+                        {{ obj.nameEn }}
+                      </ng-option>
+                    </ng-select>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>
+                          Nationality :
+                          <span>*</span>
+                        </p>
+                      </div>
+                    </div>
+                    <input
+                      #nationality
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="entity.nationality"
+                      name="nationality"
+                      id="nationality"
+                      placeholder="Nationality"
+                      required
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>Blood Group :</p>
+                      </div>
+                    </div>
+                    <ng-select
+                      #bloodGroup
+                      name="bloodGroup"
+                      id="bloodGroup"
+                      [(ngModel)]="entity.bloodGroup"
+                      placeholder="{{ 'Select Blood Group' | translate }}"
+                    >
+                      <ng-option
+                        *ngFor="let obj of bloodGroupList"
+                        [value]="obj.value"
+                      >
+                        {{ obj.nameEn }}
+                      </ng-option>
+                    </ng-select>
+                  </div>
+                </div>
+                <div class="col-lg-6 right-section">
+                  <div class="row flex-column-reverse flex-lg-row">
+                    <div class="col-lg-12">
+                      <div for="file" class="input-box" style="width: 100%">
+                        <label for="file" *ngIf="url == null">
+                          <i class="fa-solid fa-user"></i>
+                          <i class="fa fa-upload" aria-hidden="true"></i>
+                          <p class="photo-upload-text">
+                            {{ "Change Photo" | translate }}
+                          </p>
+                        </label>
+                        <label for="file" *ngIf="url != null"
+                          ><img
+                            class="selected-image"
+                            id="file-image"
+                            [src]="url"
+                            height="200"
+                          />
+                          <i class="fa-solid fa-rotate-left"></i>
+                          <p *ngIf="url != null" class="photo-upload-text">
+                            {{ "Change Photo" | translate }}
+                          </p>
+                        </label>
+                        <input
+                          #uploadImage
+                          type="file"
+                          [(ngModel)]="entity.url"
+                          value="url"
+                          multiple
+                          id="file"
+                          (change)="onSelect($event)"
+                          class="form-control d-none"
+                          name="imageName"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <p>Mobile No : <span>*</span></p>
+                          </div>
+                        </div>
+                        <input
+                          #mobileNo
+                          #mobile="ngModel"
+                          type="text"
+                          class="form-control"
+                          [(ngModel)]="entity.mobileNo"
+                          pattern="^(?:\+?88|0088)?01[3-9]\d{8}$"
+                          name="mobileNo"
+                          id="mobileNo"
+                          placeholder="Mobile No"
+                          autocomplete="off"
+                          maxlength="14"
+                          required
+                        />
+                      </div>
+                      <div
+                        [hidden]="mobile.valid || mobile.pristine"
+                        class="error-box"
+                      >
+                        <div class="error-message">
+                          <div [hidden]="!mobile.hasError('pattern')">
+                            Please input a valid mobile number
+                          </div>
+                        </div>
+                      </div>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <p>Emergency Number :</p>
+                          </div>
+                        </div>
+                        <input
+                          #emergencyContactNumber
+                          type="text"
+                          class="form-control"
+                          #emergencyContactNo="ngModel"
+                          [(ngModel)]="entity.emergencyContactNo"
+                          pattern="^(?:\+?88|0088)?01[3-9]\d{8}$"
+                          name="emergencyContactNumber"
+                          id="emergencyContactNumber"
+                          placeholder="Emergency Number"
+                          autocomplete="off"
+                        />
+                      </div>
+                      <div
+                        [hidden]="
+                          emergencyContactNo.valid ||
+                          emergencyContactNo.pristine
+                        "
+                        class="error-box"
+                      >
+                        <div class="error-message">
+                          <div
+                            [hidden]="!emergencyContactNo.hasError('pattern')"
+                          >
+                            Please input a valid mobile number
+                          </div>
+                        </div>
+                      </div>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <p>Email :</p>
+                          </div>
+                        </div>
+                        <input
+                          #email
+                          #emailId="ngModel"
+                          type="email"
+                          class="form-control"
+                          [(ngModel)]="entity.email"
+                          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z0-9.-]{2,4}$"
+                          name="email"
+                          id="email"
+                          placeholder="Email"
+                          autocomplete="off"
+                        />
+                      </div>
+                      <div
+                        [hidden]="emailId.valid || emailId.pristine"
+                        class="error-box"
+                      >
+                        <div class="error-message">
+                          <div [hidden]="!emailId.hasError('pattern')">
+                            Please enter a valid email address
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div class="detail-form-field">
+              <div class="row">
+                <div class="col-lg-6 left-section">
+                  <div class="sub-create-header">
+                    {{ "Present Address" | translate }}
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>{{ "Care Of" | translate }} :</p>
+                      </div>
+                    </div>
+                    <input
+                      #presentAddressCareOf
+                      #presentAddress_CareOf="ngModel"
+                      type="text"
+                      class="form-control"
+                      pattern="^[A-Za-z .]{3,30}$"
+                      [(ngModel)]="entity.presentAddress.careOf"
+                      name="presentCareOf"
+                      id="presentCareOf"
+                      placeholder="{{ 'Care Of ' | translate }}"
+                      autocomplete="off"
+                    />
+                    <div
+                      [hidden]="
+                        presentAddress_CareOf.valid ||
+                        presentAddress_CareOf.pristine
+                      "
+                      class="error-box mt-3 w-100 text-align-right"
+                    >
+                      <div class="error-message">
+                        <div
+                          [hidden]="!presentAddress_CareOf.hasError('pattern')"
+                        >
+                          Please input minimum 3 character and don't use 0-9, !,
+                          @, $, %, ^ ,* etc
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>{{ "House No" | translate }} :</p>
+                      </div>
+                    </div>
+                    <input
+                      #presentAddressHouseNo
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="entity.presentAddress.houseNo"
+                      name="presentHouseNo"
+                      id="presentHouseNo"
+                      placeholder="{{ 'House No ' | translate }}"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>{{ "Road No" | translate }} :</p>
+                      </div>
+                    </div>
+                    <input
+                      #presentAddressRoadNo
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="entity.presentAddress.roadNo"
+                      name="presentRoadNo"
+                      id="presentAddressRoadNo"
+                      placeholder="{{ 'Road No ' | translate }}"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>{{ "Post Office" | translate }} :</p>
+                      </div>
+                    </div>
+                    <input
+                      #presentAddressPostOffice
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="entity.presentAddress.postOffice"
+                      name="presentPostOffice"
+                      id="presentAddressPostOffice"
+                      placeholder="{{ 'Post Office ' | translate }}"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>{{ "Post Code" | translate }} :</p>
+                      </div>
+                    </div>
+                    <input
+                      #presentAddressPostcode
+                      type="text"
+                      class="form-control"
+                      (blur)="validatePostCode()"
+                      [(ngModel)]="entity.presentAddress.postcode"
+                      name="presentAddressPostcode"
+                      id="presentAddressPostcode"
+                      placeholder="{{ 'Post Code ' | translate }}"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>{{ "District" | translate }} : <span>*</span></p>
+                      </div>
+                    </div>
+                    <ng-select
+                      #presentAddressDistrict
+                      id="presentAddressDistrict"
+                      name="presentAddressDistrict"
+                      [(ngModel)]="entity.presentAddress.districtOid"
+                      placeholder="{{ 'Select District' | translate }}"
+                      [ngModelOptions]="{ standalone: true }"
+                      (change)="loadPresentAdressThana()"
+                    >
+                      <ng-option
+                        *ngFor="let district of districtList"
+                        [value]="district.oid"
+                      >
+                        {{ district.nameEn }}
+                        <!-- {{locale==='en'? district.nameEn : district.nameBn}} -->
+                      </ng-option>
+                    </ng-select>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>{{ "Thana" | translate }} : <span>*</span></p>
+                      </div>
+                    </div>
+
+                    <ng-select
+                      #presentAddressThana
+                      id="presentAddressThana"
+                      name="presentAddressThana"
+                      [(ngModel)]="entity.presentAddress.thanaOid"
+                      placeholder="{{ 'Select Thana' | translate }}"
+                      [ngModelOptions]="{ standalone: true }"
+                    >
+                      <ng-option
+                        *ngFor="let presentThana of presentThanaList"
+                        [value]="presentThana.oid"
+                      >
+                        {{ presentThana.nameEn }}
+                      </ng-option>
+                    </ng-select>
+                  </div>
+                </div>
+                <div class="col-lg-6 right-section">
+                  <div class="sub-create-header">
+                    {{ "Permanent Address" | translate }}
+                    <span
+                      >(&nbsp;<mat-checkbox
+                        class="mat-checkbox"
+                        (change)="changeAddressSelection($event.checked)"
+                        [checked]="!isAddressSameAsChecked"
+                      >
+                        <span>{{
+                          "Same as Present Address" | translate
+                        }}</span> </mat-checkbox
+                      >&nbsp;)</span
+                    >
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>{{ "Care Of" | translate }} :</p>
+                      </div>
+                    </div>
+                    <input
+                      #permanentAddressCareOf
+                      type="text"
+                      class="form-control"
+                      #permanentAddress_CareOf="ngModel"
+                      pattern="^[A-Za-z .]{3,30}$"
+                      [(ngModel)]="entity.permanentAddress.careOf"
+                      name="permanentCareOf"
+                      id="permanentCareOf"
+                      placeholder="{{ 'Care Of ' | translate }}"
+                      autocomplete="off"
+                    />
+                    <div
+                      [hidden]="
+                        permanentAddress_CareOf.valid ||
+                        permanentAddress_CareOf.pristine
+                      "
+                      class="error-box mt-3 w-100 text-align-right"
+                    >
+                      <div class="error-message">
+                        <div
+                          [hidden]="
+                            !permanentAddress_CareOf.hasError('pattern')
+                          "
+                        >
+                          Please input minimum 3 character and don't use 0-9, !,
+                          @, $, %, ^ ,* etc
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>{{ "House No" | translate }} :</p>
+                      </div>
+                    </div>
+                    <input
+                      #permanentAddressHouseNo
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="entity.permanentAddress.houseNo"
+                      name="permanentHouseNo"
+                      id="permanentHouseNo"
+                      placeholder="{{ 'House No ' | translate }}"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>{{ "Road No" | translate }} :</p>
+                      </div>
+                    </div>
+                    <input
+                      #permanentAddressRoadNo
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="entity.permanentAddress.roadNo"
+                      name="permanentRoadNo"
+                      id="permanentAddressRoadNo"
+                      placeholder="{{ 'Road No ' | translate }}"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>{{ "Post Office" | translate }} :</p>
+                      </div>
+                    </div>
+                    <input
+                      #permanentAddressPostOffice
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="entity.permanentAddress.postOffice"
+                      name="permanentPostOffice"
+                      id="permanentAddressPostOffice"
+                      placeholder="{{ 'Post Office ' | translate }}"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>{{ "Post Code" | translate }} :</p>
+                      </div>
+                    </div>
+                    <input
+                      #permanentAddressPostcode
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="entity.permanentAddress.postcode"
+                      name="permanentPostcode"
+                      id="permanentAddressPostcode"
+                      placeholder="{{ 'Post Code ' | translate }}"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>{{ "District" | translate }} : <span>*</span></p>
+                      </div>
+                    </div>
+                    <ng-select
+                      #permanentAddressDistrict
+                      id="permanentAddressDistrict"
+                      name="permanentAddressDistrict"
+                      [(ngModel)]="entity.permanentAddress.districtOid"
+                      placeholder="{{ 'Select District' | translate }}"
+                      [ngModelOptions]="{ standalone: true }"
+                      (change)="loadPermanentAdressThana()"
+                    >
+                      <ng-option
+                        *ngFor="let district of districtList"
+                        [value]="district.oid"
+                      >
+                        <!-- {{locale==='en'? district.nameEn : district.nameBn}} -->
+                        {{ district.nameEn }}
+                      </ng-option>
+                    </ng-select>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>{{ "Thana" | translate }} : <span>*</span></p>
+                      </div>
+                    </div>
+                    <ng-select
+                      #permanentAddressThana
+                      id="permanentAddressThana"
+                      name="permanentAddressThana"
+                      [(ngModel)]="entity.permanentAddress.thanaOid"
+                      placeholder="{{ 'Select Thana' | translate }}"
+                      [ngModelOptions]="{ standalone: true }"
+                    >
+                      <ng-option
+                        *ngFor="let permanentThana of permanentThanaList"
+                        [value]="permanentThana.oid"
+                      >
+                        <!-- {{locale==='en'? permanentThana.nameEn : permanentThana.nameBn}} -->
+                        {{ permanentThana.nameEn }}
+                      </ng-option>
+                    </ng-select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div class="detail-form-field">
+              <p class="sub-create-header">Parent's Information</p>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>Father's Name in Bangla:</p>
+                      </div>
+                    </div>
+                    <input
+                      #fatherNameBn
+                      #father_NameBn="ngModel"
+                      pattern="[ঀ-৿\s:]*"
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="entity.fatherNameBn"
+                      name="fatherNameBn"
+                      id="fatherNameBn"
+                      placeholder="Name in Bangla"
+                      autocomplete="off"
+                    />
+                    <div
+                      [hidden]="father_NameBn.valid || father_NameBn.pristine"
+                      class="error-box mt-3 w-100 text-align-right"
+                    >
+                      <div class="error-message">
+                        <div [hidden]="!father_NameBn.hasError('pattern')">
+                          Please write bangla and dont use 0-9, a-z !, @, $, %,
+                          ^ ,* etc
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>Father's Name in English :</p>
+                        <span>*</span>
+                      </div>
+                    </div>
+                    <input
+                      #fatherNameEn
+                      type="text"
+                      class="form-control"
+                      pattern="^[A-Za-z .]{3,30}$"
+                      #father_NameEn="ngModel"
+                      [(ngModel)]="entity.fatherNameEn"
+                      name="fatherNameEn"
+                      id="fatherNameEn"
+                      placeholder="Name in English "
+                      autocomplete="off"
+                      required
+                    />
+                    <div
+                      [hidden]="father_NameEn.valid || father_NameEn.pristine"
+                      class="error-box mt-3 w-100 text-align-right"
+                    >
+                      <div class="error-message">
+                        <div [hidden]="!father_NameEn.hasError('pattern')">
+                          Please input minimum 3 character and don't use 0-9, !,
+                          @, $, %, ^ ,* etc
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>Father's Occupation :</p>
+                      </div>
+                    </div>
+                    <input
+                      #fatherOccupation
+                      type="text"
+                      class="form-control"
+                      pattern="^[A-Za-z .]{3,30}$"
+                      #father_Occupation="ngModel"
+                      [(ngModel)]="entity.fatherOccupation"
+                      name="fatherOccupation"
+                      id="fatherOccupation"
+                      placeholder="Father's Occupation"
+                      autocomplete="off"
+                    />
+                    <div
+                      [hidden]="
+                        father_Occupation.valid || father_Occupation.pristine
+                      "
+                      class="error-box mt-3 w-100 text-align-right"
+                    >
+                      <div class="error-message">
+                        <div [hidden]="!father_Occupation.hasError('pattern')">
+                          Please input minimum 3 character and don't use 0-9, !,
+                          @, $, %, ^ ,* etc
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>Father's Mobile No : <span>*</span></p>
+                      </div>
+                    </div>
+                    <input
+                      #fatherContactNumber
+                      #fatherMobileNo="ngModel"
+                      type="text"
+                      class="form-control"
+                      pattern="^(?:\+?88|0088)?01[3-9]\d{8}$"
+                      [(ngModel)]="entity.fatherContactNumber"
+                      name="fatherContactNumber"
+                      id="fatherContactNumber"
+                      placeholder="Mobile No"
+                      autocomplete="off"
+                      maxlength="14"
+                      required
+                    />
+                  </div>
+                  <div
+                    [hidden]="fatherMobileNo.valid || fatherMobileNo.pristine"
+                    class="error-box"
+                  >
+                    <div class="error-message">
+                      <div [hidden]="!fatherMobileNo.hasError('pattern')">
+                        Please Input Valid a mobile number
+                      </div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>Father's Email :</p>
+                      </div>
+                    </div>
+                    <input
+                      #fatherEmail
+                      #fatherEmailId="ngModel"
+                      type="email"
+                      class="form-control"
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z0-9.-]{2,4}$"
+                      [(ngModel)]="entity.fatherEmail"
+                      name="fatherEmail"
+                      id="fatherEmail"
+                      placeholder="Email"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div
+                    [hidden]="fatherEmailId.valid || fatherEmailId.pristine"
+                    class="error-box"
+                  >
+                    <div class="error-message">
+                      <div [hidden]="!fatherEmailId.hasError('pattern')">
+                        Please enter a valid email address
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>Mother's Name in Bangla:</p>
+                      </div>
+                    </div>
+                    <input
+                      #motherNameBn
+                      type="text"
+                      #mother_NameBn="ngModel"
+                      class="form-control"
+                      pattern="[ঀ-৿\s:]*"
+                      [(ngModel)]="entity.motherNameBn"
+                      name="motherNameBn"
+                      id="motherNameBn"
+                      placeholder="Name in Bangla"
+                      autocomplete="off"
+                    />
+                    <div
+                      [hidden]="mother_NameBn.valid || mother_NameBn.pristine"
+                      class="error-box mt-3 w-100 text-align-right"
+                    >
+                      <div class="error-message">
+                        <div [hidden]="!mother_NameBn.hasError('pattern')">
+                          Please write bangla and dont use 0-9, a-z !, @, $, %,
+                          ^ ,* etc
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>Mother's Name in English :</p>
+                        <span>*</span>
+                      </div>
+                    </div>
+                    <input
+                      #motherNameEn
+                      #mother_NameEn="ngModel"
+                      pattern="^[A-Za-z .]{3,30}$"
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="entity.motherNameEn"
+                      name="motherNameEn"
+                      id="motherNameEn"
+                      placeholder="Name in English "
+                      autocomplete="off"
+                      required
+                    />
+                    <div
+                      [hidden]="mother_NameEn.valid || mother_NameEn.pristine"
+                      class="error-box mt-3 w-100 text-align-right"
+                    >
+                      <div class="error-message">
+                        <div [hidden]="!mother_NameEn.hasError('pattern')">
+                          Please input minimum 3 character and don't use 0-9, !,
+                          @, $, %, ^ ,* etc
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>Mother's Occupation :</p>
+                      </div>
+                    </div>
+                    <input
+                      #motherOccupation
+                      #mother_Occupation="ngModel"
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="entity.motherOccupation"
+                      pattern="^[A-Za-z .]{3,30}$"
+                      name="motherOccupation"
+                      id="motherOccupation"
+                      placeholder="Mother's Occupation"
+                      autocomplete="off"
+                    />
+                    <div
+                      [hidden]="
+                        mother_Occupation.valid || mother_Occupation.pristine
+                      "
+                      class="error-box mt-3 w-100 text-align-right"
+                    >
+                      <div class="error-message">
+                        <div [hidden]="!mother_Occupation.hasError('pattern')">
+                          Please input minimum 3 character and don't use 0-9, !,
+                          @, $, %, ^ ,* etc
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>Mother's Mobile No :<span>*</span></p>
+                      </div>
+                    </div>
+                    <input
+                      #motherContactNumber
+                      #motherMobileNo="ngModel"
+                      type="text"
+                      class="form-control"
+                      pattern="^(?:\+?88|0088)?01[3-9]\d{8}$"
+                      [(ngModel)]="entity.motherContactNumber"
+                      name="motherContactNumber"
+                      id="motherContactNumber"
+                      placeholder="Mobile No"
+                      autocomplete="off"
+                      maxlength="14"
+                      required
+                    />
+                  </div>
+                  <div
+                    [hidden]="motherMobileNo.valid || motherMobileNo.pristine"
+                    class="error-box"
+                  >
+                    <div class="error-message">
+                      <div [hidden]="!motherMobileNo.hasError('pattern')">
+                        Please input a valid mobile number
+                      </div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <p>Mother's Email :</p>
+                      </div>
+                    </div>
+                    <input
+                      #motherEmail
+                      #motherEmailId="ngModel"
+                      type="email"
+                      class="form-control"
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z0-9.-]{2,4}$"
+                      [(ngModel)]="entity.motherEmail"
+                      name="motherEmail"
+                      id="motherEmail"
+                      placeholder="Email"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div
+                    [hidden]="motherEmailId.valid || motherEmailId.pristine"
+                    class="error-box"
+                  >
+                    <div class="error-message">
+                      <div [hidden]="!motherEmailId.hasError('pattern')">
+                        Please enter a valid email address
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="submit-application-button">
+      <button
+        type="button"
+        class="btn-cmn btn-cmn-success"
+        (click)="checkAndSubmitApplication()"
+        [disabled]="admissionFrom.invalid"
+      >
+        <i class="fas fa-save"></i>
+        <p>{{ "Submit Application" | translate }}</p>
+        <span class="bold1"></span>
+        <span class="bold2"></span>
+        <span class="bold3"></span>
+        <span class="bold4"></span>
+      </button>
+    </div>
+  </div>
+  <div *ngIf="isShowSuccessMsg" class="preview-body">
+    <div class="success-msg-container">
+      <div class="succes-icon-container">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <p class="header-msg">Thank You!!!</p>
+      <p class="details-msg">Your Application was Submitted Successfully</p>
+      <p class="admission-id">
+        Admission ID: <span>{{ admissionId }}</span>
+      </p>
+      <p class="home-page-link">Go to <a routerLink="/">Home Page</a></p>
+    </div>
+  </div>
+</section>

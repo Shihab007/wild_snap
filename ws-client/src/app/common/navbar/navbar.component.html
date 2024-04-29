@@ -1,0 +1,190 @@
+<nav class="navbar sticky-top navbar-light">
+  <div class="main-container">
+    <div class="left-container" *ngIf="buttonIconState == true">
+      <a routerLink="/"> </a>
+    </div>
+    <div class="center-container">
+      <div class="nav-icon-container">
+        <div class="sidebar-header">
+          <a routerLink="/"> </a>
+        </div>
+
+        <i
+          *ngIf="buttonIconState == false"
+          (click)="toggleSidebar()"
+          id="automation-21"
+          class="fas fa-chevron-circle-left toggle-nav-icon-left"
+        ></i>
+
+        <i
+          *ngIf="buttonIconState == true"
+          (click)="toggleSidebar()"
+          id="automation-22"
+          class="fas fa-chevron-circle-right"
+        ></i>
+
+        <a
+          *ngIf="buttonIconState == true"
+          class="btn btn-outline-secondary togle-button-large-resolution toggle-nav-icon-right"
+          (click)="toggleSidebar()"
+        >
+          <i class="fas fa-chevron-right"></i>
+        </a>
+        <div class="role-name-logo">
+          <p class="name"><b>Wild Snap</b></p>
+        </div>
+      </div>
+    </div>
+    <div class="right-container">
+      <div class="language">
+        <div class="user-info">
+          <div class="nav-top-item user-name-role">
+            <h5>User Name</h5>
+          </div>
+          <i class="far fa-bell notification-icon"></i>
+          <div class="nav-top-item">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-12">
+                <ul class="list-unstyled">
+                  <li class="dropdown ml-2">
+                    <a
+                      class="rounded-circle"
+                      href="javascript:void(0)"
+                      role="button"
+                      id="dropdownUser"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      <div
+                        class="avatar avatar-md avatar-indicators avatar-online"
+                      >
+                        <img
+                          *ngIf="userInfo.userPhotoUrl == null"
+                          alt="avatar"
+                          src="https://via.placeholder.com/40x40"
+                          class="rounded-circle"
+                        />
+                        <img
+                          *ngIf="userInfo.userPhotoUrl != null"
+                          alt="avatar"
+                          src="https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg"
+                          class="rounded-circle"
+                        />
+                      </div>
+                    </a>
+                    <div
+                      class="dropdown-menu dropdown-menu-main pb-2"
+                      aria-labelledby="dropdownUser"
+                    >
+                      <div class="dropdown-item">
+                        <div class="d-flex py-2">
+                          <div
+                            class="avatar avatar-md avatar-indicators avatar-online"
+                          >
+                            <img
+                              *ngIf="userInfo.userPhotoUrl == null"
+                              alt="avatar"
+                              src="https://via.placeholder.com/40x40"
+                              class="rounded-circle"
+                            />
+                            <img
+                              *ngIf="userInfo.userPhotoUrl != null"
+                              alt="avatar"
+                              src="https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small_2x/default-avatar-profile-icon-of-social-media-user-vector.jpg"
+                              class="rounded-circle"
+                            />
+                          </div>
+                          <div class="ml-3 lh-1">
+                            <h5
+                              *ngIf="
+                                userInfo.nameEn != null ||
+                                userInfo.nameBn != null
+                              "
+                              class="mb-0"
+                            >
+                              {{
+                                locale == "en"
+                                  ? userInfo.nameEn
+                                  : userInfo.nameBn
+                              }}
+                            </h5>
+                            <p *ngIf="userInfo.email != null" class="mb-0">
+                              {{ userInfo.email }}
+                            </p>
+                            <h5 *ngIf="userInfo.nameEn == null" class="mb-0">
+                              User Name Not Found
+                            </h5>
+                            <p *ngIf="userInfo.email == null" class="mb-0">
+                              Email not Found!
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="dropdown-divider"></div>
+                      <div class="">
+                        <ul class="list-unstyled">
+                          <li>
+                            <a (click)="goToProfile()" class="dropdown-item">
+                              <span class="mr-1">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="12"
+                                  height="12"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  class="feather feather-user"
+                                >
+                                  <path
+                                    d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                                  ></path>
+                                  <circle cx="12" cy="7" r="4"></circle>
+                                </svg> </span
+                              >Profile
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="dropdown-divider"></div>
+                      <ul class="list-unstyled">
+                        <li>
+                          <a (click)="logout()" class="dropdown-item">
+                            <span class="mr-2">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="14"
+                                height="14"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="feather feather-power"
+                              >
+                                <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
+                                <line
+                                  x1="12"
+                                  y1="2"
+                                  x2="12"
+                                  y2="12"
+                                ></line></svg></span
+                            >Sign Out
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

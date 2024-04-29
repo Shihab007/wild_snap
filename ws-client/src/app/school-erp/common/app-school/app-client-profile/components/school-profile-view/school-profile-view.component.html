@@ -1,0 +1,123 @@
+<section id="view-main-tab">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="view-header">
+          <h4 class="just-grd">Profile Information</h4>
+          <div class="viewuser-image">
+            <img
+              *ngIf="entity.userPhotoUrl == null"
+              src="assets/img/default_avater.jpg"
+              alt="pic"
+              class="img-fluid"
+            />
+            <img
+              *ngIf="entity.userPhotoUrl != null"
+              src="{{ entity.userPhotoUrl }}"
+              alt="pic"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="viewtab-details">
+          <div class="viewtab-details-headline">
+            <h5>Basic Profile Information</h5>
+          </div>
+        </div>
+        <div class="viewtab-details">
+          <div class="field-wrapper">
+            <div class="field-label">
+              <p>Name</p>
+            </div>
+            <div class="field-divider">
+              <p>:</p>
+            </div>
+            <div class="field-value">
+              <p>{{ entity.nameEn }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-lg-6">
+        <div class="viewtab-details">
+          <div class="field-wrapper">
+            <div class="field-label">
+              <p>Mobile No.</p>
+            </div>
+            <div class="field-divider">
+              <p>:</p>
+            </div>
+            <div class="field-value">
+              <p>
+                {{ entity.mobileNo }}
+              </p>
+            </div>
+          </div>
+          <div class="field-wrapper">
+            <div class="field-label">
+              <p>Email</p>
+            </div>
+            <div class="field-divider">
+              <p>:</p>
+            </div>
+            <div class="field-value">
+              <p>
+                {{ entity.email }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="viewtab-details">
+          <div class="field-wrapper">
+            <div class="field-label">
+              <p>User Name</p>
+            </div>
+            <div class="field-divider">
+              <p>:</p>
+            </div>
+            <div class="field-value">
+              <p>
+                {{ entity.userName | translate }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section id="btn-section" class="mt-4">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="all-btn-box">
+            <button
+              type="button"
+              id="automation-39"
+              class="btn btn-outline-info"
+              (click)="goBack()"
+            >
+              <i class="fas fa-arrow-left"></i>&nbsp;&nbsp; Go Back
+            </button>
+            <button
+              type="button"
+              (window:keydown.enter)="goToEditPage()"
+              id="automation-40"
+              class="btn btn-outline-warning"
+            >
+              <i class="fa fa-edit"></i>&nbsp;&nbsp; Update
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
