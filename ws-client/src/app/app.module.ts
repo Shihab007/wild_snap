@@ -60,7 +60,7 @@ export function createTranslateLoader(httpBackend: HttpBackend) {
     HttpClientModule,
     OAuthModule.forRoot({
       resourceServer: {
-        allowedUrls: ['http://localhost:9090/doer-erp/api'],
+        allowedUrls: ['http://localhost:7070'],
         sendAccessToken: true,
       },
     }),

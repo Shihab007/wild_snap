@@ -15,6 +15,8 @@ export class LoginService {
   constructor(private httpClient: HttpClient) { }
   
     getUsers(loginRequest: LoginRequest): Observable<LoginResponse> {
+      console.log(`${environment.baseURL}${environment.userLogin}`);
+      
       return this.httpClient.post<LoginResponse>(`${environment.baseURL}${environment.userLogin}`, loginRequest);
     }
 

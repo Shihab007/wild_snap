@@ -25,7 +25,7 @@ export const loginOidStoreKey = 'login.doererp.cookie.store.loginoid.key';
 export const clusterOidStoreKey = 'login.doererp.cookie.store.clusteroid.key';
 export const agentClusterOidStoreKey = 'login.doererp.cookie.store.agentClusterOid.key';
 
-export const USER_INFO_LOCAL_STORAGE_KEY = 'doererp.login.user.info.local.storage.key';
+export const USER_INFO_LOCAL_STORAGE_KEY = 'login.user.info.local.storage.key';
 
 export const CLIENT_ID = '3C:A9:F4:34:02:B8';
 export const APPLICATION_NAME = 'DOER-ERP';

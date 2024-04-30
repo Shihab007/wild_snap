@@ -44,7 +44,8 @@ const routes: Routes = [
   //   loadChildren: () => import('./land-page/land-page.module').then(m => m.LandPageModule)
   // },
 
-  { path: '', redirectTo: 'wild-snap/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  // { path: '', redirectTo: 'wild-snap/dashboard', pathMatch: 'full' },
 
   // { path: '', redirectTo: 'login', pathMatch: 'full' },
 

@@ -92,8 +92,6 @@ export class LoginComponent implements OnInit, AfterViewInit {
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,
     private translate: TranslateService,
-    private router: Router,
-
     private _otpService: OtpService,
     private commonChangePasswordService: CommomChangePasswordService,
     private activatedRoute: ActivatedRoute) {
@@ -129,130 +127,130 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
 
   //CHANGE PASSWORD START
-  // isValidData() {
+  isValidData() {
 
-  //   if (!this.changePasswordRequestody.newPassword) {
-  //     this.notificationType = 'danger';
-  //     this.isShowNotificationMessage = true;
-  //     this.notificationMessage = 'Please! Enter New Password';
-  //     this.newPassword.nativeElement.focus();
-  //     setTimeout(() => {
-  //       this.isShowNotificationMessage = false;
-  //     }, this.notificationDelay);
-  //     return false;
-  //   }
-  //   if (!this.changePasswordRequestody.confirmNewPassword) {
-  //     this.notificationType = 'danger';
-  //     this.isShowNotificationMessage = true;
-  //     this.notificationMessage = 'Please! Enter Confirm New Password';
-  //     this.confirmNewPassword.nativeElement.focus();
-  //     setTimeout(() => {
-  //       this.isShowNotificationMessage = false;
-  //     }, this.notificationDelay);
-  //     return false;
-  //   }
-  //   return true;
-  // }
+    if (!this.changePasswordRequestody.newPassword) {
+      this.notificationType = 'danger';
+      this.isShowNotificationMessage = true;
+      this.notificationMessage = 'Please! Enter New Password';
+      this.newPassword.nativeElement.focus();
+      setTimeout(() => {
+        this.isShowNotificationMessage = false;
+      }, this.notificationDelay);
+      return false;
+    }
+    if (!this.changePasswordRequestody.confirmNewPassword) {
+      this.notificationType = 'danger';
+      this.isShowNotificationMessage = true;
+      this.notificationMessage = 'Please! Enter Confirm New Password';
+      this.confirmNewPassword.nativeElement.focus();
+      setTimeout(() => {
+        this.isShowNotificationMessage = false;
+      }, this.notificationDelay);
+      return false;
+    }
+    return true;
+  }
 
-  // public passwordLength: number;
-  // public minPasswordLength: number = 6;
-  // isValidNewPassword() {
-  //   this.passwordLength = this.changePasswordRequestody.newPassword.length;
-  //   if (this.passwordLength < this.minPasswordLength) {
-  //     this.notificationType = 'danger';
-  //     this.isShowNotificationMessage = true;
-  //     setTimeout(() => {
-  //       this.isShowNotificationMessage = false;
-  //     }, this.notificationDelay);
-  //     this.notificationMessage = 'New Password must contain ' + this.minPasswordLength + ' charecters';
-  //     return;
-  //   }
-  //   if (this.changePasswordRequestody.confirmNewPassword) {
-  //     if (this.changePasswordRequestody.newPassword != this.changePasswordRequestody.confirmNewPassword) {
-  //       this.notificationType = 'danger';
-  //       this.isShowNotificationMessage = true;
-  //       setTimeout(() => {
-  //         this.isShowNotificationMessage = false;
-  //       }, this.notificationDelay);
-  //       this.notificationMessage = 'New Password And Confirm New Password does not match';
-  //       return false;
-  //     }
-  //     else {
-  //       return true;
-  //     }
-  //   }
-  // }
+  public passwordLength: number;
+  public minPasswordLength: number = 6;
+  isValidNewPassword() {
+    this.passwordLength = this.changePasswordRequestody.newPassword.length;
+    if (this.passwordLength < this.minPasswordLength) {
+      this.notificationType = 'danger';
+      this.isShowNotificationMessage = true;
+      setTimeout(() => {
+        this.isShowNotificationMessage = false;
+      }, this.notificationDelay);
+      this.notificationMessage = 'New Password must contain ' + this.minPasswordLength + ' charecters';
+      return;
+    }
+    if (this.changePasswordRequestody.confirmNewPassword) {
+      if (this.changePasswordRequestody.newPassword != this.changePasswordRequestody.confirmNewPassword) {
+        this.notificationType = 'danger';
+        this.isShowNotificationMessage = true;
+        setTimeout(() => {
+          this.isShowNotificationMessage = false;
+        }, this.notificationDelay);
+        this.notificationMessage = 'New Password And Confirm New Password does not match';
+        return false;
+      }
+      else {
+        return true;
+      }
+    }
+  }
 
-  // isValidConfirmNewPassword() {
-  //   if (this.passwordLength < this.minPasswordLength) {
-  //     this.notificationType = 'danger';
-  //     this.isShowNotificationMessage = true;
-  //     setTimeout(() => {
-  //       this.isShowNotificationMessage = false;
-  //     }, this.notificationDelay);
-  //     this.notificationMessage = 'New Password must contain ' + this.minPasswordLength + ' charecters';
-  //     this.newPassword.nativeElement.focus();
-  //     return;
-  //   }
-  //   if (this.changePasswordRequestody.newPassword != this.changePasswordRequestody.confirmNewPassword) {
+  isValidConfirmNewPassword() {
+    if (this.passwordLength < this.minPasswordLength) {
+      this.notificationType = 'danger';
+      this.isShowNotificationMessage = true;
+      setTimeout(() => {
+        this.isShowNotificationMessage = false;
+      }, this.notificationDelay);
+      this.notificationMessage = 'New Password must contain ' + this.minPasswordLength + ' charecters';
+      this.newPassword.nativeElement.focus();
+      return;
+    }
+    if (this.changePasswordRequestody.newPassword != this.changePasswordRequestody.confirmNewPassword) {
 
-  //     this.notificationType = 'danger';
-  //     this.isShowNotificationMessage = true;
-  //     setTimeout(() => {
-  //       this.isShowNotificationMessage = false;
-  //     }, this.notificationDelay);
-  //     this.notificationMessage = 'New Password And Confirm New Password does not match';
-  //     return false;
-  //   }
-  //   else if (!this.changePasswordRequestody.newPassword) {
-  //     return false;
-  //   }
-  //   else {
-  //     return true;
-  //   }
-  // }
-
-
-
-  // changePasswordRequest: CommonChangePasswordRequest = new CommonChangePasswordRequest();
-  // changePasswordRequestody: CommonChangePasswordRequestBody = new CommonChangePasswordRequestBody();
-  // changePassword() {
-  //   if (!this.isValidData()) {
-  //     return;
-  //   }
-
-  //   this.changePasswordRequest.body = this.changePasswordRequestody;
-  //   this.changePasswordRequest.body.loginId = this.sendOtpRequestBody.loginId;
-  //   this.changePasswordRequest.body.email = this.sendOtpRequestBody.email;
-  //   this.changePasswordRequest.body.oldPassword = "_$change_$password_$by_$otp_$or_$email";
-
-  //   console.log(this.sendOtpRequest.body);
+      this.notificationType = 'danger';
+      this.isShowNotificationMessage = true;
+      setTimeout(() => {
+        this.isShowNotificationMessage = false;
+      }, this.notificationDelay);
+      this.notificationMessage = 'New Password And Confirm New Password does not match';
+      return false;
+    }
+    else if (!this.changePasswordRequestody.newPassword) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
 
 
-  //   this.commonChangePasswordService.changePasswordByOtp(this.changePasswordRequest).subscribe(data => {
-  //     if (data.header.responseCode == '200') {
-  //       this.notificationType = 'success';
-  //       this.isShowNotificationMessage = true;
-  //       this.notificationMessage = data.header.remarks.toString();
-  //       this.isShowChangePassword = false;
-  //       this.isShowLogin = true;
-  //       setTimeout(() => {
-  //         this.isShowNotificationMessage = false;
-  //         this.logout();
-  //       }, this.notificationDelay);
+
+  changePasswordRequest: CommonChangePasswordRequest = new CommonChangePasswordRequest();
+  changePasswordRequestody: CommonChangePasswordRequestBody = new CommonChangePasswordRequestBody();
+  changePassword() {
+    if (!this.isValidData()) {
+      return;
+    }
+
+    this.changePasswordRequest.body = this.changePasswordRequestody;
+    this.changePasswordRequest.body.loginId = this.sendOtpRequestBody.loginId;
+    this.changePasswordRequest.body.email = this.sendOtpRequestBody.email;
+    this.changePasswordRequest.body.oldPassword = "_$change_$password_$by_$otp_$or_$email";
+
+    console.log(this.sendOtpRequest.body);
 
 
-  //     } else {
-  //       this.notificationType = 'danger';
-  //       this.isShowNotificationMessage = true;
-  //       this.notificationMessage = data.header.remarks.toString();
-  //       setTimeout(() => {
-  //         this.isShowNotificationMessage = false;
-  //       }, this.notificationDelay);
-  //     }
-  //     // this.goToDueFeesViewPage();
-  //   });
-  // }
+    this.commonChangePasswordService.changePasswordByOtp(this.changePasswordRequest).subscribe(data => {
+      if (data.header.responseCode == '200') {
+        this.notificationType = 'success';
+        this.isShowNotificationMessage = true;
+        this.notificationMessage = data.header.remarks.toString();
+        this.isShowChangePassword = false;
+        this.isShowLogin = true;
+        setTimeout(() => {
+          this.isShowNotificationMessage = false;
+          this.logout();
+        }, this.notificationDelay);
+
+
+      } else {
+        this.notificationType = 'danger';
+        this.isShowNotificationMessage = true;
+        this.notificationMessage = data.header.remarks.toString();
+        setTimeout(() => {
+          this.isShowNotificationMessage = false;
+        }, this.notificationDelay);
+      }
+      // this.goToDueFeesViewPage();
+    });
+  }
 
   logout(): void {
     this.authService.logout();
@@ -273,7 +271,6 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   isValidLoginData() {
-
     if (!this.loginRequestBody.loginId) {
       this.notificationType = 'danger';
       this.isShowNotificationMessage = true;
@@ -297,43 +294,58 @@ export class LoginComponent implements OnInit, AfterViewInit {
     return true;
   }
 
-  Submit() {
-    this.router.navigate(["/wild-snap/dashboard"]);
+  onSubmit() {
+
 
     if (!this.isValidLoginData()) {
       return;
     }
 
     this.loginRequestHeader = new LoginRequestHeader();
-
-    this.loginRequestHeader.requestId = this.header.requestId;
-    this.loginRequestHeader.requestDateTime = this.header.requestDateTime;
-    this.loginRequestHeader.requestSource = this.header.requestSource;
-    this.loginRequestHeader.requestServiceSource = this.header.requestServiceSource;
-
+    this.loginRequestHeader = this.header
     this.loginResponse = new LoginResponse();
-
 
     this.loginRequest.body = this.loginRequestBody;
     this.loginRequest.body.loginId = this.loginRequestBody.loginId.trim();
     this.loginRequest.header = this.loginRequestHeader;
     this.loginResponseBody = new LoginResponseBody();
 
-
     this.service.getUsers(this.loginRequest).subscribe(resData => {
+
       this.authService.loginResponseBody = resData.body;
 
-      this.isError = false;
+      if (resData.body.loginStatus == "Active") {
 
+        this.userInfo.oid = resData.body.oid;
+        this.userInfo.loginId = resData.body.loginId;
+        this.userInfo.nameEn = resData.body.nameEn;
+        this.userInfo.nameBn = resData.body.nameBn;
+        this.userInfo.email = resData.body.email;
+        this.userInfo.mobileNo = resData.body.mobileNo;
+        this.userInfo.roleOid = resData.body.roleOid;
+        this.userInfo.loginStatus = resData.body.loginStatus;
+        this.userInfo.roleType = resData.body.roleType;
 
+        this._appStorageService.setData(USER_INFO_LOCAL_STORAGE_KEY, JSON.stringify(this.userInfo));
+    
+        if (resData.body.roleType == 'Admin') {
+          localStorage.setItem('loggedIn', 'true');
+          this.route.navigate(['admin/dashboard']);
+          this.toastr.success('Login Successful!');
+        }
+        else if (resData.body.roleType == 'User') {
+          localStorage.setItem('loggedIn', 'true');
+          this.route.navigate(['wild-snap/dashboard']);
+          this.toastr.success('Login Successful!');
+        }
+      }
       if (resData.header.responseCode != '200' && resData.header.status == 'Failed') {
         this.toastr.error('Failed to login by this Login ID/Username and Password');
       }
     }, error => {
       this.isError = true;
       throwError(error);
-      // this.toastr.error(error.message);
-      // this.toastr.error("Username or Password Incorrect");
+      this.toastr.error("Username or Password Incorrect");
     });
 
   }
@@ -373,8 +385,123 @@ export class LoginComponent implements OnInit, AfterViewInit {
   };
 
 
+  goToOtpVerification() {
+    this.sendOtpRequest.body = this.sendOtpRequestBody;
+    this.sendOtpRequest.body.loginId = this.sendOtpRequestBody.loginId;
+
+    this._otpService.sendOtpByLoginId(this.sendOtpRequest).subscribe(data => {
+      if (data.header.responseCode == '200' && data.body.smsStatus == 'Sent') {
+        this.toastr.success(data.header.message.toString());
+        this.isShowOtpVerification = true;
+        this.isShowLogin = false;
+        this.isShowForgotPassword = false;
+        this.countDownConfig = { leftTime: this.countDownTime, format: 'm:s', demand: false };
+      } else {
+        this.showResendOtpMessage = false;
+        this.toastr.error(data.header.message.toString());
+      }
+    }, error => {
+      this.spinner.hide();
+      this.toastr.error("Error 404 Not Found");
+    });
+  }
 
 
+  resendOtpRequest: SendOtpRequest = new SendOtpRequest();
+  resendOtpRequestBody: SendOtpRequestBody = new SendOtpRequestBody();
+  resendOtp() {
+
+    this.sendOtpRequest.body = this.sendOtpRequestBody;
+    this._otpService.resendOtpByLoginId(this.sendOtpRequest).subscribe(data => {
+      if (data.header.responseCode == '200') {
+        this.countDownConfig = { leftTime: this.countDownTime, format: 'm:s', demand: false };
+        this.countdown.begin();
+        this.showResendOtpMessage = true;
+        this.showWrongOtpMessage = false;
+        this.otp = "";
+        this.setVal(this.otp);
+        this.toastr.success(data.header.message.toString());
+      } else {
+        this.toastr.error(data.header.message.toString());
+      }
+
+    });
+  }
+
+  verifyOtpRequest: VerifyOtpRequest = new VerifyOtpRequest();
+  verifyOtpRequestBody: VerifyOtpRequestBody = new VerifyOtpRequestBody();
+  verifyOtpAndGoToChangePassword() {
+
+    this.verifyOtpRequest.body = this.verifyOtpRequestBody;
+    this.verifyOtpRequest.body.loginId = this.sendOtpRequestBody.loginId;
+    this.verifyOtpRequest.body.email = this.sendOtpRequestBody.email;
+    this.verifyOtpRequest.body.otp = this.otp;
+
+    this._otpService.verifyOtpByLoginId(this.verifyOtpRequest).subscribe(data => {
+      if (data.header.responseCode == '200') {
+
+        if (data.body.data) {
+          this.showWrongOtpMessage = false;
+          this.spinner.hide();
+          this.otpVerifyMessage = "Your entered OTP is correct.";
+          this.isShowChangePassword = true;
+          this.isShowOtpVerification = false;
+        } else {
+          this.spinner.hide();
+          this.showWrongOtpMessage = true;
+          this.otpVerifyMessage = "The OTP code has expired. Please re-send the otp code to try again.";
+          this.toastr.error(data.header.message.toString());
+        }
+      }
+
+    }, error => {
+      this.isError = true;
+      throwError(error);
+      this.toastr.error('Sorry! OTP varification failed! Please insert correct OTP')
+    });
+  }
+
+  onOtpChange(otp: string) {
+    debugger;
+    this.otp = otp;
+    if (this.otp.length == 6) {
+      this.spinner.show();
+      this.verifyOtpAndGoToChangePassword();
+    }
+  }
+
+  verifyOtp(loginId: any, otp: any) {
+    this.verifyOtpRequest.body = this.verifyOtpRequestBody;
+    this.verifyOtpRequest.body.loginId = loginId;
+    this.verifyOtpRequest.body.otp = otp;
+
+    this._otpService.verifyOtpByLoginId(this.verifyOtpRequest).subscribe(
+      (data) => {
+        if (data.header.responseCode == '200') {
+          if (data.body.data) {
+            this.showWrongOtpMessage = false;
+            this.spinner.hide();
+          } else {
+            this.spinner.hide();
+            this.showWrongOtpMessage = true;
+            this.otpVerifyMessage = "The OTP code has expired. Please re-send the otp code to try again.";
+          }
+        } else {
+          this.otpVerifyMessage = "The OTP you entered is invalid. Please enter correct OTP.";
+          this.showWrongOtpMessage = true;
+          this.spinner.hide();
+          this.toastr.warning('Wrong otp.', '', {
+            positionClass: 'toast-top-right', closeButton: true,
+          });
+        }
+      },
+      (error) => {
+        this.otpVerifyMessage = "The OTP you entered is invalid. Please enter correct OTP.";
+        this.showWrongOtpMessage = true;
+        this.spinner.hide();
+      }
+    );
+  }
 
 
   selectLoginId() {

@@ -9,12 +9,10 @@ import com.wildSnap.apis.response.userInfoResponse.UserInfoResponse;
 import com.wildSnap.apis.service.LoginServ.LoginService;
 import com.wildSnap.apis.service.UserInfoService.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("wild-snap")
 public class LoginController {
     @Autowired
@@ -23,6 +21,7 @@ public class LoginController {
     @PostMapping("/login")
     public LoginResponse userInfo(@RequestBody LoginRequest loginRequest){
         try{
+            System.out.println("Called..................................");
             return service.handleUserRequest(loginRequest);
         }catch (Exception e){
             return LoginResponseBuilder.buildLoginResponse(null, loginRequest, "501", "Failed");
