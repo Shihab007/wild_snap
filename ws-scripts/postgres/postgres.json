@@ -596,11 +596,19 @@
                             "status"
                         ],
                         [
-                            "doer-steel-role-oid",
-                            "doer-steel-role-id",
-                            "Doer Steel Admin",
-                            "[{\"title\":\"General\",\"type\":\"header\"},{\"title\":\"Dashboard\",\"icon\":\"fa fa-tachometer-alt\",\"active\":true,\"link\":\"/guardian/dashboard\"},{\"title\":\"Profile\",\"icon\":\"fas fa-user-tie\",\"active\":false,\"link\":\"/guardian/dashboard\",\"type\":\"dropdown\",\"submenus\":[{\"title\":\"My Profile\",\"link\":\"/guardian/profile\"},{\"title\":\"Change_Password\",\"link\":\"/guardian/profile/change-password\"}]},{\"title\":\"Teacher\",\"icon\":\"fas fa-user-tie\",\"active\":true,\"link\":\"/guardian/teacher/list\"},{\"title\":\"Student\",\"icon\":\"fas fa-user-tie\",\"active\":true,\"link\":\"/guardian/student/list\"},{\"title\":\"Class\",\"icon\":\"fas fa-chalkboard\",\"active\":false,\"link\":\"/guardian/dashboard\",\"type\":\"dropdown\",\"submenus\":[{\"title\":\"Class Routine\",\"link\":\"/guardian/class-routine/view\"}]},{\"title\":\"Notice\",\"icon\":\"fa fa-clipboard-list\",\"active\":false,\"type\":\"simple\",\"link\":\"/guardian/notice/list\",\"badge\":{\"text\":\"New Notice\",\"class\":\"badge-alert\",\"link\":\"/guardian/notice/list\"}},{\"title\":\"Exam\",\"icon\":\"far fa-newspaper\",\"active\":false,\"link\":\"/guardian/dashboard\",\"type\":\"dropdown\",\"submenus\":[{\"title\":\"Exam Routine\",\"link\":\"/guardian/exam-routine/list\"},{\"title\":\"Exam Result\",\"link\":\"/guardian/exam-result/list\"}]},{\"title\":\"Fees\",\"icon\":\"fas fa-envelope-open-text\",\"active\":false,\"link\":\"/guardian/fees\",\"type\":\"dropdown\",\"submenus\":[{\"title\":\"Due Fees\",\"link\":\"/guardian/fees/due-fees/list\"},{\"title\":\"Fees Collection\",\"link\":\"/guardian/fees/fees-collection/history\"}]},{\"title\":\"Attendance\",\"icon\":\"far fa-users\",\"active\":false,\"link\":\"/guardian/attendance\",\"type\":\"simple\"},{\"title\":\"Home Work\",\"icon\":\"fas fa-chalkboard\",\"active\":false,\"link\":\"/guardian/home-work\",\"type\":\"dropdown\",\"submenus\":[{\"title\":\"Home Work List\",\"link\":\"/guardian/home-work/list\"}]}]",
+                            "wild-snap-oid-admin",
+                            "wild-snap-admin",
+                            "Wild Snap Admin",
+                            "[{}]",
                             "Admin",
+                            "Active"
+                        ],
+                        [
+                            "wild-snap-oid-user",
+                            "wild-snap-user",
+                            "Wild Snap User",
+                            "[{}]",
+                            "User",
                             "Active"
                         ]
                     ],
@@ -946,18 +954,18 @@
                             "role_oid"
                         ],
                         [
-                            "doer-steel-login-oid-0001",
-                            "doer-steel-login-id-0001",
-                            "$2a$10$GAgMtAzIKG2Cr/gxikpNZOmiIvBuMC0lDjvP.4607ABHz2zk6zDtW",
-                            "jarifa",
-                            "Doer",
-                            "\u09a6\u09c1\u09df\u09be\u09b0",
-                            "polas.hossain@doer.com.bd",
+                            "wild-snap-login-oid-0001",
+                            "wild-snap-login-id-0001",
+                            "1234",
+                            "shihab",
+                            "Shihab",
+                            "\u09b6\u09bf\u09b9\u09be\u09ac",
+                            "shihab6661@gmail.com",
                             "1725868816",
                             "",
                             "",
                             "Active",
-                            "doer-steel-role-oid"
+                            "wild-snap-oid-admin"
                         ]
                     ],
                     "partition": "-",
@@ -2158,6 +2166,329 @@
                             "check": "Yes, No",
                             "reference": "-",
                             "sortOrder": 6
+                        }
+                    ],
+                    "data": [],
+                    "partition": "-",
+                    "notes": "-"
+                }
+            ]
+        },
+        {
+            "script": "00_01__animal_info.sql",
+            "tables": [
+                {
+                    "schema": "wild_snap",
+                    "tableName": "animal_data",
+                    "sortOrder": 10,
+                    "columns": [
+                        {
+                            "sortOrder": 1,
+                            "columnName": "oid",
+                            "type": "varchar",
+                            "precision": "128",
+                            "scale": "-",
+                            "required": "Yes",
+                            "default": "-",
+                            "unique": "-",
+                            "composite": "-",
+                            "ordinal": "-",
+                            "partition": "-",
+                            "notes": "-"
+                        },
+                        {
+                            "sortOrder": 2,
+                            "columnName": "image_url",
+                            "type": "varchar",
+                            "precision": "128",
+                            "scale": "-",
+                            "required": "No",
+                            "default": "-",
+                            "unique": "-",
+                            "composite": "-",
+                            "ordinal": "-",
+                            "partition": "-",
+                            "notes": "-"
+                        },
+                        {
+                            "sortOrder": 3,
+                            "columnName": "image_path",
+                            "type": "varchar",
+                            "precision": "128",
+                            "scale": "-",
+                            "required": "No",
+                            "default": "-",
+                            "unique": "-",
+                            "composite": "-",
+                            "ordinal": "-",
+                            "partition": "-",
+                            "notes": "-"
+                        },
+                        {
+                            "sortOrder": 4,
+                            "columnName": "image_name",
+                            "type": "varchar",
+                            "precision": "128",
+                            "scale": "-",
+                            "required": "No",
+                            "default": "-",
+                            "unique": "Unique",
+                            "composite": "-",
+                            "ordinal": "-",
+                            "partition": "-",
+                            "notes": "-"
+                        },
+                        {
+                            "sortOrder": 5,
+                            "columnName": "image_description",
+                            "type": "varchar",
+                            "precision": "32",
+                            "scale": "-",
+                            "required": "No",
+                            "default": "-",
+                            "unique": "-",
+                            "composite": "-",
+                            "ordinal": "-",
+                            "partition": "-",
+                            "notes": "-"
+                        },
+                        {
+                            "sortOrder": 6,
+                            "columnName": "links",
+                            "type": "varchar",
+                            "precision": "32",
+                            "scale": "-",
+                            "required": "No",
+                            "default": "-",
+                            "unique": "-",
+                            "composite": "-",
+                            "ordinal": "-",
+                            "partition": "-",
+                            "notes": "-"
+                        },
+                        {
+                            "sortOrder": 7,
+                            "columnName": "created_by",
+                            "type": "varchar",
+                            "precision": "128",
+                            "scale": "-",
+                            "required": "Yes",
+                            "default": "System",
+                            "unique": "-",
+                            "composite": "-",
+                            "ordinal": "-",
+                            "partition": "-",
+                            "notes": "-"
+                        },
+                        {
+                            "sortOrder": 8,
+                            "columnName": "created_on",
+                            "type": "timestamp",
+                            "precision": "-",
+                            "scale": "-",
+                            "required": "Yes",
+                            "default": "current_timestamp",
+                            "unique": "-",
+                            "composite": "-",
+                            "ordinal": "-",
+                            "partition": "-",
+                            "notes": "-"
+                        },
+                        {
+                            "sortOrder": 9,
+                            "columnName": "updated_by",
+                            "type": "varchar",
+                            "precision": "128",
+                            "scale": "-",
+                            "required": "-",
+                            "default": "-",
+                            "unique": "-",
+                            "composite": "-",
+                            "ordinal": "-",
+                            "partition": "-",
+                            "notes": "-"
+                        },
+                        {
+                            "sortOrder": 10,
+                            "columnName": "updated_on",
+                            "type": "timestamp",
+                            "precision": "-",
+                            "scale": "-",
+                            "required": "-",
+                            "default": "-",
+                            "unique": "-",
+                            "composite": "-",
+                            "ordinal": "-",
+                            "partition": "-",
+                            "notes": "-"
+                        }
+                    ],
+                    "constraints": [
+                        {
+                            "columnName": "oid",
+                            "constraintType": "Primary",
+                            "check": "-",
+                            "reference": "-",
+                            "sortOrder": 1
+                        }
+                    ],
+                    "data": [],
+                    "partition": "-",
+                    "notes": "-"
+                },
+                {
+                    "schema": "wild_snap",
+                    "tableName": "data_sets",
+                    "sortOrder": 11,
+                    "columns": [
+                        {
+                            "sortOrder": 1,
+                            "columnName": "oid",
+                            "type": "varchar",
+                            "precision": "128",
+                            "scale": "-",
+                            "required": "Yes",
+                            "default": "-",
+                            "unique": "-",
+                            "composite": "-",
+                            "ordinal": "-",
+                            "partition": "-",
+                            "notes": "-"
+                        },
+                        {
+                            "sortOrder": 2,
+                            "columnName": "image_url",
+                            "type": "varchar",
+                            "precision": "128",
+                            "scale": "-",
+                            "required": "No",
+                            "default": "-",
+                            "unique": "-",
+                            "composite": "-",
+                            "ordinal": "-",
+                            "partition": "-",
+                            "notes": "-"
+                        },
+                        {
+                            "sortOrder": 3,
+                            "columnName": "image_path",
+                            "type": "varchar",
+                            "precision": "128",
+                            "scale": "-",
+                            "required": "No",
+                            "default": "-",
+                            "unique": "-",
+                            "composite": "-",
+                            "ordinal": "-",
+                            "partition": "-",
+                            "notes": "-"
+                        },
+                        {
+                            "sortOrder": 4,
+                            "columnName": "image_name",
+                            "type": "varchar",
+                            "precision": "128",
+                            "scale": "-",
+                            "required": "No",
+                            "default": "-",
+                            "unique": "Unique",
+                            "composite": "-",
+                            "ordinal": "-",
+                            "partition": "-",
+                            "notes": "-"
+                        },
+                        {
+                            "sortOrder": 5,
+                            "columnName": "image_description",
+                            "type": "varchar",
+                            "precision": "32",
+                            "scale": "-",
+                            "required": "No",
+                            "default": "-",
+                            "unique": "-",
+                            "composite": "-",
+                            "ordinal": "-",
+                            "partition": "-",
+                            "notes": "-"
+                        },
+                        {
+                            "sortOrder": 6,
+                            "columnName": "links",
+                            "type": "varchar",
+                            "precision": "32",
+                            "scale": "-",
+                            "required": "No",
+                            "default": "-",
+                            "unique": "-",
+                            "composite": "-",
+                            "ordinal": "-",
+                            "partition": "-",
+                            "notes": "-"
+                        },
+                        {
+                            "sortOrder": 7,
+                            "columnName": "created_by",
+                            "type": "varchar",
+                            "precision": "128",
+                            "scale": "-",
+                            "required": "Yes",
+                            "default": "System",
+                            "unique": "-",
+                            "composite": "-",
+                            "ordinal": "-",
+                            "partition": "-",
+                            "notes": "-"
+                        },
+                        {
+                            "sortOrder": 8,
+                            "columnName": "created_on",
+                            "type": "timestamp",
+                            "precision": "-",
+                            "scale": "-",
+                            "required": "Yes",
+                            "default": "current_timestamp",
+                            "unique": "-",
+                            "composite": "-",
+                            "ordinal": "-",
+                            "partition": "-",
+                            "notes": "-"
+                        },
+                        {
+                            "sortOrder": 9,
+                            "columnName": "updated_by",
+                            "type": "varchar",
+                            "precision": "128",
+                            "scale": "-",
+                            "required": "-",
+                            "default": "-",
+                            "unique": "-",
+                            "composite": "-",
+                            "ordinal": "-",
+                            "partition": "-",
+                            "notes": "-"
+                        },
+                        {
+                            "sortOrder": 10,
+                            "columnName": "updated_on",
+                            "type": "timestamp",
+                            "precision": "-",
+                            "scale": "-",
+                            "required": "-",
+                            "default": "-",
+                            "unique": "-",
+                            "composite": "-",
+                            "ordinal": "-",
+                            "partition": "-",
+                            "notes": "-"
+                        }
+                    ],
+                    "constraints": [
+                        {
+                            "columnName": "oid",
+                            "constraintType": "Primary",
+                            "check": "-",
+                            "reference": "-",
+                            "sortOrder": 1
                         }
                     ],
                     "data": [],

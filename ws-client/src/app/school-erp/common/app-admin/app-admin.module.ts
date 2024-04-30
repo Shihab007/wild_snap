@@ -11,16 +11,9 @@ import { MessagesModule } from 'primeng/messages';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { createTranslateLoader } from 'src/app/app.module';
-import { AppAdminClassRoomComponent } from './app-admin-class-room/app-admin-class-room.component';
-import { AppAdminClassRoutineComponent } from './app-admin-class-routine/app-admin-class-routine.component';
-import { AppAdminExamComponent } from './app-admin-exam/app-admin-exam.component';
-import { AppAdminExamRoutineComponent } from './app-admin-exam-routine/app-admin-exam-routine.component';
-import { AppAdminExamResultComponent } from './app-admin-exam-result/app-admin-exam-result.component';
-import { AppAdminClassSubjectComponent } from './app-admin-class-subject/app-admin-class-subject.component';
-
 
 @NgModule({
-  declarations: [AppAdminComponent, AppAdminClassSubjectComponent, AppAdminClassRoomComponent, AppAdminClassRoutineComponent, AppAdminExamComponent, AppAdminExamRoutineComponent, AppAdminExamResultComponent],
+  declarations: [AppAdminComponent],
   imports: [
     CommonModule,
     AppAdminRoutingModule,

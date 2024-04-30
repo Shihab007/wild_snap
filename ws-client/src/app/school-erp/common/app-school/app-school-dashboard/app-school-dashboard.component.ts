@@ -115,7 +115,6 @@ export class AppSchoolDashboardComponent implements OnInit {
 
     this.instituteDashboardAllInfoRequest.header = this.instituteDashboardInfoRequestHeader;
     this.instituteDashboardAllInfoRequest.body = this.instituteDashboardAllInfoRequestBody;
-    this.instituteDashboardAllInfoRequest.body.instituteOid = this.userInfo.instituteOid;
 
     this._spinner.show();
     this._instituteDashboardAllInfoService.getInstituteDashboardInfo(this.instituteDashboardAllInfoRequest).subscribe(data => {

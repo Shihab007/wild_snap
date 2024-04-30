@@ -6,7 +6,7 @@ export const environment = {
   production: false,
 
   // Implement Keycloak Port 9090 will be active
-  baseURL: 'http://localhost:9090/doer-erp/api',
+  baseURL: 'http://localhost:7070',
 
   // New URL for Live Server
   // baseURL: 'https://doer-school.celloscope.net/doer-erp/api',
@@ -82,7 +82,7 @@ export const environment = {
 
   GET_INSTITUTE_GUARDIAN_LIST: '/v1/get-institute-guardian-list',
 
-  userLogin: '/v1/user/login',
+  userLogin: '/wild-snap/login',
 
   changePassword: '/v1/user/change-password',
 

@@ -99,7 +99,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     }
     this.userName$ = this._authService.currentUserName;
     this.roleOid$ = this._authService.currentRoleOid;
-    this.getInstituteInformation(this.userInfo.instituteOid);
+    // this.getInstituteInformation(this.userInfo.instituteOid);
   }
 
 
@@ -169,9 +169,9 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   goToInstituteEditPage() {
     let user = this.userInfo.roleType.toLocaleLowerCase();
     if (user == 'institute') {
-      var oid = this.userInfo.instituteOid;
+      // var oid = this.userInfo.instituteOid;
       var routerPath = 'school/institute/edit/';
-      this.router.navigate([routerPath, oid]);
+      // this.router.navigate([routerPath, oid]);
     }
 
   }
