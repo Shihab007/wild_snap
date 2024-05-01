@@ -83,7 +83,7 @@ public class ImageUploadController {
 	@ResponseBody
 	public ResponseEntity<Resource> getFile(@PathVariable String filename) {
 		log.info("File download Request received....");
-		
+
     	String url = Api.FILE_DOWNLOAD;
     	log.debug("API URL:{}", url);
     	
