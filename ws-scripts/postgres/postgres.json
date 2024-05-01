@@ -2338,7 +2338,7 @@
                 },
                 {
                     "schema": "wild_snap",
-                    "tableName": "data_sets",
+                    "tableName": "uploaded_image",
                     "sortOrder": 11,
                     "columns": [
                         {
@@ -2413,20 +2413,6 @@
                         },
                         {
                             "sortOrder": 6,
-                            "columnName": "links",
-                            "type": "varchar",
-                            "precision": "32",
-                            "scale": "-",
-                            "required": "No",
-                            "default": "-",
-                            "unique": "-",
-                            "composite": "-",
-                            "ordinal": "-",
-                            "partition": "-",
-                            "notes": "-"
-                        },
-                        {
-                            "sortOrder": 7,
                             "columnName": "created_by",
                             "type": "varchar",
                             "precision": "128",
@@ -2440,7 +2426,7 @@
                             "notes": "-"
                         },
                         {
-                            "sortOrder": 8,
+                            "sortOrder": 7,
                             "columnName": "created_on",
                             "type": "timestamp",
                             "precision": "-",
@@ -2454,7 +2440,7 @@
                             "notes": "-"
                         },
                         {
-                            "sortOrder": 9,
+                            "sortOrder": 8,
                             "columnName": "updated_by",
                             "type": "varchar",
                             "precision": "128",
@@ -2468,7 +2454,7 @@
                             "notes": "-"
                         },
                         {
-                            "sortOrder": 10,
+                            "sortOrder": 9,
                             "columnName": "updated_on",
                             "type": "timestamp",
                             "precision": "-",
