@@ -25,9 +25,9 @@ public class UserInfoResponseBuilder {
         if (user != null) {
             responseBody.setOid(user.getOid());
             responseBody.setUserName(user.getUserName());
-            responseBody.setName(user.getName());
+            responseBody.setNameEn(user.getNameEn());
             responseBody.setEmail(user.getEmail());
-            responseBody.setPassword(user.getPassword());
+            responseBody.setMobileNo(user.getMobileNo());
         }
         response.setBody(responseBody);
 

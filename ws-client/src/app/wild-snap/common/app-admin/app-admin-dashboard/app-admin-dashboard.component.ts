@@ -54,6 +54,7 @@ export class AppAdminDashboardComponent implements OnInit {
 
 
   getAdminDashboardInfo() {
+    this._toastr.success("Dashboard Loaded");
     this.dashboardInfoRequestHeader.requestId = this.header.requestId;
     this.dashboardInfoRequestHeader.requestDateTime = this.header.requestDateTime;
     this.dashboardInfoRequestHeader.requestSource = this.header.requestSource;
@@ -64,7 +65,10 @@ export class AppAdminDashboardComponent implements OnInit {
 
     this._spinner.show();
     this.adminDashboardInfoService.getAdminDashboardInfo(this.adminDashboardInfoRequest).subscribe(data => {
+
+
       this._spinner.hide();
+
       this.adminDashboard = data.body;
       this.topTenInstituteInfo = data.body.topTenInstitute;
       this.lessTopInstituteInfo = data.body.lessTenInstitute;
@@ -75,7 +79,7 @@ export class AppAdminDashboardComponent implements OnInit {
       (error) => {
         console.log(error);
         this._spinner.hide();
-        this._toastr.error(error.Message);
+        // this._toastr.error(error.Message);
       });
   }
 

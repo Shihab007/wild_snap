@@ -44,7 +44,7 @@ export class SchoolProfileViewComponent implements OnInit {
   getProfileByLoginId() {
 
     this.getProfileByLoginIdRequest.body = this.getProfileByLoginIdRequestBody;
-    this.getProfileByLoginIdRequest.body.loginId = this.userInfo.loginId;
+    this.getProfileByLoginIdRequest.body.oid = this.userInfo.oid;
     this._spinner.show();
     this._securityService.getProfileByLoginId(this.getProfileByLoginIdRequest).subscribe((data) => {
       this._spinner.hide();

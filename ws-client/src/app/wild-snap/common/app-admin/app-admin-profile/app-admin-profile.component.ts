@@ -62,14 +62,14 @@ export class AppAdminProfileComponent implements OnInit {
   getProfileByLoginId() {
 
     this.getProfileByLoginIdRequest.body = this.getProfileByLoginIdRequestBody;
-    this.getProfileByLoginIdRequest.body.loginId = this.userInfo.loginId;
+    this.getProfileByLoginIdRequest.body.oid = this.userInfo.oid;
     this._spinner.show();
     this._securityService.getProfileByLoginId(this.getProfileByLoginIdRequest).subscribe((data) => {
       this._spinner.hide();
       if (data.header.responseCode == "200") {
+        this._toastr.success("User Profile Loaded");
+
         this.entity = data.body;
-        console.log('PROFILE INFO');
-        console.log(this.entity);
       }
     }, (error) => {
       this._spinner.hide();

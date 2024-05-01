@@ -9,6 +9,10 @@ const routes: Routes = [
     component: AppAdminProfileComponent
   },
   {
+    path: 'admin-view',
+    component: AppAdminProfileComponent
+  },
+  {
     path: 'change-password',
     component: CommonChangePasswordComponent,
   }

@@ -15,7 +15,7 @@ const routes: Routes = [
 
   },
   {
-    path: 'view',
+    path: 'user-view',
     component: SchoolProfileViewComponent,
 
   },

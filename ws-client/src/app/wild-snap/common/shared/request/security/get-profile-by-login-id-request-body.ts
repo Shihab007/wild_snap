@@ -1,3 +1,3 @@
 export class GetProfileByLoginIdRequestBody {
-  loginId: string;
+  oid: string;
 }

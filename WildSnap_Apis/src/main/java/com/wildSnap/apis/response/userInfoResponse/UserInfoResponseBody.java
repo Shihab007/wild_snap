@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 public class UserInfoResponseBody {
     public String oid;
     public String userName;
-    public String name;
+    public String nameEn;
     public String email;
-    public String password;
+    public String mobileNo;
 
 }

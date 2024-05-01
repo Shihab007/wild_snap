@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 public class UserInfoModel {
     public String oid;
     public String userName;
-    public String name;
+    public String nameEn;
     public String email;
-    public String password;
+    public String mobileNo;
 }

@@ -1,40 +1,48 @@
 <section id="view-main-tab">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="view-header">
-                    <h4 class="just-grd">
-                        {{'Profile Information' | translate}}
-                    </h4>
-                    <div class="viewuser-image">
-                        <img *ngIf="entity.userPhotoUrl == null" src="assets/img/default_avater.jpg" alt="pic"
-                            class="img-fluid" />
-                        <img *ngIf="entity.userPhotoUrl != null" src="{{ entity.userPhotoUrl }}" alt="pic"
-                            class="img-fluid" />
-                    </div>
-                </div>
-            </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="view-header">
+          <h4 class="just-grd">
+            {{ "Profile Information" | translate }}
+          </h4>
+          <div class="viewuser-image">
+            <img
+              *ngIf="entity.userPhotoUrl == null"
+              src="assets/img/default_avater.jpg"
+              alt="pic"
+              class="img-fluid"
+            />
+            <img
+              *ngIf="entity.userPhotoUrl != null"
+              src="{{ entity.userPhotoUrl }}"
+              alt="pic"
+              class="img-fluid"
+            />
+          </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="viewtab-details">
-                    <div class="viewtab-details-headline">
-                        <h5>{{'Basic_Profile_Information' | translate}}</h5>
-                    </div>
-                </div>
-                <div class="viewtab-details">
-                    <div class="field-wrapper">
-                        <div class="field-label">
-                            <p>{{'Name_English' | translate}}</p>
-                        </div>
-                        <div class="field-divider">
-                            <p>:</p>
-                        </div>
-                        <div class="field-value">
-                            <p>{{ entity.nameEn }}</p>
-                        </div>
-                    </div>
-                    <div class="field-wrapper">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="viewtab-details">
+          <div class="viewtab-details-headline">
+            <h5>{{ "Basic_Profile_Information" | translate }}</h5>
+          </div>
+        </div>
+        <div class="viewtab-details">
+          <div class="field-wrapper">
+            <div class="field-label">
+              <p>{{ "Name_English" | translate }}</p>
+            </div>
+            <div class="field-divider">
+              <p>:</p>
+            </div>
+            <div class="field-value">
+              <p>{{ entity.nameEn }}</p>
+            </div>
+          </div>
+          <!-- <div class="field-wrapper">
                         <div class="field-label">
                             <p>{{'Name_Bangla' | translate}}</p>
                         </div>
@@ -44,81 +52,81 @@
                         <div class="field-value">
                             <p>{{ entity.nameBn }}</p>
                         </div>
-                    </div>
-                </div>
-            </div>
+                    </div> -->
         </div>
-
-        <div class="row mt-3">
-            <div class="col-lg-6">
-                <div class="viewtab-details">
-                    <div class="field-wrapper">
-                        <div class="field-label">
-                            <p>{{ "Mobile No." | translate }}</p>
-                        </div>
-                        <div class="field-divider">
-                            <p>:</p>
-                        </div>
-                        <div class="field-value">
-                            <p>
-                                {{ entity.mobileNo | localNumber }}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="field-wrapper">
-                        <div class="field-label">
-                            <p>{{ "Email" | translate }}</p>
-                        </div>
-                        <div class="field-divider">
-                            <p>:</p>
-                        </div>
-                        <div class="field-value">
-                            <p>
-                                {{ entity.email }}
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="viewtab-details">
-                    <div class="field-wrapper">
-                        <div class="field-label">
-                            <p>{{ "User_Id" | translate }}</p>
-                        </div>
-                        <div class="field-divider">
-                            <p>:</p>
-                        </div>
-                        <div class="field-value">
-                            <p>
-                                {{ entity.userName | translate }}
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
+      </div>
     </div>
-    <section id="btn-section" class="mt-4">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="all-btn-box">
-                        <button type="button" class="btn btn-outline-info" (click)="goBack()">
-                            <i class="fas fa-arrow-left"></i>&nbsp;&nbsp;
-                            {{ 'Go Back' | translate }}
-                        </button>
-                        <!-- <button type="button" (click)="goToEditPage()" class="btn btn-outline-warning">
+
+    <div class="row mt-3">
+      <div class="col-lg-6">
+        <div class="viewtab-details">
+          <div class="field-wrapper">
+            <div class="field-label">
+              <p>{{ "Mobile No." | translate }}</p>
+            </div>
+            <div class="field-divider">
+              <p>:</p>
+            </div>
+            <div class="field-value">
+              <p>
+                {{ entity.mobileNo | localNumber }}
+              </p>
+            </div>
+          </div>
+          <div class="field-wrapper">
+            <div class="field-label">
+              <p>{{ "Email" | translate }}</p>
+            </div>
+            <div class="field-divider">
+              <p>:</p>
+            </div>
+            <div class="field-value">
+              <p>
+                {{ entity.email }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="viewtab-details">
+          <div class="field-wrapper">
+            <div class="field-label">
+              <p>{{ "User_Id" | translate }}</p>
+            </div>
+            <div class="field-divider">
+              <p>:</p>
+            </div>
+            <div class="field-value">
+              <p>
+                {{ entity.userName | translate }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section id="btn-section" class="mt-4">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="all-btn-box">
+            <button
+              type="button"
+              class="btn btn-outline-info"
+              (click)="goBack()"
+            >
+              <i class="fas fa-arrow-left"></i>&nbsp;&nbsp;
+              {{ "Go Back" | translate }}
+            </button>
+            <!-- <button type="button" (click)="goToEditPage()" class="btn btn-outline-warning">
                             <i class="fa fa-edit"></i>&nbsp;&nbsp;
                             {{'Update' | translate}}
                         </button> -->
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-    </section>
-
+      </div>
+    </div>
+  </section>
 </section>

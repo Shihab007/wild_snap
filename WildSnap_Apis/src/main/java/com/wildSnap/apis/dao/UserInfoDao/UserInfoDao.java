@@ -20,7 +20,7 @@ public class UserInfoDao {
         UserInfoModel user = new UserInfoModel();
 
         try {
-            String sql = " select oid, user_name , name_en , email , password "
+            String sql = " select oid, user_name , name_en , email, mobile_no "
                    + " from wild_snap.wild_snap.login "
                    + " where 1 = 1 ";
 
@@ -33,9 +33,9 @@ public class UserInfoDao {
             for(Map<String, Object> row:rows){
                 user.setOid((String) row.get("oid"));
                 user.setUserName((String) row.get("user_name"));
-                user.setName((String) row.get("name_en"));
+                user.setNameEn((String) row.get("name_en"));
                 user.setEmail((String) row.get("email"));
-                user.setPassword((String) row.get("password"));
+                user.setMobileNo((String) row.get("mobile_no"));
                 break;
 
             }

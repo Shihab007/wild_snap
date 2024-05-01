@@ -85,7 +85,7 @@ export class AppUserListComponent implements OnInit {
       if (data.header.responseCode == '200') {
         this.userRoleList = data.body.userList;
         this.dataSource.data = data.body.userList;
-        this._toastr.success("Successfully User Loaded" + data.header.remarks);
+        this._toastr.success("Successfully Users Loaded");
       } else {
         this._toastr.error('Failed to get User Role list');
       }

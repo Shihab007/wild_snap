@@ -158,7 +158,7 @@ export class AppSchoolDashboardComponent implements OnInit {
       (error) => {
         console.log(error);
         this._spinner.hide();
-        this._toastr.error(error.Message);
+        // this._toastr.error(error.Message);
       });
   }
 

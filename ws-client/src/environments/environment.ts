@@ -82,13 +82,16 @@ export const environment = {
 
   GET_INSTITUTE_GUARDIAN_LIST: '/v1/get-institute-guardian-list',
 
-  // wild - snap ===============
+  // wild - snap ===============================================================================================================================
 
   userLogin: '/wild-snap/login',
 
   USER_ROLE_LIST: '/wild-snap/user-list',
 
-  // wild - snap ===============
+  GET_PROFILE_BY_LOGIN_ID: "/wild-snap/user-info",
+
+
+  // wild - snap =================================================================================================================
 
   changePassword: '/v1/user/change-password',
 
@@ -833,7 +836,6 @@ export const environment = {
 
 
   //SECURITY
-  GET_PROFILE_BY_LOGIN_ID: "/v1/get-profile-by-login-id",
   UPDATE_PROFILE_BY_LOGIN_ID: "/v1/update-profile-by-login-id",
 
 

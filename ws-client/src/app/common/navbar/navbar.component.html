@@ -39,7 +39,7 @@
       <div class="language">
         <div class="user-info">
           <div class="nav-top-item user-name-role">
-            <h5>User Name</h5>
+            <h5>{{ userInfo.nameEn }}</h5>
           </div>
           <i class="far fa-bell notification-icon"></i>
           <div class="nav-top-item">
@@ -103,11 +103,7 @@
                               "
                               class="mb-0"
                             >
-                              {{
-                                locale == "en"
-                                  ? userInfo.nameEn
-                                  : userInfo.nameBn
-                              }}
+                              {{ userInfo.nameEn }}
                             </h5>
                             <p *ngIf="userInfo.email != null" class="mb-0">
                               {{ userInfo.email }}
