@@ -13,7 +13,6 @@ const routes: Routes = [
           import('./app-school-dashboard/app-school-dashboard.module').then(
             (m) => m.AppSchoolDashboardModule
           ),
-        //data: { title: extract('Dashboard') },
       },
 
       {
@@ -22,9 +21,14 @@ const routes: Routes = [
           import('./app-client-profile/app-school-profile.module').then(
             (m) => m.AppSchoolProfileModule
           ),
-        //data: { title: extract('Profile') },
+      },
+      {
+        path: 'classify-image',
+        loadChildren: () =>
+          import('./classify-image/classify-image.module').then(
+            (m) => m.ClassifyImageModule
+          ),
       }
-
     ]
   }
 ];

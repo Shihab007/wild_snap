@@ -15,7 +15,7 @@ export const environment = {
 
 
   // Implement Keycloak Port 9090 will be active 
-  uploadImageUrl: 'http://localhost:9090/doer-erp/api/v1/file/receipt/download/files/',
+  uploadImageUrl: 'http://localhost:7070/download-image/files/',
   // New URL for Live Server
   // uploadImageUrl: 'https://doer-school.celloscope.net/doer-erp/api/v1/file/receipt/download/files/',
   // uploadImageUrl: 'https://doer-school-test.celloscope.net/doer-erp/api/v1/file/receipt/download/files/',
@@ -125,7 +125,7 @@ export const environment = {
   dashboardInfoAgent: '/v1/dashboard/info/agent',
 
   addNewTeacher: '/v1/create/teacher',
-
+  classifyImageAdd: '/classify-image-add',
 
 
 
@@ -213,7 +213,7 @@ export const environment = {
 
   groupList: '/v1/group/list',
 
-  uploadImage: '/v1/file/image/upload',
+  uploadImage: '/upload-image',
 
   getAllSection: '/v1/section/list',
 

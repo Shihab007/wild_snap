@@ -1,0 +1,313 @@
+@media (max-width: 1600px) {}
+
+@media (max-width: 1440px) {}
+
+@media (max-width: 1400px) {}
+
+@media (max-width: 1280px) {
+  .btn {
+    font-size: 14px;
+    padding: 8px 20px;
+  }
+
+  .btn-cmn {
+    font-size: 14px;
+    padding: 8px 20px;
+  }
+
+  .input-group .input-group-prepend .input-group-text {
+    font-size: 14px;
+    width: 165px;
+  }
+
+  .form-control {
+    font-size: 14px;
+  }
+
+  .preview-head .school-info .info-text {
+    font-size: 20px;
+  }
+
+  .view-tab-list .nav-pills .nav-item {
+    margin: 0px 2px;
+  }
+
+  .view-tab-list .nav-pills .nav-item .nav-link {
+    padding: 6px 16px;
+    font-size: 14px;
+  }
+
+  .view-header h4 {
+    font-size: 24px;
+  }
+
+  .view-header .viewuser-image img {
+    height: 150px;
+    width: 140px;
+  }
+
+  .viewtab-details .viewtab-details-headline {
+    padding: 10px 0px 10px 0px;
+  }
+
+  .viewtab-details .viewtab-details-headline h5 {
+    font-size: 16px;
+  }
+
+  .field-wrapper p {
+    font-size: 14px;
+    color: #000000;
+  }
+
+  .field-wrapper {
+    padding: 10px 10px;
+  }
+
+  .field-wrapper .field-label {
+    width: 165px;
+  }
+
+  .field-wrapper .field-divider {
+    width: 15px;
+  }
+
+  .field-wrapper .field-value {
+    width: calc(100% - 170px);
+  }
+
+  #appViewPage #create-main .attendance-radio .button-wrap .button-label {
+    padding: 5px 12px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .input-box {
+    margin: 0;
+  }
+
+  .viewtab-details-table {
+    overflow-x: scroll;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .viewtab-details-table {
+    overflow-x: scroll;
+  }
+
+  .field-wrapper:last-child {
+    margin-bottom: 15px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  p {
+    font-size: 14px;
+  }
+
+  .table {
+    font-size: 14px;
+  }
+
+  .all-btn-box {
+    margin: 10px 0px 0px;
+  }
+
+  .preview-head .school-info {
+    flex-direction: column;
+  }
+
+  .preview-head .school-info .info-text {
+    margin: 15px 0px 0px;
+  }
+
+  .view-tab-list .nav-pills {
+    margin: 0px 0px 15px 0px;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    row-gap: 8px;
+    column-gap: 4px;
+  }
+
+  .view-tab-list .nav-pills .nav-item .nav-link {
+    font-size: 14px;
+    padding: 7px 5px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .view-header h4 {
+    font-size: 20px;
+  }
+
+  .viewtab-details-table {
+    overflow-x: scroll;
+  }
+
+  .view-header .viewuser-image {
+    position: unset;
+    right: unset;
+    top: unset;
+    z-index: auto;
+    margin: 15px 0px 0px;
+  }
+
+  .field-wrapper:last-child {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 575px) {
+  p {
+    font-size: 14px;
+  }
+
+  .table {
+    font-size: 14px;
+  }
+
+  .all-btn-box {
+    margin: 10px 0px 0px;
+  }
+
+  .preview-head .school-info {
+    flex-direction: column;
+  }
+
+  .preview-head .school-info .info-text {
+    font-size: 18px;
+    margin: 15px 0px 0px;
+  }
+
+  .view-tab-list .nav-pills {
+    margin: 0px 0px 15px 0px;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    row-gap: 8px;
+    column-gap: 4px;
+  }
+
+  .view-tab-list .nav-pills .nav-item .nav-link {
+    font-size: 14px;
+    padding: 7px 5px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .viewtab-details-table {
+    overflow-x: scroll;
+  }
+
+  .view-header h4 {
+    font-size: 18px;
+  }
+
+  .view-header .viewuser-image {
+    position: unset;
+    right: unset;
+    top: unset;
+    z-index: auto;
+    margin: 15px 0px 0px;
+  }
+
+  .input-group {
+    display: block;
+
+    .input-group-prepend {
+      width: 100%;
+
+      .input-group-text {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  .input-group .check-group {
+    margin-top: 15px;
+  }
+
+  .form-control {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .field-wrapper:last-child {
+    margin-bottom: 15px;
+  }
+
+  .preview-body .success-msg-container .succes-icon-container i {
+    font-size: 100px;
+  }
+
+  .preview-body .success-msg-container .header-msg {
+    font-size: 25px;
+  }
+
+  .preview-body .success-msg-container .details-msg {
+    font-size: 20px;
+  }
+
+  #appViewPage {
+    padding: 0px 0px 15px 0px;
+  }
+
+  #appViewPage #create-main .create-header {
+    padding: 10px 0px 10px;
+  }
+
+  #appViewPage #create-main .create-header h4 {
+    font-size: 20px;
+  }
+
+  #appViewPage #create-main .attendance-radio .button-wrap .button-label {
+    padding: 5px 12px;
+    margin: 0px;
+  }
+
+  #appViewPage #create-main .attendance-radio .button-wrap .button-label h1 {
+    font-size: 14px;
+  }
+
+  #btn-section .all-btn-box .btn {
+    margin: 0px 8px 10px;
+  }
+
+  #btn-section .all-btn-box .btn:first-child {
+    margin: 0px 8px 10px 0px;
+  }
+
+  #btn-section .all-btn-box .btn:last-child {
+    margin: 0px 0px 10px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .view-tab-list .nav-pills {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .field-wrapper .field-label {
+    width: 110px;
+  }
+
+  .field-wrapper .field-value {
+    width: calc(100% - 110px);
+  }
+}
+
+@media (max-width: 414px) {}
+
+@media (max-width: 395px) {}
+
+@media (max-width: 375px) {}
+
+@media (max-width: 360px) {}
+
+@media (max-width: 320px) {}

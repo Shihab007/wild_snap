@@ -1,0 +1,51 @@
+<section class="container-fluid">
+    <div>
+        <h1 class="tittle">Classify Image</h1>
+    </div>
+  <form action="">
+    <div class="row">
+        <div class="col-6">
+                <div for="file" class="input-box">
+                  <label for="file" *ngIf="url == null">
+                    <i class="fa-solid fa-user"></i>
+                    <i class="fa fa-upload" aria-hidden="true"></i>
+                    <p class="photo-upload-text">
+                      {{ "Change Photo" | translate }}
+                    </p>
+                  </label>
+                  <label for="file" *ngIf="url != null"
+                    ><img
+                      class="selected-image"
+                      id="file-image"
+                      [src]="url"
+                      height="200"
+                    />
+                    <i class="fa-solid fa-rotate-left"></i>
+                    <p *ngIf="url != null" class="photo-upload-text">
+                      {{ "Change Photo" | translate }}
+                    </p>
+                  </label>
+                  <input
+                    #uploadImage
+                    type="file"
+                    [(ngModel)]="uploadedImage.url"
+                    value="url"
+                    multiple
+                    id="file"
+                    (change)="onSelect($event)"
+                    class="form-control d-none"
+                    name="imageName"
+                  />
+                </div>
+        </div>
+        <div class="col-6">
+            <div>
+                <textarea [ngModelOptions]="{standalone: true}" [(ngModel)]="uploadedImage.imageDescription" style="height: 155px;" class="form-control"></textarea>
+            </div>
+            <div>
+                <input (click)="onSubmit()" type="submit" value="Submit" class="btn btn-primary mt-3">
+            </div>
+        </div>
+    </div>
+  </form>
+</section>
