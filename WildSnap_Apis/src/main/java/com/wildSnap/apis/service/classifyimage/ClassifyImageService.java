@@ -1,8 +1,8 @@
 package com.wildSnap.apis.service.classifyimage;
 
-import com.wildSnap.apis.IdGenerator;
 import com.wildSnap.apis.Util.classifyimage.ClassifyImageResponseBuilder;
 import com.wildSnap.apis.Validator.classifyimage.ClassifyImageValidatorService;
+import com.wildSnap.apis.coreUtils.IdGenerator;
 import com.wildSnap.apis.dao.classifyimage.ClassifyImageDao;
 import com.wildSnap.apis.request.classifyimage.ClassifyImageRequest;
 import com.wildSnap.apis.response.classifyimage.ClassifyImageResponse;

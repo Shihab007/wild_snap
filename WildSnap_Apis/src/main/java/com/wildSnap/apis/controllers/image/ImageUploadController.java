@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-import com.wildSnap.apis.Api;
+import com.wildSnap.apis.coreUtils.Api;
 import com.wildSnap.apis.model.image.FileInfoModel;
 import com.wildSnap.apis.request.image.ImageUploadRequest;
 import com.wildSnap.apis.response.image.ImageUploadResponse;

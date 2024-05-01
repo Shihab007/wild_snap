@@ -1,4 +1,4 @@
-package com.wildSnap.apis;
+package com.wildSnap.apis.coreUtils;
 
 public class Api {
 
