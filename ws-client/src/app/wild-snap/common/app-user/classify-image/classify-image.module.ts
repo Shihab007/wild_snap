@@ -9,12 +9,14 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { CommonLayoutModule } from 'src/app/common/common-layout.module';
 import { MaterialCustomModule } from 'src/app/material-custom/material-custom.module';
 import { MessagesModule } from 'primeng/messages';
+import { ClassifyImagePredictionComponent } from './component/classify-image-prediction/classify-image-prediction.component';
 
 @NgModule({
   declarations: [
     ClassifyImageComponent,
     ClassifyImageAddComponent,
-    ClassifyImageListComponent
+    ClassifyImageListComponent,
+    ClassifyImagePredictionComponent
   ],
   imports: [
     CommonModule,

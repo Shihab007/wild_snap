@@ -13,6 +13,8 @@ import { ClassifyImageAddRequest } from '../../model/request/classify-image-add-
 import { ClassifyImageAddRequestBody } from '../../model/request/classify-image-add-request-body';
 import { ClassifyImageAddResponse } from '../../model/response/classify-image-add-response';
 import { ClassifyImageAddResponseBody } from '../../model/response/classify-image-add-response-body';
+import { Router } from '@angular/router';
+import { Helper } from '../helper/helper';
 
 @Component({
   selector: 'app-classify-image-add',
@@ -30,7 +32,9 @@ export class ClassifyImageAddComponent implements OnInit {
     private toastr: ToastrService,
     private translate: TranslateService,
     private imageCompress: NgxImageCompressService,
-    private imageUploadService: UploadImageService
+    private imageUploadService: UploadImageService,
+    private _router: Router,
+    private helper : Helper
   ) { }
 
 
@@ -46,11 +50,6 @@ export class ClassifyImageAddComponent implements OnInit {
     });
   }
 
-  public oidList: string[] = [];
-  public bookList: string[] = [];
-  public idList: string[] = [];
-  public codeList: string[] = [];
-  public bookTypeList: string[] = [];
 
 
   public header: Header = new Header();
@@ -67,14 +66,13 @@ export class ClassifyImageAddComponent implements OnInit {
    
     this.classifyImageAddRequest.header = this.header;
     this.classifyImageAddRequest.body = this.uploadedImage;
-
-    console.log(this.classifyImageAddRequest);
     
 
     if (this.uploadedImage != null) {
       this.imageUploadService.saveClassifyImage(this.classifyImageAddRequest).subscribe(resData => {
         if (resData.header.responseCode == '200') {
-          
+          this.helper.setData(this.uploadedImage.imageUrl)
+          this._router.navigate(['/wild-snap/classify-image/prediction']);
         }
       });
     }

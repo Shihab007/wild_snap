@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ClassifyImageComponent } from './classify-image.component';
 import { ClassifyImageAddComponent } from './component/classify-image-add/classify-image-add.component';
 import { ClassifyImageListComponent } from './component/classify-image-list/classify-image-list.component';
+import { ClassifyImagePredictionComponent } from './component/classify-image-prediction/classify-image-prediction.component';
 
 const routes: Routes = [
   {
@@ -12,11 +13,14 @@ const routes: Routes = [
   {
     path: 'add',
     component: ClassifyImageAddComponent,
-
   },
   {
     path: 'list',
     component: ClassifyImageListComponent,
+  },
+  {
+    path: 'prediction',
+    component: ClassifyImagePredictionComponent,
 
   }
 ];

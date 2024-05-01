@@ -1,0 +1,16 @@
+<section class="container-fluid">
+    <div>
+        <h1 class="pr">Predicted Result</h1>
+    </div>
+    <div class="row mt-3">
+        <div class="col-6">
+            <img [src]="url" alt="image">
+        </div>
+        <div class="col-6 prediction">
+            <h1>Cat</h1>
+        </div>
+        <div class="col-12 mt-3 text-center">
+            <input (click)="goBack()" style="width: 200px" type="submit" value="Back" class="btn btn-primary"/>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,19 @@
+img{
+    width: 100%;
+}
+.pr{
+    text-align: center;
+    padding:20px;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 10px;
+}
+.prediction{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1{
+        font-size: 40px;
+        font-weight: bold;
+        color:green;
+    }
+}
