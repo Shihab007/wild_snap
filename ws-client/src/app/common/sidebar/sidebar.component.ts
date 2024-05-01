@@ -6,7 +6,9 @@ import { AppStorageService } from 'src/app/login/auth/app-storage.service';
 import { AuthService } from 'src/app/login/auth/auth.service';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { UserInfo } from 'src/app/login/shared/model/user-info';
 declare var $: any;
+import { USER_INFO_LOCAL_STORAGE_KEY } from 'src/app/common/constant/constant';
 
 @Component({
   selector: 'app-sidebar',
@@ -21,7 +23,7 @@ declare var $: any;
   ]
 })
 export class SidebarComponent implements OnInit, AfterViewInit {
-
+  userInfos: UserInfo = new UserInfo();
   public menus: Object[];
   public userName$: any;
   public roleOid$: any;
@@ -54,6 +56,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.userInfos = JSON.parse(this._appStorageService.getData(USER_INFO_LOCAL_STORAGE_KEY));
     let userInfo = this._appStorageService.getData(loginCookieStoreKey);
     // console.log(userInfo);
 

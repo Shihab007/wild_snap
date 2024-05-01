@@ -82,7 +82,13 @@ export const environment = {
 
   GET_INSTITUTE_GUARDIAN_LIST: '/v1/get-institute-guardian-list',
 
+  // wild - snap ===============
+
   userLogin: '/wild-snap/login',
+
+  USER_ROLE_LIST: '/wild-snap/user-list',
+
+  // wild - snap ===============
 
   changePassword: '/v1/user/change-password',
 
@@ -92,7 +98,6 @@ export const environment = {
 
   createUserAccount: '/v1/user/create-user-account',
 
-  USER_ROLE_LIST: '/v1/user/role/list',
 
   createClass: '/v1/create-class',
 

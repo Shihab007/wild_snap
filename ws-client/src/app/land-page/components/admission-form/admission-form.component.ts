@@ -6,31 +6,30 @@ import { EmailRegEx, mobileNoRegEx } from 'src/app/common/constant/constant';
 import { DropdownData } from 'src/app/common/constant/dropdown-data';
 import { bloodGroupList, religionList } from 'src/app/common/constant/list-status';
 import { Header } from 'src/app/common/request/base-request';
-import { RequestHeader } from 'src/app/school-erp/common/shared/header/request-header';
-import { ClassGroupDetails } from 'src/app/school-erp/common/shared/model/class-group/class-group-details';
-import { DataList } from 'src/app/school-erp/common/shared/model/common/data-list';
-import { DistrictList } from 'src/app/school-erp/common/shared/model/district/district-list';
-import { InstituteClassEntity } from 'src/app/school-erp/common/shared/model/institute/institute-class-entity';
-import { InstituteList } from 'src/app/school-erp/common/shared/model/institute/institute-list';
-import { ThanaList } from 'src/app/school-erp/common/shared/model/thana/thana-list';
-import { ClassGroupListByClassSessionRequest } from 'src/app/school-erp/common/shared/request/class-group/class-group-list-by-class-session-request';
-import { ClassGroupListByClassSessionRequestBody } from 'src/app/school-erp/common/shared/request/class-group/class-group-list-by-class-session-request-body';
-import { GetClassListBySessionOidRequest } from 'src/app/school-erp/common/shared/request/class/get-class-list-by-session-oid-request';
-import { GetClassListBySessionOidRequestBody } from 'src/app/school-erp/common/shared/request/class/get-class-list-by-session-oid-request-body';
-import { DistrictListRequest } from 'src/app/school-erp/common/shared/request/district/district-list-request';
-import { DistrictListRequestBody } from 'src/app/school-erp/common/shared/request/district/district-list-request-body';
-import { GetInstituteInfoRequest } from 'src/app/school-erp/common/shared/request/institute/get-institute-info-request';
-import { GetInstituteInfoRequestBody } from 'src/app/school-erp/common/shared/request/institute/get-institute-info-request-body';
-import { InstituteListRequest } from 'src/app/school-erp/common/shared/request/institute/institute-list-request';
-import { InstituteListRequestBody } from 'src/app/school-erp/common/shared/request/institute/institute-list-request-body';
-import { ThanaListRequest } from 'src/app/school-erp/common/shared/request/thana/thana-list-request';
-import { ThanaListRequestBody } from 'src/app/school-erp/common/shared/request/thana/thana-list-request-body';
-import { GetInstituteInfoResponseBody } from 'src/app/school-erp/common/shared/response/institute/get-institute-info-response-body';
-import { AppClassGroupService } from 'src/app/school-erp/common/shared/services/class-group/app-class-group.service';
-import { ClassService } from 'src/app/school-erp/common/shared/services/class/class.service';
-import { DistrictService } from 'src/app/school-erp/common/shared/services/district/district.service';
-import { InstituteService } from 'src/app/school-erp/common/shared/services/institute/institute.service';
-import { ThanaService } from 'src/app/school-erp/common/shared/services/thana/thana.service';
+import { RequestHeader } from 'src/app/wild-snap/common/shared/header/request-header';
+import { ClassGroupDetails } from 'src/app/wild-snap/common/shared/model/class-group/class-group-details';
+import { DataList } from 'src/app/wild-snap/common/shared/model/common/data-list';
+import { DistrictList } from 'src/app/wild-snap/common/shared/model/district/district-list';
+import { InstituteClassEntity } from 'src/app/wild-snap/common/shared/model/institute/institute-class-entity';
+import { InstituteList } from 'src/app/wild-snap/common/shared/model/institute/institute-list';
+import { ThanaList } from 'src/app/wild-snap/common/shared/model/thana/thana-list';
+import { ClassGroupListByClassSessionRequest } from 'src/app/wild-snap/common/shared/request/class-group/class-group-list-by-class-session-request';
+import { ClassGroupListByClassSessionRequestBody } from 'src/app/wild-snap/common/shared/request/class-group/class-group-list-by-class-session-request-body';
+import { GetClassListBySessionOidRequest } from 'src/app/wild-snap/common/shared/request/class/get-class-list-by-session-oid-request';
+import { GetClassListBySessionOidRequestBody } from 'src/app/wild-snap/common/shared/request/class/get-class-list-by-session-oid-request-body';
+import { DistrictListRequest } from 'src/app/wild-snap/common/shared/request/district/district-list-request';
+import { DistrictListRequestBody } from 'src/app/wild-snap/common/shared/request/district/district-list-request-body';
+import { GetInstituteInfoRequest } from 'src/app/wild-snap/common/shared/request/institute/get-institute-info-request';
+import { GetInstituteInfoRequestBody } from 'src/app/wild-snap/common/shared/request/institute/get-institute-info-request-body';
+import { InstituteListRequest } from 'src/app/wild-snap/common/shared/request/institute/institute-list-request';
+import { InstituteListRequestBody } from 'src/app/wild-snap/common/shared/request/institute/institute-list-request-body';
+import { ThanaListRequest } from 'src/app/wild-snap/common/shared/request/thana/thana-list-request';
+import { ThanaListRequestBody } from 'src/app/wild-snap/common/shared/request/thana/thana-list-request-body';
+import { GetInstituteInfoResponseBody } from 'src/app/wild-snap/common/shared/response/institute/get-institute-info-response-body';
+import { AppClassGroupService } from 'src/app/wild-snap/common/shared/services/class-group/app-class-group.service';
+import { ClassService } from 'src/app/wild-snap/common/shared/services/class/class.service';
+import { DistrictService } from 'src/app/wild-snap/common/shared/services/district/district.service';
+import { ThanaService } from 'src/app/wild-snap/common/shared/services/thana/thana.service';
 import { environment } from 'src/environments/environment';
 import * as _ from 'underscore';
 import { AdmissionFormRequest } from './model/admission-form-request';
@@ -143,7 +142,6 @@ export class AdmissionFormComponent implements OnInit {
   constructor(
     private AdmissionFormService: AdmissionFormService,
     private toastr: ToastrService,
-    private instituteService: InstituteService,
     private classGroupService: AppClassGroupService,
     private districtService: DistrictService,
     private classService: ClassService,
@@ -186,7 +184,7 @@ export class AdmissionFormComponent implements OnInit {
         this.locale = "bn";
       }
     });
-    this.getInstituteList();
+    // this.getInstituteList();
     this.getDistrictList();
     this.getThanaList();
 
@@ -227,24 +225,24 @@ export class AdmissionFormComponent implements OnInit {
   }
 
   instituteListRequest: InstituteListRequest = new InstituteListRequest();
-  getInstituteList() {
-    this.requestHeader.requestId = this.header.requestId;
-    this.requestHeader.requestDateTime = this.header.requestDateTime;
-    this.requestHeader.requestSource = this.header.requestSource;
-    this.requestHeader.requestServiceSource = this.header.requestServiceSource;
-    this.instituteListRequest.body = this.instituteListRequestBody;
+  // getInstituteList() {
+  //   this.requestHeader.requestId = this.header.requestId;
+  //   this.requestHeader.requestDateTime = this.header.requestDateTime;
+  //   this.requestHeader.requestSource = this.header.requestSource;
+  //   this.requestHeader.requestServiceSource = this.header.requestServiceSource;
+  //   this.instituteListRequest.body = this.instituteListRequestBody;
 
-    this.instituteService.getInstituteList(this.instituteListRequest).subscribe((data) => {
-      this.instituteList = data.body.instituteList;
-      if (this.instituteList.length == 1) {
-        this.entity.instituteOid = this.instituteList[0].oid;
-        this.getInstituteInformation(this.entity.instituteOid);
-      }
-    }, (error) => {
-      console.log(error);
-      this.toastr.error(error.Message);
-    });
-  }
+  //   this.instituteService.getInstituteList(this.instituteListRequest).subscribe((data) => {
+  //     this.instituteList = data.body.instituteList;
+  //     if (this.instituteList.length == 1) {
+  //       this.entity.instituteOid = this.instituteList[0].oid;
+  //       this.getInstituteInformation(this.entity.instituteOid);
+  //     }
+  //   }, (error) => {
+  //     console.log(error);
+  //     this.toastr.error(error.Message);
+  //   });
+  // }
 
   getDistrictList() {
     this.requestHeader.requestId = this.header.requestId;
@@ -279,50 +277,50 @@ export class AdmissionFormComponent implements OnInit {
     });
   }
 
-  getInstituteInformation(instituteOid: string) {
-    this.requestHeader.requestId = this.header.requestId;
-    this.requestHeader.requestDateTime = this.header.requestDateTime;
-    this.requestHeader.requestSource = this.header.requestSource;
-    this.requestHeader.requestServiceSource = this.header.requestServiceSource;
+  // getInstituteInformation(instituteOid: string) {
+  //   this.requestHeader.requestId = this.header.requestId;
+  //   this.requestHeader.requestDateTime = this.header.requestDateTime;
+  //   this.requestHeader.requestSource = this.header.requestSource;
+  //   this.requestHeader.requestServiceSource = this.header.requestServiceSource;
 
-    this.getInstituteInfoRequest.header = this.requestHeader;
-    this.getInstituteInfoRequest.body = this.getInstituteInfoRequestBody;
-    this.getInstituteInfoRequest.body.oid = instituteOid;
+  //   this.getInstituteInfoRequest.header = this.requestHeader;
+  //   this.getInstituteInfoRequest.body = this.getInstituteInfoRequestBody;
+  //   this.getInstituteInfoRequest.body.oid = instituteOid;
 
-    this.instituteService.getInstituteInfo(this.getInstituteInfoRequest).subscribe((data) => {
+  //   this.instituteService.getInstituteInfo(this.getInstituteInfoRequest).subscribe((data) => {
 
-      this.entity.instituteSessionOid = '';
-      this.classLevelOid = '';
-      this.entity.instituteVersionOid = '';
-      this.entity.instituteShiftOid = '';
-      this.entity.instituteClassGroupOid = null;
-      this.isShowClassGroup = false;
+  //     this.entity.instituteSessionOid = '';
+  //     this.classLevelOid = '';
+  //     this.entity.instituteVersionOid = '';
+  //     this.entity.instituteShiftOid = '';
+  //     this.entity.instituteClassGroupOid = null;
+  //     this.isShowClassGroup = false;
 
-      this.instituteInfo = data.body;
-      this.shiftList = data.body.shiftList;
-      this.classList = data.body.classList;
-      this.sessionList = data.body.sessionList;
-      this.versionList = data.body.versionList;
+  //     this.instituteInfo = data.body;
+  //     this.shiftList = data.body.shiftList;
+  //     this.classList = data.body.classList;
+  //     this.sessionList = data.body.sessionList;
+  //     this.versionList = data.body.versionList;
 
-      this.sessionList = data.body.sessionList.filter(res => (res.status.toLowerCase() === "running") || (res.status.toLowerCase() === "upcoming"));
+  //     this.sessionList = data.body.sessionList.filter(res => (res.status.toLowerCase() === "running") || (res.status.toLowerCase() === "upcoming"));
 
-      if (this.sessionList.length == 1) {
-        this.entity.instituteSessionOid = this.sessionList[0].oid;
-      }
-      if (this.versionList.length == 1) {
-        this.entity.instituteVersionOid = this.versionList[0].oid;
-      }
-      if (this.shiftList.length == 1) {
-        this.entity.instituteShiftOid = this.shiftList[0].oid;
-      }
+  //     if (this.sessionList.length == 1) {
+  //       this.entity.instituteSessionOid = this.sessionList[0].oid;
+  //     }
+  //     if (this.versionList.length == 1) {
+  //       this.entity.instituteVersionOid = this.versionList[0].oid;
+  //     }
+  //     if (this.shiftList.length == 1) {
+  //       this.entity.instituteShiftOid = this.shiftList[0].oid;
+  //     }
 
 
 
-    }, (error) => {
-      console.log(error);
-      this.toastr.error(error.Message);
-    });
-  }
+  //   }, (error) => {
+  //     console.log(error);
+  //     this.toastr.error(error.Message);
+  //   });
+  // }
 
   loadPresentAdressThana() {
     this.presentThanaList = [];

@@ -1,7 +1,7 @@
 import { v4 as uuid } from 'uuid';
 import { APPLICATION_NAME, APPLICATION_SERVICE_NAME, CLIENT_NAME, REQUEST_TIMEOUT_IN_SECONDS, REQUEST_VERSION } from '../constant/constant';
 import * as moment from 'moment-timezone';
-import { RequestHeader } from 'src/app/school-erp/common/shared/header/request-header';
+import { RequestHeader } from 'src/app/wild-snap/common/shared/header/request-header';
 
 export class Header {
   requestId: string = uuid();

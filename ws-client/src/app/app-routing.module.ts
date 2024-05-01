@@ -18,20 +18,20 @@ const routes: Routes = [
 
   {
     path: 'dashboard',
-    loadChildren: () => import('../app/school-erp/common/app-school/app-school-dashboard/app-school-dashboard.module').then((m) => m.AppSchoolDashboardModule
+    loadChildren: () => import('./wild-snap/common/app-user/app-school-dashboard/app-school-dashboard.module').then((m) => m.AppSchoolDashboardModule
     ),
     canActivate: [AuthGuard]
     //data: { title: extract('Dashboard') },
   },
   {
     path: 'admin',
-    loadChildren: () => import('./school-erp/common/app-admin/app-admin.module').then(m => m.AppAdminModule),
+    loadChildren: () => import('./wild-snap/common/app-admin/app-admin.module').then(m => m.AppAdminModule),
     //data: { title: extract('Admin') },
     canActivate: [AuthGuard]
   },
   {
     path: 'wild-snap',
-    loadChildren: () => import('./school-erp/common/app-school/app-school.module').then(m => m.AppSchoolModule),
+    loadChildren: () => import('./wild-snap/common/app-user/app-school.module').then(m => m.AppSchoolModule),
     //data: { title: extract('School') },
     canActivate: [AuthGuard]
   },

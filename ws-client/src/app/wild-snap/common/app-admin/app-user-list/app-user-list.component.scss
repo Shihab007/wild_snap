@@ -1,0 +1,5 @@
+@import "../../../../../app/wild-snap/common/shared/styles/list-css/all-list.scss";
+
+.common-list .mat-cell:last-child {
+    text-align: unset !important;
+}

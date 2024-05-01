@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ConstantService } from 'src/app/common/services/constant.service';
-import { NgxSpinnerConfiguration } from 'src/app/school-erp/common/shared/model/ngx-spinner-configuration';
+import { NgxSpinnerConfiguration } from 'src/app/wild-snap/common/shared/model/ngx-spinner-configuration';
 
 @Component({
   selector: 'app-landpage-content',

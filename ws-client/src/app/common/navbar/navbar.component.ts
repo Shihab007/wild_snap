@@ -5,11 +5,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { AppStorageService } from 'src/app/login/auth/app-storage.service';
 import { AuthService } from 'src/app/login/auth/auth.service';
 import { UserInfo } from 'src/app/login/shared/model/user-info';
-import { RequestHeader } from 'src/app/school-erp/common/shared/header/request-header';
-import { GetInstituteInfoRequest } from 'src/app/school-erp/common/shared/request/institute/get-institute-info-request';
-import { GetInstituteInfoRequestBody } from 'src/app/school-erp/common/shared/request/institute/get-institute-info-request-body';
-import { GetInstituteInfoResponseBody } from 'src/app/school-erp/common/shared/response/institute/get-institute-info-response-body';
-import { InstituteService } from 'src/app/school-erp/common/shared/services/institute/institute.service';
+import { RequestHeader } from 'src/app/wild-snap/common/shared/header/request-header';
+import { GetInstituteInfoRequest } from 'src/app/wild-snap/common/shared/request/institute/get-institute-info-request';
+import { GetInstituteInfoRequestBody } from 'src/app/wild-snap/common/shared/request/institute/get-institute-info-request-body';
+import { GetInstituteInfoResponseBody } from 'src/app/wild-snap/common/shared/response/institute/get-institute-info-response-body';
 import { loginCookieStoreKey, USER_INFO_LOCAL_STORAGE_KEY } from '../constant/constant';
 import { Header } from '../request/base-request';
 import { TitleService } from '../services/title.service';
@@ -43,7 +42,6 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     private titleService: TitleService,
     private _appStorageService: AppStorageService,
     private translate: TranslateService,
-    private instituteService: InstituteService,
     private router: Router,
     private _authService: AuthService) {
     translate.setDefaultLang('en');
@@ -110,27 +108,27 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   public instituteInfo: GetInstituteInfoResponseBody = new GetInstituteInfoResponseBody();
 
 
-  getInstituteInformation(instituteOid: string) {
+  // getInstituteInformation(instituteOid: string) {
 
-    this.requestHeader.requestId = this.header.requestId;
-    this.requestHeader.requestDateTime = this.header.requestDateTime;
-    this.requestHeader.requestSource = this.header.requestSource;
-    this.requestHeader.requestServiceSource = this.header.requestServiceSource;
+  //   this.requestHeader.requestId = this.header.requestId;
+  //   this.requestHeader.requestDateTime = this.header.requestDateTime;
+  //   this.requestHeader.requestSource = this.header.requestSource;
+  //   this.requestHeader.requestServiceSource = this.header.requestServiceSource;
 
-    this.getInstituteInfoRequest.header = this.requestHeader;
-    this.getInstituteInfoRequest.body = this.getInstituteInfoRequestBody;
-    this.getInstituteInfoRequest.body.oid = instituteOid;
+  //   this.getInstituteInfoRequest.header = this.requestHeader;
+  //   this.getInstituteInfoRequest.body = this.getInstituteInfoRequestBody;
+  //   this.getInstituteInfoRequest.body.oid = instituteOid;
 
-    this.instituteService.getInstituteInfo(this.getInstituteInfoRequest).subscribe((data) => {
-      this.instituteInfo = data.body;
-      console.log(this.instituteInfo);
+  //   this.instituteService.getInstituteInfo(this.getInstituteInfoRequest).subscribe((data) => {
+  //     this.instituteInfo = data.body;
+  //     console.log(this.instituteInfo);
 
 
-    }, (error) => {
-      console.log(error);
-      // this.toastr.error(error.Message);
-    });
-  }
+  //   }, (error) => {
+  //     console.log(error);
+  //     // this.toastr.error(error.Message);
+  //   });
+  // }
 
   toggleSidebar() {
     this.sidebarservice.setSidebarState(!this.sidebarservice.getSidebarState());

@@ -8,9 +8,9 @@ import { ConstantService } from 'src/app/common/services/constant.service';
 import { AppStorageService } from 'src/app/login/auth/app-storage.service';
 import { AuthService } from 'src/app/login/auth/auth.service';
 import { UserInfo } from 'src/app/login/shared/model/user-info';
-import { CommonChangePasswordRequest } from 'src/app/school-erp/common/shared/request/password/common-change-password-request';
-import { CommonChangePasswordRequestBody } from 'src/app/school-erp/common/shared/request/password/common-change-password-request-body';
-import { CommomChangePasswordService } from 'src/app/school-erp/common/shared/services/password/commom-change-password.service';
+import { CommonChangePasswordRequest } from 'src/app/wild-snap/common/shared/request/password/common-change-password-request';
+import { CommonChangePasswordRequestBody } from 'src/app/wild-snap/common/shared/request/password/common-change-password-request-body';
+import { CommomChangePasswordService } from 'src/app/wild-snap/common/shared/services/password/commom-change-password.service';
 
 @Component({
   selector: 'app-common-change-password',

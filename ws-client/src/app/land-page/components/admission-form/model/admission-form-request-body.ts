@@ -1,5 +1,5 @@
-import { PermanentAddress } from "src/app/school-erp/common/shared/model/address/permanent-address";
-import { PresentAddress } from "src/app/school-erp/common/shared/model/address/present-address";
+import { PermanentAddress } from "src/app/wild-snap/common/shared/model/address/permanent-address";
+import { PresentAddress } from "src/app/wild-snap/common/shared/model/address/present-address";
 
 export class AdmissionFormRequestBody {
 

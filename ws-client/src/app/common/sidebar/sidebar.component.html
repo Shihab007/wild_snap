@@ -12,19 +12,33 @@
       <div class="sidebar-menu">
         <ul>
           <!-- Home -->
-          <li>
+          <li *ngIf="userInfos.roleType == 'Admin'">
+            <a href="#" class="menu-tittle" routerLink="/admin/dashboard"
+              >Admin Dashboard</a
+            >
+          </li>
+          <li *ngIf="userInfos.roleType == 'User'">
             <a href="#" class="menu-tittle" routerLink="/wild-snap/dashboard"
               >Dashboard</a
             >
           </li>
-          <!-- Profile -->
-          <li>
+          <li *ngIf="userInfos.roleType == 'Admin'">
             <a href="#" class="menu-tittle" routerLink="/wild-snap/profile"
               >Profile</a
             >
           </li>
-          <li>
-            <a href="#" class="menu-tittle" routerLink="/wild-snap/classify-image"
+          <li *ngIf="userInfos.roleType == 'Admin'">
+            <a href="#" class="menu-tittle" routerLink="/admin/user-list"
+              >User List</a
+            >
+          </li>
+          <!-- Profile -->
+
+          <li *ngIf="userInfos.roleType == 'Admin'">
+            <a
+              href="#"
+              class="menu-tittle"
+              routerLink="/wild-snap/classify-image"
               >Classify Image</a
             >
           </li>

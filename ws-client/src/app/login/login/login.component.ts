@@ -7,17 +7,17 @@ import { ToastrService } from 'ngx-toastr';
 import { throwError } from 'rxjs';
 import { agentClusterOidStoreKey, branchOidStoreKey, branchStoreKey, clusterOidStoreKey, cspOidStoreKey, cspStoreKey, emailStoreKey, employeeId, employeeName, employeeOid, loginCookieStoreKey, loginOidStoreKey, mobileNoStoreKey, reportJsonCookieStoreKey, roleIdStoreKey, userIdStoreKey, userNameStoreKey, USER_INFO_LOCAL_STORAGE_KEY } from 'src/app/common/constant/constant';
 import { Header } from 'src/app/common/request/base-request';
-import { RequestHeader } from 'src/app/school-erp/common/shared/header/request-header';
-import { SendOtpRequest } from 'src/app/school-erp/common/shared/request/otp/send-otp-request';
-import { SendOtpRequestBody } from 'src/app/school-erp/common/shared/request/otp/send-otp-request-body';
-import { VerifyOtpRequest } from 'src/app/school-erp/common/shared/request/otp/verify-otp-request';
-import { VerifyOtpRequestBody } from 'src/app/school-erp/common/shared/request/otp/verify-otp-request-body';
-import { CommonChangePasswordRequest } from 'src/app/school-erp/common/shared/request/password/common-change-password-request';
-import { CommonChangePasswordRequestBody } from 'src/app/school-erp/common/shared/request/password/common-change-password-request-body';
-import { VerifyOtpResponse } from 'src/app/school-erp/common/shared/response/otp/verify-otp-response';
-import { VerifyOtpResponseBody } from 'src/app/school-erp/common/shared/response/otp/verify-otp-response-body';
-import { OtpService } from 'src/app/school-erp/common/shared/services/otp/otp.service';
-import { CommomChangePasswordService } from 'src/app/school-erp/common/shared/services/password/commom-change-password.service';
+import { RequestHeader } from 'src/app/wild-snap/common/shared/header/request-header';
+import { SendOtpRequest } from 'src/app/wild-snap/common/shared/request/otp/send-otp-request';
+import { SendOtpRequestBody } from 'src/app/wild-snap/common/shared/request/otp/send-otp-request-body';
+import { VerifyOtpRequest } from 'src/app/wild-snap/common/shared/request/otp/verify-otp-request';
+import { VerifyOtpRequestBody } from 'src/app/wild-snap/common/shared/request/otp/verify-otp-request-body';
+import { CommonChangePasswordRequest } from 'src/app/wild-snap/common/shared/request/password/common-change-password-request';
+import { CommonChangePasswordRequestBody } from 'src/app/wild-snap/common/shared/request/password/common-change-password-request-body';
+import { VerifyOtpResponse } from 'src/app/wild-snap/common/shared/response/otp/verify-otp-response';
+import { VerifyOtpResponseBody } from 'src/app/wild-snap/common/shared/response/otp/verify-otp-response-body';
+import { OtpService } from 'src/app/wild-snap/common/shared/services/otp/otp.service';
+import { CommomChangePasswordService } from 'src/app/wild-snap/common/shared/services/password/commom-change-password.service';
 import { AppStorageService } from '../auth/app-storage.service';
 import { AuthService } from '../auth/auth.service';
 import { LoginRequest } from '../shared/model/login-request';
@@ -293,7 +293,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     }
     return true;
   }
-
+  // ================================================= from here =======================================
   onSubmit() {
 
 
@@ -327,7 +327,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
         this.userInfo.roleType = resData.body.roleType;
 
         this._appStorageService.setData(USER_INFO_LOCAL_STORAGE_KEY, JSON.stringify(this.userInfo));
-    
+
         if (resData.body.roleType == 'Admin') {
           localStorage.setItem('loggedIn', 'true');
           this.route.navigate(['admin/dashboard']);

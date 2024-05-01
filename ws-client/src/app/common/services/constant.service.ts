@@ -1,7 +1,7 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Injectable } from '@angular/core';
 import * as moment from 'moment';
-import { NgxSpinnerConfiguration } from 'src/app/school-erp/common/shared/model/ngx-spinner-configuration';
+import { NgxSpinnerConfiguration } from 'src/app/wild-snap/common/shared/model/ngx-spinner-configuration';
 
 @Injectable({
   providedIn: 'root',
