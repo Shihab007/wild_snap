@@ -90,12 +90,12 @@ export const environment = {
 
   GET_PROFILE_BY_LOGIN_ID: "/wild-snap/user-info",
 
+  USER_CHANGE_PASSWORD_BY_OTP: '/wild-snap/change-password',
 
   // wild - snap =================================================================================================================
 
   changePassword: '/v1/user/change-password',
 
-  USER_CHANGE_PASSWORD_BY_OTP: '/v1/user/change-password-by-otp',
 
   resetPassword: '/v1/reset-password',
 

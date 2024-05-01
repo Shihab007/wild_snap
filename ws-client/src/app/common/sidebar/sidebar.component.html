@@ -45,6 +45,14 @@
               >User Profile</a
             >
           </li>
+          <li *ngIf="userInfos.roleType == 'User'">
+            <a
+              href="#"
+              class="menu-tittle"
+              routerLink="/wild-snap/profile/change-password"
+              >Change Password</a
+            >
+          </li>
           <li *ngIf="userInfos.roleType == 'Admin'">
             <a href="#" class="menu-tittle" routerLink="/admin/user-list"
               >User List</a

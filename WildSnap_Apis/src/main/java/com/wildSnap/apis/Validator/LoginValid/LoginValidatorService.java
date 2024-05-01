@@ -13,7 +13,7 @@ public class LoginValidatorService {
             isValidRequest = false;
             return isValidRequest;
         }
-        if (request.getBody().getUserName() == null && request.getBody().getPassword() == null)
+        if (request.getBody().getLoginId() == null && request.getBody().getPassword() == null)
         {
             isValidRequest = false;
             return isValidRequest;
