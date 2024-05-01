@@ -17,9 +17,12 @@ export class ClassifyImagePredictionComponent implements OnInit {
   ) { }
   
   url:string;
+  predictionTittle:string;
 
   ngOnInit(): void {
     this.url = this.helper.getData();
+    this.predictionTittle= "Cat"
+    
     console.log(this.helper.getData());
     console.log("Hello "+this.url);
     
