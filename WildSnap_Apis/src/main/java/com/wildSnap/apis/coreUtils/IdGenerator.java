@@ -42,4 +42,12 @@ public class IdGenerator {
         String todayAsString = generalFormat.format(today);
         return Constant.REQEUST_PREFIX_DRWS.concat(todayAsString + "-" + getRandomWord());
     }
+
+
+    @Synchronized
+    public String generateOid() {
+        Date today = new Date();
+        String todayAsString = generalFormat.format(today);
+        return todayAsString + "-" + getRandomWord();
+    }
 }
