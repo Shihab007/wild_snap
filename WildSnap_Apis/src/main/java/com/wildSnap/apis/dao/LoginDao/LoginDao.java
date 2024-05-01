@@ -26,15 +26,7 @@ public class LoginDao {
                     " l.name_bn, l.mobile_no, l.email , l.status " +
                     " from wild_snap.wild_snap.login l " +
                     " left join wild_snap.wild_snap.role r on r.oid = l.role_oid  " +
-                    " where 1 = 1 ";
-
-            if(StringUtils.isNotBlank(request.getBody().getUserName())){
-                sql += " and user_name = '" + request.getBody().getUserName() +"' ";
-            }
-
-            if(StringUtils.isNotBlank(request.getBody().getPassword())){
-                sql += " and password = '" + request.getBody().getPassword() +"' ";
-            }
+                    " where user_name = '" + request.getBody().getLoginId() +"' and password = '" + request.getBody().getPassword() +"'";
 
             List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
 
@@ -49,8 +41,7 @@ public class LoginDao {
                 user.setMobileNo((String) row.get("mobile_no"));
                 user.setEmail((String) row.get("email"));
                 user.setLoginStatus((String) row.get("status"));
-                break;
-
+                return user;
             }
 
 
@@ -59,6 +50,6 @@ public class LoginDao {
 
         }
 
-        return user;
+        return null;
     }
 }

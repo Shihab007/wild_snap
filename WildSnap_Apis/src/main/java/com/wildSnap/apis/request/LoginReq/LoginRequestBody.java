@@ -6,6 +6,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class LoginRequestBody {
-    public String userName;
+    public String loginId;
     public String password;
 }

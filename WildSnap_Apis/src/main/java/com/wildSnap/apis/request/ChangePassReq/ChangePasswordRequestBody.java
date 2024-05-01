@@ -25,9 +25,9 @@ public class ChangePasswordRequestBody {
     @Size(min = 5, max = 128)
     private String confirmNewPassword;
 
-    @NotNull
-    @Size(min = 5, max = 20)
-    private String loginStatus;
+//    @NotNull
+//    @Size(min = 5, max = 20)
+//    private String loginStatus;
 
     @NotNull
     @Size(min = 5, max = 128)

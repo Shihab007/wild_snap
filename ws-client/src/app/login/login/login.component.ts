@@ -338,6 +338,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
           this.route.navigate(['wild-snap/dashboard']);
           this.toastr.success('Login Successful!');
         }
+      } else {
+        this.isError = true;
+        this.toastr.error("Username or Password Incorrect");
       }
       if (resData.header.responseCode != '200' && resData.header.status == 'Failed') {
         this.toastr.error('Failed to login by this Login ID/Username and Password');
