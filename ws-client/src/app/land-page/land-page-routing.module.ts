@@ -3,10 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { Header } from './components/header/header.component';
 import { LandPageComponent } from './land-page.component';
 import { LandpageContentComponent } from './components/landpage-content/landpage-content.component';
-import { AdmissionFormComponent } from './components/admission-form/admission-form.component';
 import { AcademicsComponent } from './components/academics/academics.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { AdmissionFormComponent } from './components/register-form/admission-form.component';
 
 const routes: Routes = [
   {
@@ -29,7 +29,7 @@ const routes: Routes = [
         pathMatch: 'full'
       },
       {
-        path: 'admission-form',
+        path: 'register-form',
         component: AdmissionFormComponent,
         pathMatch: 'full'
       },

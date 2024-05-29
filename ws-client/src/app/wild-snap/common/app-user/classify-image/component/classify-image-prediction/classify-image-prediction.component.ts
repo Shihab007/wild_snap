@@ -12,25 +12,25 @@ export class ClassifyImagePredictionComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
-    private helper : Helper,
+    private helper: Helper,
     private _location: Location,
   ) { }
-  
-  url:string;
-  predictionTittle:string;
+
+  url: string;
+  predictionTittle: string;
 
   ngOnInit(): void {
     this.url = this.helper.getData();
-    this.predictionTittle= "Cat"
-    
+    this.predictionTittle = "Dog"
+
     console.log(this.helper.getData());
-    console.log("Hello "+this.url);
-    
-    
+    console.log("Hello " + this.url);
+
+
   }
 
 
-  goBack(){
+  goBack() {
     this._location.back();
   }
 }

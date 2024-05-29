@@ -21,7 +21,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     FormsModule,
     MatNativeDateModule,
     BsDatepickerModule.forRoot(),
-    MatDatepickerModule
+    MatDatepickerModule,
   ],
   providers: [DatePipe],
 })

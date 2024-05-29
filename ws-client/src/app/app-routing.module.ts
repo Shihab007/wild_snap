@@ -39,10 +39,10 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login/login.module').then(m => m.LoginModule),
   },
-  // {
-  //   path: 'landingpage',
-  //   loadChildren: () => import('./land-page/land-page.module').then(m => m.LandPageModule)
-  // },
+  {
+    path: 'landingpage',
+    loadChildren: () => import('./land-page/land-page.module').then(m => m.LandPageModule)
+  },
 
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   // { path: '', redirectTo: 'wild-snap/dashboard', pathMatch: 'full' },

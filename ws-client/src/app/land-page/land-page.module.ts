@@ -11,7 +11,7 @@ import { LandpageContentComponent } from './components/landpage-content/landpage
 import { Header } from './components/header/header.component';
 import { MaterialCustomModule } from '../material-custom/material-custom.module';
 import { FooterComponent } from './components/footer/footer.component';
-import { AdmissionFormComponent } from './components/admission-form/admission-form.component';
+import { AdmissionFormComponent } from './components/register-form/admission-form.component';
 import { AcademicsComponent } from './components/academics/academics.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';

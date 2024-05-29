@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
 import * as _moment from 'moment';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -39,6 +39,7 @@ const moment = _moment;
   selector: 'app-app-school-dashboard',
   templateUrl: './app-school-dashboard.component.html',
   styleUrls: ['./app-school-dashboard.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppSchoolDashboardComponent implements OnInit {
   maxDate: Date;
@@ -483,6 +484,10 @@ export class AppSchoolDashboardComponent implements OnInit {
       this.spinnerDiameter = 120;
     }
   }
+
+
+  //slider
+
 }
 
 

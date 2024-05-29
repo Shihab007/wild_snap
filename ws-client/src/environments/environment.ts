@@ -92,6 +92,9 @@ export const environment = {
 
   USER_CHANGE_PASSWORD_BY_OTP: '/wild-snap/change-password',
 
+  RegistrationApplicationForm: '/wild-snap/create-user',
+
+
   // wild - snap =================================================================================================================
 
   changePassword: '/v1/user/change-password',
@@ -371,7 +374,6 @@ export const environment = {
 
   ADMISSION_APPLICATION_BY_OID: '/v1/admission-application-by-oid',
   admissionForm: '/v1/create/applicant',
-  admissionApplicationForm: '/v1/save-admission-application',
   updateAdmissionApplicationForm: '/v1/update-admission-application',
   allAdmissionList: '/v1/admission-list',
   approveAdmission: '/v1/admission-approval',
